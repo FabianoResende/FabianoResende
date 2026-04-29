@@ -6,13 +6,13 @@
     "cidade": "São Gonçalo - RJ",
     "linkedin": "linkedin.com/in/fabianofr"
   },
-  "sobre": "Em transição de carreira para TI com foco em Desenvolvimento de Software e Automação.",
+  "sobre": "Sou um profissional com experiência operacional e administrativa, migrando para TI. Busco aplicar lógica de programação e análise de dados para melhorar processos.",
   "experiencia": [
     {
-      "empresa": "Indigo Estacionamento",
+      "empresa": "Indigo Estacionamento (Operador de Pátio VI)",
       "periodo": "2016 – 2019",
-      "resumo": "Suporte N1, Administração de sistemas WA/WPS e gestão financeira."
+      "resumo": "Administração de sistemas WA/WPS, Suporte N1 em terminais de autoatendimento e gestão financeira."
     }
   ],
-  "tecnologias": ["Python", "Git/GitHub", "AWS", "VBA", "SQL"]
+  "tecnologias": ["Python", "Git/GitHub", "AWS", "Excel VBA", "SQL"]
 }
