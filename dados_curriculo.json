@@ -1,18 +1,18 @@
 {
   "nome": "Fabiano Faria de Resende",
-  "cargo": "Estudante de Sistemas de Informação (4º Período)",
+  "cargo": "Estudante de Sistemas de Informação",
   "contato": {
     "email": "fabianofariaderesende@gmail.com",
     "cidade": "São Gonçalo - RJ",
     "linkedin": "linkedin.com/in/fabianofr"
   },
-  "sobre": "Sou um profissional com experiência operacional e administrativa, migrando para TI. Busco aplicar lógica de programação e análise de dados para melhorar processos.",
+  "sobre": "Profissional em transição para TI. Foco em Python, Automação e Dados.",
   "experiencia": [
     {
-      "empresa": "Indigo Estacionamento (Operador de Pátio VI)",
-      "periodo": "2016 – 2019",
-      "resumo": "Administração de sistemas WA/WPS, Suporte N1 em terminais de autoatendimento e gestão financeira."
+      "empresa": "Indigo Estacionamento",
+      "periodo": "2016 - 2019",
+      "resumo": "Suporte N1, Sistemas WA/WPS e Gestão Financeira."
     }
   ],
-  "tecnologias": ["Python", "Git/GitHub", "AWS", "Excel VBA", "SQL"]
+  "tecnologias": ["Python", "Git", "AWS", "VBA", "SQL"]
 }
