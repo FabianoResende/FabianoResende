@@ -1,33 +1,63 @@
 from fpdf import FPDF
 
 
-def criar_pdf():
-    pdf = FPDF()
+class PDF(FPDF):
+    def header(self):
+        self.set_font("helvetica", "B", 20)
+        self.set_text_color(33, 37, 41)
+        self.cell(0, 15, "FABIANO FARIA DE RESENDE", ln=True, align="C")
+        self.set_font("helvetica", "I", 11)
+        self.cell(0, 5, "Sistemas de Informacao | Transicao para TI | Automacao & Dados", ln=True, align="C")
+        self.ln(10)
+
+    def secao_titulo(self, titulo):
+        self.set_font("helvetica", "B", 13)
+        self.set_fill_color(240, 240, 240)
+        self.cell(0, 8, f"  {titulo}", ln=True, fill=True)
+        self.ln(3)
+
+
+def criar_curriculo():
+    pdf = PDF()
     pdf.add_page()
 
-    # Nome e Titulo
-    pdf.set_font("helvetica", "B", 16)
-    pdf.cell(0, 10, "FABIANO FARIA DE RESENDE", ln=True, align='C')
-
-    pdf.set_font("helvetica", "", 12)
-    pdf.cell(0, 10, "Estudante de Sistemas de Informacao - Estacio (4o Periodo)", ln=True, align='C')
-
-    # Contato
-    pdf.ln(5)
-    pdf.set_font("helvetica", "I", 10)
-    pdf.cell(0, 7, "Email: fabianofariaderesende@gmail.com | Local: Sao Goncalo - RJ", ln=True, align='C')
-
-    # Resumo
+    # --- CONTATO ---
+    pdf.set_font("helvetica", "", 10)
+    contato = "Sao Goncalo, RJ | fabianofariaderesende@gmail.com | linkedin.com/in/fabianofr"
+    pdf.cell(0, 5, contato, ln=True, align="C")
     pdf.ln(10)
-    pdf.set_font("helvetica", "B", 12)
-    pdf.cell(0, 10, "RESUMO PROFISSIONAL", ln=True)
+
+    # --- SOBRE ---
+    pdf.secao_titulo("RESUMO PROFISSIONAL")
     pdf.set_font("helvetica", "", 11)
-    pdf.multi_cell(0, 7,
-                   "Profissional em transicao para TI. Experiencia na Indigo Estacionamento (2016-2019) com suporte N1 e gestao financeira. Foco em Python e Automacao.")
+    sobre = ("Estudante de Sistemas de Informacao (4o periodo) na Estacio. Profissional com solida "
+             "experiencia administrativa e operacional, agora migrando para a area de Tecnologia. "
+             "Foco em desenvolvimento Python, bancos de dados e automacao de processos.")
+    pdf.multi_cell(0, 6, sobre)
+    pdf.ln(5)
+
+    # --- EXPERIENCIA ---
+    pdf.secao_titulo("EXPERIENCIA PROFISSIONAL")
+    pdf.set_font("helvetica", "B", 11)
+    pdf.cell(0, 6, "Indigo Estacionamento - Operador de Patio VI", ln=True)
+    pdf.set_font("helvetica", "I", 10)
+    pdf.cell(0, 6, "2016 - 2019", ln=True)
+    pdf.set_font("helvetica", "", 11)
+    desc = ("Suporte tecnico N1 em terminais de autoatendimento. Administracao de sistemas WA e WPS. "
+            "Gestao financeira, tesouraria e faturamento diario.")
+    pdf.multi_cell(0, 6, desc)
+    pdf.ln(5)
+
+    # --- COMPETENCIAS ---
+    pdf.secao_titulo("COMPETENCIAS TECNICAS")
+    pdf.set_font("helvetica", "", 11)
+    pdf.cell(0, 6, "- Linguagens: Python 3.10, Excel VBA, HTML/CSS", ln=True)
+    pdf.cell(0, 6, "- Ferramentas: Git, GitHub, PyCharm, AWS Cloud", ln=True)
+    pdf.cell(0, 6, "- Outros: Banco de Dados (SQL), LGPD, Manutencao de Sistemas", ln=True)
 
     pdf.output("curriculo_fabiano.pdf")
-    print("Sucesso! PDF gerado.")
+    print("Versao Premium gerada com sucesso!")
 
 
 if __name__ == "__main__":
-    criar_pdf()
+    criar_curriculo()
