@@ -15,8 +15,7 @@ def criar_pdf():
     pdf.cell(0, 10, "RESUMO PROFISSIONAL", ln=True)
 
     pdf.set_font("Arial", size=11)
-    texto = ("Estudante de TI em transicao de carreira. Experiencia com suporte N1, "
-             "sistemas operacionais e automacao com Python.")
+    texto = "Estudante de TI em transicao de carreira. Experiencia com suporte N1 e Python."
     pdf.multi_cell(0, 7, texto)
 
     pdf.output("curriculo_fabiano.pdf")
