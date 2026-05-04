@@ -1,46 +1,64 @@
-# 👋 Olá, sou **Fabiano Faria de Resende**
+<h1 align="center">👋 Olá, sou <strong>Fabiano Faria de Resende</strong></h1>
 
-🎓 **Estudante de Sistemas de Informação (4º período)**  
-💻 **Em transição de carreira para Tecnologia da Informação**  
-🚀 **Foco em Desenvolvimento de Software, Automação e Análise de Dados**
+<p align="center">
+🎓 Estudante de Sistemas de Informação (4º período) •  
+💻 Transição para TI •  
+🚀 Desenvolvimento • Automação • Análise de Dados
+</p>
 
 ---
 
-## 🧠 Sobre mim
+## 🧠 Sobre Mim
+
 Sou um profissional com experiência operacional e administrativa, atualmente migrando para a área de tecnologia.  
 Busco aplicar lógica de programação, análise de dados e boas práticas de desenvolvimento para resolver problemas reais e melhorar processos.
 
 📍 **São Gonçalo – RJ**  
 🎯 **Objetivo:** Estágio em desenvolvimento, suporte técnico ou análise  
-📚 Aprendizado contínuo em programação, bancos de dados e versionamento de código
+📚 Aprendizado contínuo em programação, bancos de dados e versionamento de código  
 
 ---
 
-## ⚙️ Tecnologias e Ferramentas
+# 🧩 Perfil Profissional
 
-### **Linguagens**
+<table>
+<tr>
+<td width="50%" valign="top">
+
+## ⚙️ Tecnologias
+
+### Linguagens
 - Python  
 - SQL  
 - HTML / CSS  
 - JavaScript (iniciante)
 
-### **Banco de Dados**
+### Banco de Dados
 - MySQL  
 - SQLite  
 
-### **Ferramentas**
+### Sistemas Operacionais
+- Windows  
+- Linux (iniciante)
+
+</td>
+<td width="50%" valign="top">
+
+## 🛠️ Ferramentas
+
+### Desenvolvimento
 - Git & GitHub  
 - VS Code  
 - Jupyter Notebook  
 
-### **Sistemas Operacionais**
-- Windows  
-- Linux (iniciante)
-
-### **Produtividade**
+### Produtividade
 - Notion  
 - Trello  
 - Google Workspace  
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -74,5 +92,8 @@ Demonstra domínio de comandos Git, autenticação e fluxo de push/pull.
 🔗 **LinkedIn:** https://linkedin.com/in/fabianofr  
 🐙 **GitHub:** https://github.com/FabianoResende  
 
-> *“Portfólio em construção — assim como minha carreira em tecnologia.”*
+---
+
+<p align="center"><em>“Portfólio em construção — assim como minha carreira em tecnologia.”</em></p>
+
 
