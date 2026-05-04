@@ -3,11 +3,6 @@
 **Transição para Tecnologia da Informação**  
 **Foco: Desenvolvimento • Automação • Análise de Dados**  
 
-📍 São Gonçalo – RJ  
-📧 fabianofariaderesende@gmail.com  
-🔗 LinkedIn: https://linkedin.com/in/fabianofr  
-🐙 GitHub: https://github.com/FabianoResende  
-
 ---
 
 ## 🧠 Sobre Mim
