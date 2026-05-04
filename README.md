@@ -1,9 +1,9 @@
-<h1 align="center">👋 Olá, sou <strong>Fabiano Faria de Resende</strong></h1>
+<h1 align="center">🚀 Fabiano Faria de Resende</h1>
 
 <p align="center">
 🎓 Estudante de Sistemas de Informação (4º período) •  
 💻 Transição para TI •  
-🚀 Desenvolvimento • Automação • Análise de Dados
+🧩 Desenvolvimento • Automação • Análise de Dados
 </p>
 
 ---
@@ -19,13 +19,13 @@ Busco aplicar lógica de programação, análise de dados e boas práticas de de
 
 ---
 
-# 🧩 Perfil Profissional
+# 🧩 Perfil Técnico
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-## ⚙️ Tecnologias
+## 🖥️ Linguagens & Banco de Dados
 
 ### Linguagens
 - Python  
@@ -44,9 +44,9 @@ Busco aplicar lógica de programação, análise de dados e boas práticas de de
 </td>
 <td width="50%" valign="top">
 
-## 🛠️ Ferramentas
+## 🛠️ Ferramentas & Produtividade
 
-### Desenvolvimento
+### Ferramentas de Desenvolvimento
 - Git & GitHub  
 - VS Code  
 - Jupyter Notebook  
@@ -95,5 +95,6 @@ Demonstra domínio de comandos Git, autenticação e fluxo de push/pull.
 ---
 
 <p align="center"><em>“Portfólio em construção — assim como minha carreira em tecnologia.”</em></p>
+
 
 
