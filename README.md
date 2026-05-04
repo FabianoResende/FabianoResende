@@ -1,64 +1,49 @@
-<h1 align="center">🚀 Fabiano Faria de Resende</h1>
-
-<p align="center">
-🎓 Estudante de Sistemas de Informação (4º período) •  
-💻 Transição para TI •  
-🧩 Desenvolvimento • Automação • Análise de Dados
-</p>
+# 🚀 Fabiano Faria de Resende  
+**Estudante de Sistemas de Informação (4º período)**  
+**Transição para Tecnologia da Informação**  
+**Foco: Desenvolvimento • Automação • Análise de Dados**  
+📍 São Gonçalo – RJ  
+📧 fabianofariaderesende@gmail.com  
+🔗 LinkedIn: https://linkedin.com/in/fabianofr  
+🐙 GitHub: https://github.com/FabianoResende  
 
 ---
 
 ## 🧠 Sobre Mim
-
 Sou um profissional com experiência operacional e administrativa, atualmente migrando para a área de tecnologia.  
-Busco aplicar lógica de programação, análise de dados e boas práticas de desenvolvimento para resolver problemas reais e melhorar processos.
+Busco aplicar lógica de programação, análise de dados e boas práticas de desenvolvimento para resolver problemas reais e melhorar processos.  
+Tenho facilidade em aprender, organização, responsabilidade e visão analítica — competências que fortalecem minha atuação em TI.
 
-📍 **São Gonçalo – RJ**  
 🎯 **Objetivo:** Estágio em desenvolvimento, suporte técnico ou análise  
 📚 Aprendizado contínuo em programação, bancos de dados e versionamento de código  
 
 ---
 
-# 🧩 Perfil Técnico
+## 🖥️ Competências Técnicas
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-## 🖥️ Linguagens & Banco de Dados
-
-### Linguagens
+### **Linguagens**
 - Python  
 - SQL  
 - HTML / CSS  
 - JavaScript (iniciante)
 
-### Banco de Dados
+### **Banco de Dados**
 - MySQL  
 - SQLite  
 
-### Sistemas Operacionais
-- Windows  
-- Linux (iniciante)
-
-</td>
-<td width="50%" valign="top">
-
-## 🛠️ Ferramentas & Produtividade
-
-### Ferramentas de Desenvolvimento
+### **Ferramentas de Desenvolvimento**
 - Git & GitHub  
 - VS Code  
 - Jupyter Notebook  
 
-### Produtividade
+### **Sistemas Operacionais**
+- Windows  
+- Linux (iniciante)
+
+### **Produtividade**
 - Notion  
 - Trello  
 - Google Workspace  
-
-</td>
-</tr>
-</table>
 
 ---
 
@@ -73,7 +58,8 @@ Busco aplicar lógica de programação, análise de dados e boas práticas de de
 - Faturamento diário, tesouraria e prestação de contas com precisão.  
 - Registro e análise de ocorrências operacionais.  
 
-Essa experiência fortaleceu minha **organização**, **responsabilidade** e **visão analítica**.
+**Competências desenvolvidas:**  
+Organização • Responsabilidade • Análise de dados operacionais • Suporte técnico • Resolução de problemas  
 
 ---
 
@@ -87,14 +73,10 @@ Demonstra domínio de comandos Git, autenticação e fluxo de push/pull.
 ---
 
 ## 🌐 Contato
-
 📧 **E-mail:** fabianofariaderesende@gmail.com  
 🔗 **LinkedIn:** https://linkedin.com/in/fabianofr  
 🐙 **GitHub:** https://github.com/FabianoResende  
 
 ---
 
-<p align="center"><em>“Portfólio em construção — assim como minha carreira em tecnologia.”</em></p>
-
-
-
+> *“Portfólio em construção — assim como minha carreira em tecnologia.”*
