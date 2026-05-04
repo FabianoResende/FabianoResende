@@ -2,6 +2,7 @@
 **Estudante de Sistemas de Informação (4º período)**  
 **Transição para Tecnologia da Informação**  
 **Foco: Desenvolvimento • Automação • Análise de Dados**  
+
 📍 São Gonçalo – RJ  
 📧 fabianofariaderesende@gmail.com  
 🔗 LinkedIn: https://linkedin.com/in/fabianofr  
@@ -10,12 +11,12 @@
 ---
 
 ## 🧠 Sobre Mim
-Sou um profissional com experiência operacional e administrativa, atualmente migrando para a área de tecnologia.  
-Busco aplicar lógica de programação, análise de dados e boas práticas de desenvolvimento para resolver problemas reais e melhorar processos.  
-Tenho facilidade em aprender, organização, responsabilidade e visão analítica — competências que fortalecem minha atuação em TI.
+Profissional com experiência operacional e administrativa, atualmente em transição para a área de Tecnologia da Informação.  
+Tenho facilidade em aprender, organização, responsabilidade e visão analítica — competências que fortalecem minha atuação em TI.  
+Busco aplicar lógica de programação, análise de dados e boas práticas de desenvolvimento para resolver problemas reais e melhorar processos.
 
 🎯 **Objetivo:** Estágio em desenvolvimento, suporte técnico ou análise  
-📚 Aprendizado contínuo em programação, bancos de dados e versionamento de código  
+📚 Estudo contínuo em programação, bancos de dados e versionamento de código  
 
 ---
 
