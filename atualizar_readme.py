@@ -5,39 +5,58 @@ def gerar_readme():
         dados = json.load(f)
 
     badges = {
-        "Python": "![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)",
-        "SQL": "![SQL](https://img.shields.io/badge/sql-003B57?style=for-the-badge&logo=postgresql&logoColor=white)",
-        "JavaScript": "![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)",
-        "Git & GitHub": "![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)",
-        "Linux": "![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)"
+        "Python": "[![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)]",
+        "SQL": "[![SQL](https://img.shields.io/badge/SQL-025E8C?style=for-the-badge&logo=postgresql&logoColor=white)]",
+        "JavaScript": "[![JavaScript](https://img.shields.io/badge/javascript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)]",
+        "Git & GitHub": "[![Git](https://img.shields.io/badge/git-121013?style=for-the-badge&logo=git&logoColor=white)]",
+        "Linux": "[![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)]"
     }
 
-    # Monta as badges de Linguagens
-    badges_tecnicas = " ".join([badges.get(t, f"`{t}`") for t in dados['competencias']['linguagens']])
+    # Monta as badges de Linguagens (se não tiver badge, mostra o texto entre parênteses)
+    linguagens = dados["competencias"]["linguagens"]
+    badges_tecnicas = ' '.join([badges.get(t, f"({t})") for t in linguagens])
 
-    conteudo = f"""
-# {dados['nome']} 🚀
+    conteudo = ""
 
-### {dados['cargo']}
-**Foco:** {dados['foco']}
+    # Cabeçalho
+    conteudo += f"# {dados['nome']}\n\n"
+    conteudo += f"**{dados['cargo']}**  \n"
+    conteudo += f"{dados['foco']}\n\n"
 
-{dados['sobre']}
+    # Sobre
+    conteudo += f"## Sobre\n"
+    conteudo += f"{dados['sobre']}\n\n"
 
----
+    # Competências Técnicas
+    conteudo += "## Competências Técnicas\n\n"
+    conteudo += f"{badges_tecnicas}\n\n"
 
-## 🛠️ Competências Técnicas
-{badges_tecnicas}
+    comp = dados["competencias"]
+    conteudo += f"- **Linguagens:** {', '.join(comp['linguagens'])}\n"
+    conteudo += f"- **Banco de Dados:** {', '.join(comp['banco_de_dados'])}\n"
+    conteudo += f"- **Ferramentas:** {', '.join(comp['ferramentas'])}\n"
+    conteudo += f"- **Sistemas:** {', '.join(comp['sistemas'])}\n\n"
 
----
+    # Projetos
+    conteudo += "## Projetos\n\n"
+    for proj in dados["projetos"]:
+        conteudo += f"### {proj['nome']}\n"
+        conteudo += f"{proj['descricao']}\n\n"
 
-## 📂 Projetos
-"""
-    for proj in dados['projetos']:
-        conteudo += f"### 🔹 {proj['nome']}\n{proj['descricao']}\n\n"
+    # Experiência
+    conteudo += "## Experiência Profissional\n\n"
+    for exp in dados["experiencia"]:
+        conteudo += f"### {exp['empresa']}\n"
+        conteudo += f"**{exp['cargo']}**  \n"
+        conteudo += f"{exp['periodo']}  \n"
+        conteudo += f"{exp['resumo']}\n\n"
 
-    conteudo += "## 💼 Experiência Profissional\n"
-    for exp in dados['experiencia']:
-        conteudo += f"**{exp['empresa']}** | {exp['cargo']} ({exp['periodo']})\n- {exp['resumo']}\n\n"
+    # Contato
+    conteudo += "## Contato\n\n"
+    conteudo += f"- 📍 {dados['contato']['cidade']}\n"
+    conteudo += f"- ✉️ {dados['contato']['email']}\n"
+    conteudo += f"- 🔗 [LinkedIn]({dados['contato']['linkedin']})\n"
+    conteudo += f"- 💻 [GitHub]({dados['contato']['github']})\n"
 
     with open('README.md', 'w', encoding='utf-8') as f:
         f.write(conteudo)
