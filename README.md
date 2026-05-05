@@ -15,7 +15,7 @@ Busco aplicar lógica de programação, análise de dados e boas práticas de de
 
 ---
 
-## 🖥️ Competências Técnicas iniciantes
+## 🖥️ Competências Técnicas Iniciantes
 
 ### **Linguagens**
 - Python  
