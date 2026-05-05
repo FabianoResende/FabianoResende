@@ -7,7 +7,7 @@
 
 ## 🧠 Sobre Mim
 Profissional com experiência operacional e administrativa, atualmente em transição para a área de Tecnologia da Informação.  
-Tenho facilidade em aprender, organização, responsabilidade e visão analítica / competências que fortalecem minha atuação em TI.  
+Tenho facilidade em aprender, organização, responsabilidade e visão analítica - competências que fortalecem minha atuação em TI.  
 Busco aplicar lógica de programação, análise de dados e boas práticas de desenvolvimento para resolver problemas reais e melhorar processos.
 
 🎯 **Objetivo:** Estágio em desenvolvimento, suporte técnico ou análise  
@@ -29,17 +29,11 @@ Busco aplicar lógica de programação, análise de dados e boas práticas de de
 
 ### **Ferramentas de Desenvolvimento**
 - Git & GitHub  
-- VS Code  
-- Jupyter Notebook  
+- VS Code    
 
 ### **Sistemas Operacionais**
 - Windows  
 - Linux (iniciante)
-
-### **Produtividade**
-- Notion  
-- Trello  
-- Google Workspace  
 
 ---
 
@@ -51,11 +45,11 @@ Busco aplicar lógica de programação, análise de dados e boas práticas de de
 - Operação diária dos sistemas **WA** e **WPS**, garantindo controle de acesso e fluxo de dados.  
 - Suporte técnico nível 1 em **06 terminais PERTO TPC 4110**, com manutenção preventiva e corretiva.  
 - Abastecimento e recolhimento de troco, assegurando operação contínua.  
-- Faturamento diário, tesouraria e prestação de contas com precisão.  
+- Faturamento diário, tesouraria e prestação de contas utilizando planilhas e e-mail.  
 - Registro e análise de ocorrências operacionais.  
 
 **Competências desenvolvidas:**  
-Organização • Responsabilidade • Análise de dados operacionais • Suporte técnico • Resolução de problemas  
+Organização • Responsabilidade • Análise de dados operacionais • Suporte técnico 
 
 ---
 
