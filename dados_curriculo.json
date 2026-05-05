@@ -3,13 +3,16 @@
   "cargo": "Estudante de Sistemas de Informação (4º período)",
   "objetivo": "Estágio em desenvolvimento, suporte técnico ou análise.",
   "foco": "Desenvolvimento | Automação | Análise de Dados",
+
   "contato": {
     "email": "fabianofariaderesende@gmail.com",
     "cidade": "São Gonçalo - RJ",
     "linkedin": "https://linkedin.com/in/fabianofr",
     "github": "https://github.com/FabianoResende"
   },
+
   "sobre": "Profissional com experiência operacional e administrativa, atualmente em transição para a área de Tecnologia da Informação. Tenho facilidade em aprender, organização, responsabilidade e visão analítica - competências que fortalecem minha atuação em TI. Busco aplicar lógica de programação, análise de dados e boas práticas de desenvolvimento para resolver problemas reais e melhorar processos.",
+
   "educacao": [
     {
       "instituicao": "Universidade Estácio",
@@ -17,12 +20,14 @@
       "periodo": "2024 - Cursando"
     }
   ],
+
   "competencias": {
     "linguagens": ["Python", "SQL", "HTML / CSS", "JavaScript"],
     "banco_de_dados": ["MySQL", "SQLite"],
     "ferramentas": ["Git & GitHub", "VS Code"],
     "sistemas": ["Windows", "Linux"]
   },
+
   "experiencia": [
     {
       "empresa": "Indigo Estacionamento (Niterói/RJ)",
@@ -31,6 +36,7 @@
       "resumo": "Operação diária dos sistemas WA e WPS; Suporte técnico nível 1 em terminais PERTO TPC 4110; Abastecimento e recolhimento de numerário; Faturamento diário e prestação de contas via planilhas e e-mail; Registro e análise de ocorrências operacionais."
     }
   ],
+
   "projetos": [
     {
       "nome": "Meu Primeiro Projeto",
@@ -40,5 +46,23 @@
       "nome": "Automação de Currículo (CI/CD)",
       "descricao": "Sistema de geração automática de currículo em PDF utilizando GitHub Actions e Python."
     }
+  ],
+
+  "certificados": [
+    {
+      "nome": "Pacote Office Avançado",
+      "instituicao": "SENAC / Outra Instituição",
+      "link": "https://drive.google.com/SEU_LINK_AQUI"
+    },
+    {
+      "nome": "Microsoft 365",
+      "instituicao": "Microsoft / Escola Parceira",
+      "link": "https://drive.google.com/SEU_LINK_AQUI"
+    },
+    {
+      "nome": "Atendimento ao Cliente",
+      "instituicao": "Instituição do Curso",
+      "link": "https://drive.google.com/SEU_LINK_AQUI"
+    }
   ]
-} 
+}
