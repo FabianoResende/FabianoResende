@@ -3,6 +3,8 @@
 **Estudante de Sistemas de Informação (4º período)**  
 Desenvolvimento | Automação | Análise de Dados
 
+[![Baixar PDF](https://img.shields.io/badge/Download-Currículo_PDF-red?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white)](https://github.com/FabianoResende/FabianoResende/blob/main/curriculo_fabiano.pdf)
+
 ## Sobre
 Profissional com experiência operacional e administrativa, atualmente em transição para a área de Tecnologia da Informação. Tenho facilidade em aprender, organização, responsabilidade e visão analítica - competências que fortalecem minha atuação em TI. Busco aplicar lógica de programação, análise de dados e boas práticas de desenvolvimento para resolver problemas reais e melhorar processos.
 
