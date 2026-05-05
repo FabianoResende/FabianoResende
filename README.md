@@ -1,25 +1,38 @@
+# Fabiano Faria de Resende
 
-# Olá, eu sou o Fabiano Faria de Resende! 👋
+**Estudante de Sistemas de Informação (4º período)**  
+Desenvolvimento | Automação | Análise de Dados
 
-### Estudante de Sistemas de Informação (4º período)
+## Sobre
+Profissional com experiência operacional e administrativa, atualmente em transição para a área de Tecnologia da Informação. Tenho facilidade em aprender, organização, responsabilidade e visão analítica - competências que fortalecem minha atuação em TI. Busco aplicar lógica de programação, análise de dados e boas práticas de desenvolvimento para resolver problemas reais e melhorar processos.
 
-Profissional em transição para TI. Foco em Python, Automação e Dados.
+## Competências Técnicas
 
----
+[![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)] [![SQL](https://img.shields.io/badge/SQL-025E8C?style=for-the-badge&logo=postgresql&logoColor=white)] (HTML / CSS) [![JavaScript](https://img.shields.io/badge/javascript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)]
 
-## 🛠️ Tecnologias e Ferramentas
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![SQL](https://img.shields.io/badge/sql-003B57?style=for-the-badge&logo=postgresql&logoColor=white) HTML / CSS ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+- **Linguagens:** Python, SQL, HTML / CSS, JavaScript
+- **Banco de Dados:** MySQL, SQLite
+- **Ferramentas:** Git & GitHub, VS Code
+- **Sistemas:** Windows, Linux
 
----
+## Projetos
 
-## 🎓 Formação Acadêmica
-- **Bacharelado em Sistemas de Informação** | Universidade Estácio (2024 - Cursando)
+### Meu Primeiro Projeto
+Repositório criado para prática de versionamento e integração com GitHub.
 
-## 🏆 Certificações
-- AWS Cloud
-- Excel Avançado
-- Paccote Office Avançado
-- Microsoft 365
+### Automação de Currículo (CI/CD)
+Sistema de geração automática de currículo em PDF utilizando GitHub Actions e Python.
 
---- 
-*Este perfil é atualizado automaticamente via Python e GitHub Actions! 🚀*
+## Experiência Profissional
+
+### Indigo Estacionamento (Niterói/RJ)
+**Operador de Pátio VI**  
+2016 - 2019  
+Operação diária dos sistemas WA e WPS; Suporte técnico nível 1 em terminais PERTO TPC 4110; Abastecimento e recolhimento de numerário; Faturamento diário e prestação de contas via planilhas e e-mail; Registro e análise de ocorrências operacionais.
+
+## Contato
+
+- 📍 São Gonçalo - RJ
+- ✉️ fabianofariaderesende@gmail.com
+- 🔗 [LinkedIn](https://linkedin.com/in/fabianofr)
+- 💻 [GitHub](https://github.com/FabianoResende)
