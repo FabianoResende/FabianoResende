@@ -66,6 +66,12 @@ Repositório criado para prática de versionamento e integração com GitHub.
 Demonstra domínio de comandos Git, autenticação e fluxo de push/pull.  
 *(Novos projetos serão adicionados conforme eu evoluir.)*
 
+### 🔹 **Automação de Currículo (CI/CD)**
+Sistema de geração automática de currículo em PDF utilizando **GitHub Actions**, **Python** e **Pandoc**.
+- Implementação de workflow automatizado (YAML).
+- Conversão dinâmica de Markdown para PDF profissional.
+- Demonstra competências em DevOps, automação de processos e infraestrutura como código.
+
 ---
 
 ## 🌐 Contato
