@@ -40,34 +40,28 @@ def criar_pdf():
         pdf.multi_cell(0, 6, f"{ed['curso']} - {ed['instituicao']} ({ed['periodo']})")
     pdf.ln(4)
 
-    # Experiência Profissional - Corrigido
+    # Experiência
     pdf.set_font("Arial", "B", 12)
     pdf.cell(0, 8, "Experiência Profissional", ln=True)
+    pdf.set_font("Arial", "", 11)
     for exp in dados["experiencia"]:
         pdf.set_font("Arial", "B", 11)
-        # Usar 0 garante que ele use a largura total da página
         pdf.multi_cell(0, 6, f"{exp['empresa']} | {exp['cargo']} ({exp['periodo']})")
         pdf.set_font("Arial", "", 11)
         pdf.multi_cell(0, 6, exp["resumo"])
         pdf.ln(2)
 
-    # Certificados — Corrigido e com Link Clicável
+    # Certificados — Links Clicáveis (Versão Final)
     pdf.set_font("Arial", "B", 12)
-    pdf.cell(0, 8, "Certificados", ln=True)
+    pdf.cell(0, 8, "Certificados e Cursos", ln=True)
     pdf.set_font("Arial", "", 11)
-    for cert in dados["certificados"]:
-        texto_cert = f"{cert['nome']} - {cert['instituicao']}"
-        # O '0' aqui evita o erro de falta de espaço horizontal
-        pdf.multi_cell(0, 6, texto_cert, link=cert['link'])
-        pdf.ln(1)
 
     for cert in dados["certificados"]:
         texto_cert = f"{cert['nome']} - {cert['instituicao']}"
-        pdf.multi_cell(0, 6, texto_cert, link=cert['link'])
 
         pdf.set_text_color(0, 0, 255)
-        pdf.set_font("Arial", "I", 9)
-        pdf.multi_cell(0, 4, "Clique para visualizar o certificado")
+        pdf.set_font("Arial", "U", 11)
+        pdf.multi_cell(0, 6, texto_cert, link=cert['link'])
 
         pdf.set_text_color(0, 0, 0)
         pdf.set_font("Arial", "", 11)
