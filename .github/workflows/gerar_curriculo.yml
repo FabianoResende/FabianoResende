@@ -26,7 +26,7 @@ jobs:
         run: |
           pandoc README.md \
           --from markdown \
-          --pdf-engine=xelatex \
+          --pdf-engine=xelatex\
           -V lang=pt-BR \
           -V mainfont="DejaVu Sans" \
           -o curriculo_fabiano.pdf
