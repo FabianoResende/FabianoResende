@@ -1,10 +1,10 @@
-      name: Gerar Curriculo PDF
+name: Gerar Curriculo PDF
 
 on:
   push:
     paths:
       - "README.md"
-    branches: [ main ]
+branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -23,17 +23,17 @@ jobs:
       - name: Gerar PDF a partir do Markdown
         run: |
           pandoc README.md \
-            --from markdown \
-            --pdf-engine=xelatex \
-            -V lang=pt-BR \
-            -V mainfont="DejaVu Sans" \
-            -V geometry:margin=1in \
-            -o curriculo_fabiano.pdf
+          --from markdown \
+          --pdf-engine=xelatex \
+          -V lang=pt-BR \
+          -V mainfont="DejaVu Sans" \
+          -V geometry:margin=1in \
+          -o curriculo_fabiano.pdf
 
       - name: Commit e push do PDF gerado
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add curriculo_fabiano.pdf
-          git commit -m "PDF atualizado automaticamente" || echo "Nenhuma alteracao para commitar"
+          git commit -m "PDF atualizado automaticamente" || echo "Nenhuma alteracao para commit"
           git push
