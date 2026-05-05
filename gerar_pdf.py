@@ -5,7 +5,6 @@ def criar_pdf():
     with open("dados_curriculo.json", "r", encoding="utf-8") as df:
         dados = json.load(df)
 
-    # Configuração inicial do PDF
     pdf = FPDF()
     pdf.set_auto_page_break(auto=True, margin=15)
     pdf.set_margins(20, 20, 20)
@@ -22,7 +21,7 @@ def criar_pdf():
     pdf.cell(0, 6, dados["contato"]["github"], ln=True, align="C")
     pdf.ln(10)
 
-    # Função auxiliar para seções simples
+    # Função auxiliar
     def adicionar_secao(titulo, conteudo):
         pdf.set_font("Arial", "B", 12)
         pdf.cell(0, 8, titulo, ln=True)
@@ -30,11 +29,10 @@ def criar_pdf():
         pdf.multi_cell(0, 6, conteudo)
         pdf.ln(4)
 
-    # Objetivo e Resumo
     adicionar_secao("Objetivo", dados["objetivo"])
     adicionar_secao("Resumo Profissional", dados["sobre"])
 
-    # Formação Acadêmica
+    # Formação
     pdf.set_font("Arial", "B", 12)
     pdf.cell(0, 8, "Formação Acadêmica", ln=True)
     pdf.set_font("Arial", "", 11)
@@ -42,7 +40,7 @@ def criar_pdf():
         pdf.multi_cell(0, 6, f"{ed['curso']} - {ed['instituicao']} ({ed['periodo']})")
     pdf.ln(4)
 
-    # Experiência Profissional
+    # Experiência
     pdf.set_font("Arial", "B", 12)
     pdf.cell(0, 8, "Experiência Profissional", ln=True)
     pdf.set_font("Arial", "", 11)
@@ -53,16 +51,23 @@ def criar_pdf():
         pdf.multi_cell(0, 6, exp["resumo"])
         pdf.ln(2)
 
-    # Certificados — SEÇÃO NOVA
+    # Certificados — Links Clicáveis
     pdf.set_font("Arial", "B", 12)
-    pdf.cell(0, 8, "Certificados", ln=True)
+    pdf.cell(0, 8, "Certificados e Cursos", ln=True)
     pdf.set_font("Arial", "", 11)
-    for cert in dados["certificados"]:
-        pdf.multi_cell(0, 6, f"{cert['nome']} - {cert['instituicao']}\n{cert['link']}")
-        pdf.ln(1)
-    pdf.ln(4)
 
-    # Exportar PDF
+    for cert in dados["certificados"]:
+        texto_cert = f"{cert['nome']} - {cert['instituicao']}"
+        pdf.multi_cell(0, 6, texto_cert, link=cert['link'])
+
+        pdf.set_text_color(0, 0, 255)
+        pdf.set_font("Arial", "I", 9)
+        pdf.multi_cell(0, 4, "Clique para visualizar o certificado")
+
+        pdf.set_text_color(0, 0, 0)
+        pdf.set_font("Arial", "", 11)
+        pdf.ln(2)
+
     pdf.output("curriculo_fabiano.pdf")
 
 if __name__ == "__main__":
