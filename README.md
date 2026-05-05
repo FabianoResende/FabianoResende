@@ -1,78 +1,25 @@
-# 🚀 Fabiano Faria de Resende  
-**Estudante de Sistemas de Informação (4º período)**  
-**Transição para Tecnologia da Informação**  
-**Foco: Desenvolvimento • Automação • Análise de Dados**  
+
+# Olá, eu sou o Fabiano Faria de Resende! 👋
+
+### Estudante de Sistemas de Informação (4º período)
+
+Profissional em transição para TI. Foco em Python, Automação e Dados.
 
 ---
 
-## 🧠 Sobre Mim
-Profissional com experiência operacional e administrativa, atualmente em transição para a área de Tecnologia da Informação.  
-Tenho facilidade em aprender, organização, responsabilidade e visão analítica - competências que fortalecem minha atuação em TI.  
-Busco aplicar lógica de programação, análise de dados e boas práticas de desenvolvimento para resolver problemas reais e melhorar processos.
-
-🎯 **Objetivo:** Estágio em desenvolvimento, suporte técnico ou análise  
-📚 Estudo contínuo em programação, bancos de dados e versionamento de código  
+## 🛠️ Tecnologias e Ferramentas
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![SQL](https://img.shields.io/badge/sql-003B57?style=for-the-badge&logo=postgresql&logoColor=white) HTML / CSS ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
 ---
 
-## 🖥️ Competências Técnicas Iniciantes
+## 🎓 Formação Acadêmica
+- **Bacharelado em Sistemas de Informação** | Universidade Estácio (2024 - Cursando)
 
-### **Linguagens**
-- Python  
-- SQL  
-- HTML / CSS  
-- JavaScript 
+## 🏆 Certificações
+- AWS Cloud
+- Excel Avançado
+- Paccote Office Avançado
+- Microsoft 365
 
-### **Banco de Dados**
-- MySQL  
-- SQLite  
-
-### **Ferramentas de Desenvolvimento**
-- Git & GitHub  
-- VS Code    
-
-### **Sistemas Operacionais**
-- Windows  
-- Linux 
-
----
-
-## 💼 Experiência Profissional
-
-### **Operador de Pátio VI — Indigo Estacionamento (Niterói/RJ)**  
-**2016 – 2019**
-
-- Operação diária dos sistemas **WA** e **WPS**, garantindo controle de acesso e fluxo de dados.  
-- Suporte técnico nível 1 em **06 terminais PERTO TPC 4110**, com manutenção preventiva e corretiva.  
-- Abastecimento e recolhimento de troco, assegurando operação contínua.  
-- Faturamento diário, tesouraria e prestação de contas utilizando planilhas e e-mail.  
-- Registro e análise de ocorrências operacionais.  
-
-**Competências desenvolvidas:**  
-Organização • Responsabilidade • Análise de dados operacionais • Suporte técnico 
-
----
-
-## 💡 Projetos
-
-### 🔹 **Meu Primeiro Projeto**
-Repositório criado para prática de versionamento e integração com GitHub.  
-Demonstra domínio de comandos Git, autenticação e fluxo de push/pull.  
-*(Novos projetos serão adicionados conforme eu evoluir.)*
-
-### 🔹 **Automação de Currículo (CI/CD)**
-Sistema de geração automática de currículo em PDF utilizando **GitHub Actions**, **Python** e **Pandoc**.
-- Implementação de workflow automatizado (YAML).
-- Conversão dinâmica de Markdown para PDF profissional.
-- Demonstra competências em DevOps, automação de processos e infraestrutura como código.
-
----
-
-## 🌐 Contato
-📧 **E-mail:** fabianofariaderesende@gmail.com  
-🔗 **LinkedIn:** https://linkedin.com/in/fabianofr  
-🐙 **GitHub:** https://github.com/FabianoResende  
-
----
-
-> *“Portfólio em construção — assim como minha carreira em tecnologia.”*
+--- 
+*Este perfil é atualizado automaticamente via Python e GitHub Actions! 🚀*
