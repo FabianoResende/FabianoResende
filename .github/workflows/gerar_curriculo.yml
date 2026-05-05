@@ -1,10 +1,10 @@
-name: Gerar Curriculo Automático
+name: Sincronizar CV e README
 
 on:
   push:
     paths:
-      - 'dados_curriculo.json' # O robô só acorda se você mexer no JSON
-  workflow_dispatch: # Permite rodar manualmente se quiser
+      - 'dados_curriculo.json' # O gatilho principal
+  workflow_dispatch: # Permite rodar manualmente
 
 jobs:
   build:
@@ -23,16 +23,17 @@ jobs:
 
       - name: Instalar dependencias
         run: |
-          pip install fpdf2 # Instala a biblioteca que gera o PDF
+          pip install fpdf2
 
-      - name: Gerar PDF via Python
+      - name: Executar Automações
         run: |
-          python gerar_pdf.py # Executa o seu script inteligente
+          python gerar_pdf.py       # Gera o PDF limpo para recrutadores
+          python atualizar_readme.py # Atualiza o perfil com badges
 
-      - name: Salvar PDF no repositorio
+      - name: Salvar alteracoes no GitHub
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add curriculo_fabiano.pdf
-          git commit -m "PDF atualizado automaticamente via Python" || echo "Sem alterações"
+          git add curriculo_fabiano.pdf README.md
+          git commit -m "Automático: PDF e README atualizados via JSON" || echo "Sem alterações"
           git push
