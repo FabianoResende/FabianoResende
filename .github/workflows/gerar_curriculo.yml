@@ -4,12 +4,14 @@ on:
   push:
     paths:
       - "README.md"
-branches: [ main ]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Esta seção abaixo é essencial para o robô ter permissão de escrita
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout do repositorio
@@ -18,22 +20,21 @@ jobs:
       - name: Instalar dependencias
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc texlive texlive-xetex texlive-fonts-recommended texlive-lang-portuguese
+          sudo apt-get install -y pandoc texlive-xetex texlive-fonts-recommended texlive-lang-portuguese
 
-      - name: Gerar PDF a partir do Markdown
+      - name: Gerar PDF
         run: |
           pandoc README.md \
           --from markdown \
           --pdf-engine=xelatex \
           -V lang=pt-BR \
           -V mainfont="DejaVu Sans" \
-          -V geometry:margin=1in \
           -o curriculo_fabiano.pdf
 
-      - name: Commit e push do PDF gerado
+      - name: Salvar PDF no repositorio
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add curriculo_fabiano.pdf
-          git commit -m "PDF atualizado automaticamente" || echo "Nenhuma alteracao para commit"
+          git commit -m "PDF atualizado automaticamente" || echo "Sem alterações"
           git push
