@@ -9,6 +9,13 @@
     "github": "github.com/FabianoResende"
   },
   "sobre": "Profissional em transição para TI. Foco em Python, Automação e Dados.",
+  "educacao": [
+    {
+      "instituicao": "Universidade Estácio",
+      "curso": "Bacharelado em Sistemas de Informação",
+      "periodo": "2024 - Cursando"
+    }
+  ],
   "experiencia": [
     {
       "empresa": "Indigo Estacionamento",
@@ -17,5 +24,9 @@
       "resumo": "Operação de sistemas WA/WPS, suporte N1 em terminais e gestão financeira."
     }
   ],
-  "tecnologias": ["Python", "SQL", "HTML / CSS", "JavaScript", "Git & GitHub"]
+  "tecnologias": ["Python", "SQL", "HTML / CSS", "JavaScript", "Git & GitHub"],
+  "certificacoes": [
+    "AWS Cloud",
+    "Excel Avançado"
+  ]
 }
