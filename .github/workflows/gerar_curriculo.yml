@@ -3,7 +3,8 @@
 on:
   push:
     paths:
-      - "docs/curriculo.md"
+      - "README.md"  # O robô agora vigia seu perfil principal
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -21,11 +22,12 @@ jobs:
 
       - name: Gerar PDF a partir do Markdown
         run: |
-          pandoc docs/curriculo.md \
+          pandoc README.md \
             --from markdown \
             --pdf-engine=xelatex \
             -V lang=pt-BR \
             -V mainfont="DejaVu Sans" \
+            -V geometry:margin=1in \
             -o curriculo_fabiano.pdf
 
       - name: Commit e push do PDF gerado
