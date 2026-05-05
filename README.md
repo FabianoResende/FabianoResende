@@ -15,13 +15,13 @@ Busco aplicar lógica de programação, análise de dados e boas práticas de de
 
 ---
 
-## 🖥️ Competências Técnicas
+## 🖥️ Competências Técnicas iniciantes
 
 ### **Linguagens**
 - Python  
 - SQL  
 - HTML / CSS  
-- JavaScript (iniciante)
+- JavaScript 
 
 ### **Banco de Dados**
 - MySQL  
@@ -33,7 +33,7 @@ Busco aplicar lógica de programação, análise de dados e boas práticas de de
 
 ### **Sistemas Operacionais**
 - Windows  
-- Linux (iniciante)
+- Linux 
 
 ---
 
