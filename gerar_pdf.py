@@ -40,21 +40,34 @@ def criar_pdf():
         pdf.multi_cell(0, 6, f"{ed['curso']} - {ed['instituicao']} ({ed['periodo']})")
     pdf.ln(4)
 
-    # Experiência
+    # Experiência Profissional
     pdf.set_font("Arial", "B", 12)
     pdf.cell(0, 8, "Experiência Profissional", ln=True)
-    pdf.set_font("Arial", "", 11)
+    
+    largura_util = pdf.w - 2 * pdf.l_margin  # Calcula o espaço exato disponível
+
     for exp in dados["experiencia"]:
         pdf.set_font("Arial", "B", 11)
-        pdf.multi_cell(0, 6, f"{exp['empresa']} | {exp['cargo']} ({exp['periodo']})")
+        pdf.multi_cell(largura_util, 6, f"{exp['empresa']} | {exp['cargo']} ({exp['periodo']})")
         pdf.set_font("Arial", "", 11)
-        pdf.multi_cell(0, 6, exp["resumo"])
+        # Usando a largura calculada em vez de 0 para evitar o erro
+        pdf.multi_cell(largura_util, 5, exp["resumo"])
         pdf.ln(2)
 
-    # Certificados — Links Clicáveis (Versão Final)
+    # Certificados
+    pdf.ln(2)
     pdf.set_font("Arial", "B", 12)
     pdf.cell(0, 8, "Certificados e Cursos", ln=True)
-    pdf.set_font("Arial", "", 11)
+    
+    for cert in dados["certificados"]:
+        pdf.set_font("Arial", "B", 11)
+        pdf.cell(0, 6, cert["nome"], ln=True)
+        pdf.set_font("Arial", "I", 10)
+        pdf.set_text_color(0, 0, 255)
+        # Link direto
+        pdf.cell(0, 5, f"Ver certificado na {cert['instituicao']}", ln=True, link=cert["link"])
+        pdf.set_text_color(0, 0, 0)
+        pdf.ln(2)
 
     for cert in dados["certificados"]:
         texto_cert = f"{cert['nome']} - {cert['instituicao']}"
