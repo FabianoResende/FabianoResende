@@ -23,6 +23,8 @@ def gerar_readme():
     conteudo += f"**{dados['cargo']}**  \n"
     conteudo += f"{dados['foco']}\n\n"
 
+    conteudo += "[![Baixar PDF](https://img.shields.io/badge/Download-Currículo_PDF-red?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white)](https://github.com/FabianoResende/FabianoResende/blob/main/curriculo_fabiano.pdf)\n\n"
+
     # Sobre
     conteudo += f"## Sobre\n"
     conteudo += f"{dados['sobre']}\n\n"
