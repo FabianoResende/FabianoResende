@@ -10,9 +10,17 @@ def criar_pdf():
     pdf.set_margins(20, 20, 20)
     pdf.add_page()
 
-    # Cabeçalho
-    pdf.set_font("Arial", "B", 16)
-    pdf.cell(0, 10, dados["nome"], ln=True, align="C")
+   # Cabeçalho do seu PDF com links clicáveis
+pdf.set_text_color(0, 0, 255) # Azul para indicar links
+
+# E-mail com link funcional
+pdf.cell(0, 6, "E-mail: fabianofariaderesende@gmail.com", ln=True, align="C", link="mailto:fabianofariaderesende@gmail.com")
+
+# LinkedIn e GitHub
+pdf.cell(0, 6, "LinkedIn: fabianofr", ln=True, align="C", link="https://www.linkedin.com/in/fabianofr")
+pdf.cell(0, 6, "GitHub: FabianoResende", ln=True, align="C", link="https://github.com/FabianoResende")
+
+pdf.set_text_color(0, 0, 0) # Volta para o preto para o restante do texto
 
     pdf.set_font("Arial", "", 11)
     pdf.cell(0, 6, f"{dados['cargo']} | {dados['foco']}", ln=True, align="C")
