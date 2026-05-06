@@ -48,9 +48,19 @@
     }
   ],
 
-  "certificados": [
+   "certificados": [
+
     {
-      "nome": "Certificados e Cursos",
+
+      "nome": "Certificados de Cursos",
       "link": "https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM?usp=sharing"
-    ]
+
+    },
+
+   
+
+     }
+
+  ]
+
 }
