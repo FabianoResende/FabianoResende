@@ -6,7 +6,7 @@
 
   "contato": {
     "cidade": "São Gonçalo - RJ",
-    "email": "mailto:fabianofariaderesende@gmail.com",
+    "email": "fabianofariaderesende@gmail.com",
     "linkedin": "https://www.linkedin.com/in/fabianofr",
     "github": "https://github.com/FabianoResende"
   },
@@ -50,22 +50,11 @@
 
    "certificados": [
     {
-      "nome": "Certificados de Cursos",
-      "instituicao": "SENAC / Outra Instituição",
+      "nome": "Certificados de Cursos (Pasta Completa)",
+      "instituicao": "Diversas Instituições",
       "link": "https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM?usp=sharing"
-    },
-    {
-      "nome": "Microsoft 365",
-      "instituicao": "Microsoft / Escola Parceira",
-      "link": "https://drive.google.com/SEU_LINK_AQUI"
-    },
-    {
-      "nome": "Atendimento ao Cliente",
-      "instituicao": "Instituição do Curso",
-      "link": "https://drive.google.com/SEU_LINK_AQUI"
     }
   ]
 }
-   
 
     
