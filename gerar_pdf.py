@@ -15,18 +15,21 @@ def criar_pdf():
     pdf.set_font("Arial", "B", 16)
     pdf.cell(0, 10, dados["nome"], ln=True, align="C")
 
-    # Links de contato clicáveis e coloridos
+    # Links de contato clicáveis
     pdf.set_font("Arial", "", 11)
     pdf.set_text_color(0, 0, 255) # Cor azul para links
     
-    # E-mail
-    pdf.cell(0, 6, f"E-mail: {dados['contato']['email']}", ln=True, align="C", link=f"mailto:{dados['contato']['email']}")
+    # E-mail (AGORA COM LINK FUNCIONAL)
+    pdf.cell(0, 6, dados['contato']['email'], ln=True, align="C", link=f"mailto:{dados['contato']['email']}")
     
-    # LinkedIn
+    # LinkedIn e GitHub (Links Diretos)
     pdf.cell(0, 6, "LinkedIn: fabianofr", ln=True, align="C", link=dados['contato']['linkedin'])
-    
-    # GitHub
     pdf.cell(0, 6, "GitHub: FabianoResende", ln=True, align="C", link=dados['contato']['github'])
+
+    # Reseta cor para preto e continua o currículo
+    pdf.set_text_color(0, 0, 0)
+    pdf.cell(0, 6, dados['contato']['cidade'], ln=True, align="C")
+    pdf.ln(10)
 
     # Reseta cor para preto e continua o currículo
     pdf.set_text_color(0, 0, 0)
