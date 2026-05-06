@@ -40,11 +40,26 @@ def criar_pdf():
         pdf.multi_cell(0, 6, f"{ed['curso']} - {ed['instituicao']} ({ed['periodo']})")
     pdf.ln(4)
 
-    # Experiência Profissional
-    pdf.set_font("Arial", "B", 12)
-    pdf.cell(0, 8, "Experiência Profissional", ln=True)
+    # ... (código anterior igual)
+
+pdf.set_font("Arial", "B", 12)
+pdf.cell(0, 8, "Experiência Profissional", ln=True)
+pdf.ln(2)
+
+# Largura total disponível (Margem esquerda até a margem direita)
+largura_total = pdf.w - 2 * pdf.l_margin 
+
+for exp in dados['experiencia']:
+    pdf.set_font("Arial", "B", 11)
+    # Usamos 0 para ocupar a linha toda no cell
+    pdf.cell(0, 7, f"{exp['empresa']} | {exp['cargo']} ({exp['periodo']})", ln=True)
     
-    largura_util = pdf.w - 2 * pdf.l_margin  # Calcula o espaço exato disponível
+    pdf.set_font("Arial", "", 10)
+    # O segredo está aqui: largura total e alinhamento 'J' (justificado) ou 'L'
+    pdf.multi_cell(largura_total, 5, exp['resumo'], align='L')
+    pdf.ln(4)
+
+# ... (restante do código de certificados)
 
     for exp in dados["experiencia"]:
         pdf.set_font("Arial", "B", 11)
