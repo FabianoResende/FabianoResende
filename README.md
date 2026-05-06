@@ -36,5 +36,5 @@ Operação diária dos sistemas WA e WPS; Suporte técnico nível 1 em terminais
 
 - 📍 São Gonçalo - RJ
 - ✉️ fabianofariaderesende@gmail.com
-- 🔗 [LinkedIn](https://linkedin.com/in/fabianofr)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/fabianofr)
 - 💻 [GitHub](https://github.com/FabianoResende)
