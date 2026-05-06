@@ -78,7 +78,7 @@ def criar_pdf():
         pdf.cell(0, 6, cert["nome"], ln=True)
         pdf.set_font("Arial", "U", 10)
         pdf.set_text_color(0, 0, 255)
-        pdf.cell(0, 5, f"Ver certificado nas {cert['instituicao']}", ln=True, link=cert["link"])
+        pdf.cell(0, 5, f"Ver certificados nas {cert['instituicao']}", ln=True, link=cert["link"])
         pdf.set_text_color(0, 0, 0)
         pdf.ln(2)
 
