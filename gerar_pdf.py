@@ -2,6 +2,7 @@ from fpdf import FPDF
 import json
 
 def criar_pdf():
+    # Carrega os dados
     with open("dados_curriculo.json", "r", encoding="utf-8") as df:
         dados = json.load(df)
 
@@ -10,25 +11,26 @@ def criar_pdf():
     pdf.set_margins(20, 20, 20)
     pdf.add_page()
 
-    # Nome e Cabeçalho
+    # Nome Principal
     pdf.set_font("Arial", "B", 16)
     pdf.cell(0, 10, dados["nome"], ln=True, align="C")
 
-    # Links de contacto clicáveis (Azul)
+    # Contatos com Links Azuis
     pdf.set_font("Arial", "", 11)
     pdf.set_text_color(0, 0, 255)
     
-    # E-mail com mailto:
+    # E-mail (mailto para abrir o Outlook/Gmail)
     pdf.cell(0, 6, dados['contato']['email'], ln=True, align="C", link=f"mailto:{dados['contato']['email']}")
+    
     # LinkedIn e GitHub
-    pdf.cell(0, 6, "LinkedIn", ln=True, align="C", link=dados['contato']['linkedin'])
-    pdf.cell(0, 6, "GitHub", ln=True, align="C", link=dados['contato']['github'])
+    pdf.cell(0, 6, "LinkedIn: fabianofr", ln=True, align="C", link=dados['contato']['linkedin'])
+    pdf.cell(0, 6, "GitHub: FabianoResende", ln=True, align="C", link=dados['contato']['github'])
 
+    # Reseta cor para preto
     pdf.set_text_color(0, 0, 0)
     pdf.cell(0, 6, f"{dados['cargo']} | {dados['contato']['cidade']}", ln=True, align="C")
     pdf.ln(10)
 
-    # Função para seções
     largura_util = pdf.w - 2 * pdf.l_margin
 
     def adicionar_secao(titulo, conteudo):
@@ -43,7 +45,7 @@ def criar_pdf():
 
     # Educação
     pdf.set_font("Arial", "B", 12)
-    pdf.cell(0, 8, "Formação Académica", ln=True)
+    pdf.cell(0, 8, "Formação Acadêmica", ln=True)
     pdf.set_font("Arial", "", 11)
     for ed in dados["educacao"]:
         pdf.multi_cell(largura_util, 6, f"{ed['curso']} - {ed['instituicao']} ({ed['periodo']})")
@@ -59,7 +61,7 @@ def criar_pdf():
         pdf.multi_cell(largura_util, 5, exp['resumo'])
         pdf.ln(4)
 
-    # Certificados (Link para a pasta do Drive)
+    # Certificados (Pasta do Drive)
     pdf.set_font("Arial", "B", 12)
     pdf.cell(0, 8, "Certificados e Cursos", ln=True)
     for cert in dados["certificados"]:
@@ -67,7 +69,7 @@ def criar_pdf():
         pdf.cell(0, 6, cert["nome"], ln=True)
         pdf.set_text_color(0, 0, 255)
         pdf.set_font("Arial", "U", 10)
-        pdf.cell(0, 5, "Clique aqui para ver a pasta de certificados", ln=True, link=cert["link"])
+        pdf.cell(0, 5, "Acesse a pasta completa de certificados aqui", ln=True, link=cert["link"])
         pdf.set_text_color(0, 0, 0)
         pdf.ln(2)
 
