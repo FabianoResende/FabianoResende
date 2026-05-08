@@ -3,21 +3,13 @@
   "cargo": "Estudante de Sistemas de Informação (4º período)",
   "objetivo": "Estágio em desenvolvimento, suporte técnico ou análise.",
   "foco": "Desenvolvimento | Automação | Análise de Dados",
-
   "contato": {
     "cidade": "São Gonçalo - RJ",
     "email": "fabianofariaderesende@gmail.com",
     "linkedin": "https://www.linkedin.com/in/fabianofr",
     "github": "https://github.com/FabianoResende"
   },
-
-  "sobre": "Sou estudante de Sistemas de Informação e estou em transição de carreira para a área de \n
-Tecnologia aos 50 anos. Trago responsabilidade e visão analítica desenvolvidas ao longo de mais \n
-de uma década em funções administrativas, financeiras e operacionais — competências que hoje \n
-aplico nos meus estudos e projetos em TI. Atualmente foco meu desenvolvimento em \n
-programação, dados e automação, utilizando Python, SQL, HTML/CSS/JavaScript e ferramentas \n
-de Inteligência Artificial para estruturar projetos e otimizar processos."
-
+  "sobre": "Sou estudante de Sistemas de Informação e estou em transição de carreira para a área de Tecnologia aos 50 anos. Trago responsabilidade e visão analítica desenvolvidas ao longo de mais de uma década em funções administrativas, financeiras e operacionais — competências que hoje aplico nos meus estudos e projetos em TI. Atualmente foco meu desenvolvimento em programação, dados e automação, utilizando Python, SQL, HTML/CSS/JavaScript e ferramentas de Inteligência Artificial para estruturar projetos e otimizar processos.",
   "educacao": [
     {
       "instituicao": "Universidade Estácio",
@@ -25,14 +17,26 @@ de Inteligência Artificial para estruturar projetos e otimizar processos."
       "periodo": "2024 - Cursando"
     }
   ],
-
   "competencias": {
-    "linguagens": ["Python", "SQL", "HTML / CSS", "JavaScript"],
-    "banco_de_dados": ["MySQL", "SQLite"],
-    "ferramentas": ["Git & GitHub", "VS Code"],
-    "sistemas": ["Windows", "Linux"]
+    "linguagens": [
+      "Python",
+      "SQL",
+      "HTML / CSS",
+      "JavaScript"
+    ],
+    "banco_de_dados": [
+      "MySQL",
+      "SQLite"
+    ],
+    "ferramentas": [
+      "Git & GitHub",
+      "VS Code"
+    ],
+    "sistemas": [
+      "Windows",
+      "Linux"
+    ]
   },
-
   "experiencia": [
     {
       "empresa": "Indigo Estacionamento (Niterói/RJ)",
@@ -41,19 +45,17 @@ de Inteligência Artificial para estruturar projetos e otimizar processos."
       "resumo": "Atuação nas áreas operacional, administrativa e financeira, suporte técnico e controle de sistemas. Responsável pelo acompanhamento diário dos sistemas WA e WPS, suporte técnico nível 1 em terminais PERTO TPC 4110, abastecimento e recolhimento de numerário, faturamento diário e prestação de contas via planilhas e e-mail. Realização de rotinas de tesouraria, controle de caixa, conferência de pagamentos, organização de documentos e registro/análise de ocorrências operacionais. Desenvolvimento de habilidades de atendimento, organização e suporte técnico."
     }
   ],
-
   "projetos": [
-    {
-      "nome": "Meu Primeiro Projeto",
-      "descricao": "Repositório criado para prática de versionamento e integração com GitHub."
-    },
     {
       "nome": "Automação de Currículo (CI/CD)",
       "descricao": "Sistema de geração automática de currículo em PDF utilizando GitHub Actions e Python."
+    },
+    {
+      "nome": "Portfólio GitHub",
+      "descricao": "README dinâmico que sincroniza dados do currículo com o perfil do GitHub."
     }
   ],
-
-   "certificados": [
+  "certificados": [
     {
       "nome": "Certificados de Cursos (Pasta Completa)",
       "instituicao": "Diversas Instituições",
@@ -61,5 +63,3 @@ de Inteligência Artificial para estruturar projetos e otimizar processos."
     }
   ]
 }
-
-    
