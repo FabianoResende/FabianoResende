@@ -18,24 +18,10 @@
     }
   ],
   "competencias": {
-    "linguagens": [
-      "Python",
-      "SQL",
-      "HTML / CSS",
-      "JavaScript"
-    ],
-    "banco_de_dados": [
-      "MySQL",
-      "SQLite"
-    ],
-    "ferramentas": [
-      "Git & GitHub",
-      "VS Code"
-    ],
-    "sistemas": [
-      "Windows",
-      "Linux"
-    ]
+    "linguagens": ["Python", "SQL", "HTML / CSS", "JavaScript"],
+    "banco_de_dados": ["MySQL", "SQLite"],
+    "ferramentas": ["Git & GitHub", "VS Code"],
+    "sistemas": ["Windows", "Linux"]
   },
   "experiencia": [
     {
@@ -51,8 +37,8 @@
       "descricao": "Sistema de geração automática de currículo em PDF utilizando GitHub Actions e Python."
     },
     {
-      "nome": "Portfólio GitHub",
-      "descricao": "README dinâmico que sincroniza dados do currículo com o perfil do GitHub."
+      "nome": "Sincronização de README",
+      "descricao": "Automação que atualiza o perfil do GitHub README.md com base nos dados do JSON."
     }
   ],
   "certificados": [
