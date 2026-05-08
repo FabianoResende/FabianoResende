@@ -6,7 +6,7 @@ Desenvolvimento | Automação | Análise de Dados
 [![Baixar PDF](https://img.shields.io/badge/Download-Currículo_PDF-red?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white)](https://github.com/FabianoResende/FabianoResende/blob/main/curriculo_fabiano.pdf)
 
 ## Sobre
-Profissional com experiência operacional e administrativa, atualmente em transição para a área de Tecnologia da Informação. Tenho facilidade em aprender, organização, responsabilidade e visão analítica - competências que fortalecem minha atuação em TI. Busco aplicar lógica de programação, análise de dados e boas práticas de desenvolvimento para resolver problemas reais e melhorar processos.
+Atuação nas áreas operacional, administrativa e financeira, suporte técnico e controle de sistemas. Responsável pelo acompanhamento diário dos sistemas WA e WPS, suporte técnico nível 1 em terminais PERTO TPC 4110, abastecimento e recolhimento de numerário, faturamento diário e prestação de contas via planilhas e e-mail. Realização de rotinas de tesouraria, controle de caixa, conferência de pagamentos, organização de documentos e registro/análise de ocorrências operacionais. Desenvolvimento de habilidades de atendimento, organização e suporte técnico.
 
 ## Competências Técnicas
 
