@@ -1,19 +1,20 @@
-# Olá, eu sou o Fabiano Faria de Resende 👋
+# Fabiano Faria de Resende 👋
 
 ### Estudante de Sistemas de Informação (4º período)
 
-## 🎯 Objetivo
-Estágio em desenvolvimento, suporte técnico ou análise.
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![SQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 
-## 🚀 Sobre Mim
-Profissional com experiência operacional e administrativa, atualmente em transição para a área de Tecnologia da Informação aos 50 anos. Tenho facilidade em aprender, organização e visão analítica. Busco aplicar lógica de programação e Python para resolver problemas reais e melhorar processos.
+## 🚀 Sobre
+Sou estudante de Sistemas de Informação (4º período) e estou em transição de carreira para a área de Tecnologia. Aos 50 anos, trago responsabilidade e visão analítica desenvolvidas ao longo de mais de uma década em funções administrativas, financeiras e operacionais - competências que hoje aplico nos meus estudos e projetos em TI.Atualmente foco meu desenvolvimento em programação, dados e automação, utilizando Python, SQL, HTML/CSS/JavaScript, Git/GitHub e ferramentas de Inteligência Artificial para aprendizado, estruturar projetos e otimizar código. 
+ Recentemente desenvolvi um projeto de automação em Python para geração de documentos PDF, aplicando conceitos práticos com apoio de IAs generativas.Busco uma oportunidade de estágio em TI onde eu possa unir minha experiência profissional, minha disciplina e minha evolução técnica para contribuir com projetos reais e crescer junto com a equipe.
+ Se você atua em tecnologia ou conhece oportunidades de estágio, ficarei feliz em me conectar e trocar experiências.
 
-## 🛠️ Tecnologias e Competências
+## 🛠️ Competências
 - **Linguagens:** Python, SQL, HTML / CSS, JavaScript
-- **Ferramentas:** Git & GitHub, VS Code
+- **Ferramentas:** Git & GitHub, VS Code, IA Generativa
 
----
-### 📄 Currículo Completo
-[Clique aqui para baixar o PDF Atualizado](./curriculo_fabiano.pdf)
----
-*Atualizado automaticamente via Python e GitHub Actions.*
+--- 
+### 📄 Currículo Completo Atualizado
+[👉 Clique aqui para visualizar o PDF gerado nesta automação](./curriculo_fabiano.pdf)
+
+*Nota: Este README e o PDF anexo são atualizados automaticamente via Python e GitHub Actions toda vez que o arquivo JSON de dados é alterado.*
