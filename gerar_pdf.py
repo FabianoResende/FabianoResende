@@ -7,15 +7,18 @@ def carregar_dados():
 
 class PDF(FPDF):
     def header_curriculo(self, dados):
+        # Nome
         self.set_font("Arial", "B", 18)
         self.cell(0, 10, dados["nome"], ln=True, align="C")
         
+        # Links Clicáveis (Azul)
         self.set_font("Arial", "", 10)
-        self.set_text_color(0, 0, 255) # Azul para links
+        self.set_text_color(0, 0, 255)
         self.cell(0, 6, dados["contato"]["email"], ln=True, align="C", link=f"mailto:{dados['contato']['email']}")
         self.cell(0, 6, "LinkedIn: /fabianofr", ln=True, align="C", link=dados["contato"]["linkedin"])
         self.cell(0, 6, "GitHub: /FabianoResende", ln=True, align="C", link=dados["contato"]["github"])
         
+        # Cargo e Local
         self.set_text_color(0, 0, 0)
         self.set_font("Arial", "B", 11)
         self.cell(0, 6, f"{dados['cargo']} | {dados['foco']}", ln=True, align="C")
@@ -23,11 +26,14 @@ class PDF(FPDF):
         self.cell(0, 6, dados["contato"]["cidade"], ln=True, align="C")
         self.ln(5)
 
-    def secao_titulo(self, texto):
+    def secao(self, titulo, conteudo):
         self.set_font("Arial", "B", 12)
         self.set_fill_color(230, 230, 230)
-        self.cell(0, 8, f"  {texto}", ln=True, fill=True)
+        self.cell(0, 8, f"  {titulo}", ln=True, fill=True)
         self.ln(2)
+        self.set_font("Arial", "", 11)
+        self.multi_cell(0, 6, conteudo)
+        self.ln(4)
 
 def gerar_pdf(dados):
     pdf = PDF()
@@ -35,38 +41,44 @@ def gerar_pdf(dados):
     pdf.add_page()
     pdf.header_curriculo(dados)
 
-    pdf.secao_titulo("Objetivo")
-    pdf.set_font("Arial", "", 11)
-    pdf.multi_cell(0, 6, dados["objetivo"])
-    pdf.ln(4)
+    pdf.secao("Objetivo", dados["objetivo"])
+    pdf.secao("Resumo Profissional", dados["sobre"])
 
-    pdf.secao_titulo("Resumo Profissional")
-    pdf.set_font("Arial", "", 11)
-    pdf.multi_cell(0, 6, dados["sobre"])
-    pdf.ln(4)
-
-    pdf.secao_titulo("Formação Acadêmica")
+    # Formação
+    pdf.set_font("Arial", "B", 12)
+    pdf.set_fill_color(230, 230, 230)
+    pdf.cell(0, 8, "  Formação Acadêmica", ln=True, fill=True)
+    pdf.ln(2)
     for ed in dados["educacao"]:
         pdf.set_font("Arial", "B", 11)
-        pdf.cell(0, 6, f"{ed['curso']} - {ed['instituicao']} ({ed['periodo']})", ln=True)
+        pdf.cell(0, 6, f"{ed['curso']} - {ed['instituicao']}", ln=True)
+        pdf.set_font("Arial", "", 11)
+        pdf.cell(0, 6, ed["periodo"], ln=True)
     pdf.ln(4)
 
-    pdf.secao_titulo("Experiência Profissional")
+    # Experiência
+    pdf.set_font("Arial", "B", 12)
+    pdf.set_fill_color(230, 230, 230)
+    pdf.cell(0, 8, "  Experiência Profissional", ln=True, fill=True)
+    pdf.ln(2)
     for exp in dados["experiencia"]:
         pdf.set_font("Arial", "B", 11)
-        pdf.cell(0, 6, f"{exp['cargo']} - {exp['empresa']}", ln=True)
+        pdf.cell(0, 6, f"{exp['cargo']} | {exp['empresa']}", ln=True)
         pdf.set_font("Arial", "I", 10)
-        pdf.cell(0, 6, exp["periodo"], ln=True)
+        pdf.cell(0, 6, f"{exp['periodo']} - {exp['local']}", ln=True)
         pdf.set_font("Arial", "", 10)
         pdf.multi_cell(0, 5, exp["resumo"])
         pdf.ln(3)
 
-    pdf.secao_titulo("Certificados e Cursos")
+    # Certificados
+    pdf.set_font("Arial", "B", 12)
+    pdf.set_fill_color(230, 230, 230)
+    pdf.cell(0, 8, "  Certificados e Cursos", ln=True, fill=True)
+    pdf.ln(2)
     for cert in dados["certificados"]:
         pdf.set_font("Arial", "", 11)
         pdf.cell(0, 6, f"{cert['nome']} - {cert['instituicao']}", ln=False)
         pdf.set_text_color(0, 0, 255)
-        pdf.set_font("Arial", "U", 11)
         pdf.cell(0, 6, " [Acesse aqui]", ln=True, link=cert["link"])
         pdf.set_text_color(0, 0, 0)
 
@@ -82,9 +94,9 @@ def atualizar_readme(dados):
         f.write(f"## 🚀 Sobre\n{dados['sobre']}\n\n")
         f.write(f"## 🛠️ Competências\n- **Linguagens:** {', '.join(dados['competencias']['linguagens'])}\n")
         f.write(f"- **Ferramentas:** {', '.join(dados['competencias']['ferramentas'])}\n\n")
-        f.write(f"--- \n### 📄 Download do Currículo PDF\n[Clique aqui para acessar o currículo atualizado](./curriculo_fabiano.pdf)\n")
+        f.write(f"--- \n### 📄 Currículo PDF\n[Baixar PDF Atualizado](./curriculo_fabiano.pdf)\n")
 
 if __name__ == "__main__":
-    info = carregar_dados()
-    gerar_pdf(info)
-    atualizar_readme(info)
+    dados = carregar_dados()
+    gerar_pdf(dados)
+    atualizar_readme(dados)
