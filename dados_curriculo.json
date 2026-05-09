@@ -2,14 +2,14 @@
   "nome": "Fabiano Faria de Resende",
   "cargo": "Estudante de Sistemas de Informação (4º período)",
   "objetivo": "Estágio em desenvolvimento, suporte técnico ou análise.",
-  "foco": "Desenvolvimento | Automação | Análise de Dados",
+  "foco": "Desenvolvimento • Automação • Análise de Dados",
   "contato": {
-    "cidade": "São Gonçalo - RJ",
     "email": "fabianofariaderesende@gmail.com",
+    "cidade": "São Gonçalo - RJ",
     "linkedin": "https://www.linkedin.com/in/fabianofr",
     "github": "https://github.com/FabianoResende"
   },
-  "sobre": "Sou estudante de Sistemas de Informação e estou em transição de carreira para a área de Tecnologia aos 50 anos. Trago responsabilidade e visão analítica desenvolvidas ao longo de mais de uma década em funções administrativas, financeiras e operacionais — competências que hoje aplico nos meus estudos e projetos em TI. Atualmente foco meu desenvolvimento em programação, dados e automação, utilizando Python, SQL, HTML/CSS/JavaScript e ferramentas de Inteligência Artificial para estruturar projetos e otimizar processos.",
+  "sobre": "Profissional com experiência operacional e administrativa, atualmente em transição para a área de Tecnologia da Informação aos 50 anos. Tenho facilidade em aprender, organização e visão analítica. Busco aplicar lógica de programação e Python para resolver problemas reais e melhorar processos.",
   "educacao": [
     {
       "instituicao": "Universidade Estácio",
@@ -28,19 +28,22 @@
       "empresa": "Indigo Estacionamento (Niterói/RJ)",
       "cargo": "Operador de Pátio VI",
       "periodo": "2016 - 2019",
-      "resumo": "Atuação nas áreas operacional, administrativa e financeira, suporte técnico e controle de sistemas. Responsável pelo acompanhamento diário dos sistemas WA e WPS, suporte técnico nível 1 em terminais PERTO TPC 4110, abastecimento e recolhimento de numerário, faturamento diário e prestação de contas via planilhas e e-mail. Registro e análise de ocorrências operacionais."
+      "resumo": "Operação de sistemas WA/WPS, suporte técnico nível 1 em terminais e faturamento diário."
     }
   ],
   "projetos": [
     {
       "nome": "Automação de Currículo (CI/CD)",
       "descricao": "Sistema de geração automática de currículo em PDF utilizando GitHub Actions e Python."
+    },
+    {
+      "nome": "Sincronização de README",
+      "descricao": "Automação que mantém o perfil do GitHub atualizado com base no JSON."
     }
   ],
   "certificados": [
     {
-      "nome": "Certificados de Cursos (Pasta Completa)",
-      "instituicao": "Diversas Instituições",
+      "nome": "Pasta Completa de Certificados",
       "link": "https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM?usp=sharing"
     }
   ]
