@@ -9,7 +9,7 @@
     "linkedin": "https://www.linkedin.com/in/fabianofr",
     "github": "https://github.com/FabianoResende"
   },
-  "sobre": "Sou estudante de Sistemas de Informação (4º período) e estou em transição de carreira para a área de Tecnologia. Aos 50 anos, trago responsabilidade e visão analítica desenvolvidas ao longo de mais de uma década em funções administrativas, financeiras e operacionais — competências que hoje aplico nos meus estudos e projetos em TI.\n\nAtualmente foco meu desenvolvimento em programação, dados e automação, utilizando Python, SQL, HTML/CSS/JavaScript, Git/GitHub e ferramentas de Inteligência Artificial para aprendizado, estruturar projetos e otimizar código. Recentemente desenvolvi um projeto de automação em Python para geração de documentos PDF, aplicando conceitos práticos com apoio de IAs generativas.\n\nBusco uma oportunidade de estágio em TI onde eu possa unir minha experiência profissional, minha disciplina e minha evolução técnica para contribuir com projetos reais e crescer junto com a equipe.\n\nSe você atua em tecnologia ou conhece oportunidades de estágio, ficarei feliz em me conectar e trocar experiências!",
+  "sobre": "Sou estudante de Sistemas de Informação (4º período) e estou em transição de carreira para a área de Tecnologia. Aos 50 anos, trago responsabilidade e visão analítica desenvolvidas ao longo de mais de uma década em funções administrativas, financeiras e operacionais — competências que hoje aplico nos meus estudos e projetos em TI.\n\nAtualmente foco meu desenvolvimento em programação, dados e automação, utilizando Python, SQL, HTML/CSS/JavaScript, Git/GitHub e ferramentas de Inteligência Artificial para aprendizado, estruturar projetos e otimizar código. Recentemente desenvolvi um projeto de automação em Python para geração de documentos PDF, aplicando conceitos práticos com apoio de IAs generativas.\n\nBusco uma oportunidade de estágio em TI onde eu possa unir minha experiência profissional, minha disciplina e minha evolução técnica para contribuir com projetos reais e crescer junto com a equipe.",
   "educacao": [
     {
       "instituicao": "Universidade Estácio",
@@ -28,7 +28,7 @@
       "empresa": "Indigo Estacionamento (Niterói/RJ)",
       "cargo": "Assistente Administrativo Financeiro",
       "periodo": "nov de 2016 - nov de 2019 (3 anos)",
-      "resumo": "Atuação nas áreas operacional, administrativa e financeira, suporte técnico e controle de sistemas. Responsável pelo acompanhamento diário dos sistemas WA e WPS, suporte técnico nível 1 em terminais PERTO TPC 4110, abastecimento e recolhimento de numerário, faturamento diário e prestação de contas via planilhas e e-mail. Realização de rotinas de tesouraria, controle de caixa, conferência de pagamentos, organização de documentos e registro/análise de ocorrências operacionais. Desenvolvimento de habilidades de atendimento, organização e suporte técnico."
+      "resumo": "Atuação nas áreas operacional, administrativa e financeira, suporte técnico e controle de sistemas. Responsável pelo acompanhamento diário dos sistemas WA e WPS, suporte técnico nível 1 em terminais PERTO TPC 4110, faturamento diário e prestação de contas. Realização de rotinas de tesouraria, controle de caixa, conferência de pagamentos e análise de ocorrências operacionais."
     }
   ],
   "certificados": [
