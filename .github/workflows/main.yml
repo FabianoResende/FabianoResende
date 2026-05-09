@@ -10,27 +10,25 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout do código
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configurar Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - name: Instalar Dependência FPDF
-        run: pip install fpdf
+      - name: Instalar Dependências
+        run: pip install fpdf2
 
-      - name: Executar Automação
+      - name: Gerar Arquivos
         run: python gerar_pdf.py
 
-      - name: Sincronizar Arquivos no GitHub
+      - name: Sincronizar GitHub
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          # Adiciona os dois arquivos gerados
           git add curriculo_fabiano.pdf README.md
           git commit -m "Automação: PDF e README sincronizados" || exit 0
           git push
