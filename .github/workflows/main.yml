@@ -1,4 +1,4 @@
-name: CI - Atualizar CV e README
+name: CI - Automação Integrada CV e README
 
 on:
   push:
@@ -10,6 +10,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
@@ -19,16 +20,17 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Instalar Dependências
+      - name: Instalar Dependência FPDF
         run: pip install fpdf
 
-      - name: Executar Gerador de CV e README
+      - name: Executar Automação
         run: python gerar_pdf.py
 
-      - name: Salvar Alterações (PDF e README)
+      - name: Sincronizar Arquivos no GitHub
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          # Adiciona os dois arquivos gerados
           git add curriculo_fabiano.pdf README.md
-          git commit -m "Automação: PDF e README atualizados conforme JSON" || exit 0
+          git commit -m "Automação: PDF e README sincronizados" || exit 0
           git push
