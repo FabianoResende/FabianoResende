@@ -19,6 +19,6 @@ Se você atua em tecnologia ou conhece oportunidades de estágio, ficarei feliz 
 
 --- 
 ### 📄 Currículo Completo Atualizado
-[👉 Clique aqui para visualizar o PDF gerado nesta automação](./curriculo_fabiano.pdf)
+[👉 Visualizar PDF](./curriculo_fabiano.pdf)
 
-*Nota: Este README e o PDF anexo são atualizados automaticamente via Python e GitHub Actions toda vez que o arquivo JSON de dados é alterado.*
+*Nota: Atualizado via Automação.*
