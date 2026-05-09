@@ -7,12 +7,12 @@ def carregar_dados():
 
 class PDF(FPDF):
     def header_curriculo(self, dados):
+        # Nome e Título
         self.set_font("Arial", "B", 18)
         self.cell(0, 10, dados["nome"], ln=True, align="C")
         
         self.set_font("Arial", "", 10)
-        self.set_text_color(0, 0, 255)
-        # Links Clicáveis no PDF
+        self.set_text_color(0, 0, 255) # Links em Azul
         self.cell(0, 6, dados["contato"]["email"], ln=True, align="C", link=f"mailto:{dados['contato']['email']}")
         self.cell(0, 6, "LinkedIn: /fabianofr", ln=True, align="C", link=dados["contato"]["linkedin"])
         self.cell(0, 6, "GitHub: /FabianoResende", ln=True, align="C", link=dados["contato"]["github"])
@@ -26,7 +26,7 @@ class PDF(FPDF):
 
     def secao_titulo(self, texto):
         self.set_font("Arial", "B", 12)
-        self.set_fill_color(230, 230, 230)
+        self.set_fill_color(235, 235, 235) # Fundo cinza suave
         self.cell(0, 8, f"  {texto}", ln=True, fill=True)
         self.ln(2)
 
@@ -36,6 +36,7 @@ def gerar_pdf(dados):
     pdf.add_page()
     pdf.header_curriculo(dados)
 
+    # Seções
     pdf.secao_titulo("Objetivo")
     pdf.set_font("Arial", "", 11)
     pdf.multi_cell(0, 6, dados["objetivo"])
@@ -78,7 +79,7 @@ def atualizar_readme(dados):
         f.write(f"# {dados['nome']} 👋\n\n")
         f.write(f"### {dados['cargo']}\n\n")
         
-        # Badges Visuais
+        # Badges Visuais (Opcional, mas muito bom para perfil de desenvolvedor)
         f.write("![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ")
         f.write("![SQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) ")
         f.write("![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)\n\n")
