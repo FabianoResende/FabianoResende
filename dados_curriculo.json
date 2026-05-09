@@ -28,17 +28,13 @@
       "empresa": "Indigo Estacionamento (Niterói/RJ)",
       "cargo": "Operador de Pátio VI",
       "periodo": "2016 - 2019",
-      "resumo": "Atuação nas áreas operacional, administrativa e financeira, suporte técnico e controle de sistemas. Responsável pelo acompanhamento diário dos sistemas WA e WPS, suporte técnico nível 1 em terminais PERTO TPC 4110, abastecimento e recolhimento de numerário, faturamento diário e prestação de contas via planilhas e e-mail. Realização de rotinas de tesouraria, controle de caixa, conferência de pagamentos, organização de documentos e registro/análise de ocorrências operacionais. Desenvolvimento de habilidades de atendimento, organização e suporte técnico."
+      "resumo": "Atuação nas áreas operacional, administrativa e financeira, suporte técnico e controle de sistemas. Responsável pelo acompanhamento diário dos sistemas WA e WPS, suporte técnico nível 1 em terminais PERTO TPC 4110, abastecimento e recolhimento de numerário, faturamento diário e prestação de contas via planilhas e e-mail. Registro e análise de ocorrências operacionais."
     }
   ],
   "projetos": [
     {
       "nome": "Automação de Currículo (CI/CD)",
       "descricao": "Sistema de geração automática de currículo em PDF utilizando GitHub Actions e Python."
-    },
-    {
-      "nome": "Sincronização de README",
-      "descricao": "Automação que atualiza o perfil do GitHub README.md com base nos dados do JSON."
     }
   ],
   "certificados": [
