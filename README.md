@@ -14,7 +14,7 @@ Busco uma oportunidade de estágio em TI onde eu possa unir minha experiência p
 Se você atua em tecnologia ou conhece oportunidades de estágio, ficarei feliz em me conectar e trocar experiências.
 
 ## 🛠️ Competências
-- **Linguagens:** Python, SQL, HTML / CSS, JavaScript
+- **Linguagens:** Python, SQL, Java
 - **Ferramentas:** Git & GitHub, VS Code, IA Generativa
 
 --- 
