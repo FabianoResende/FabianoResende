@@ -17,6 +17,14 @@
       "periodo": "2024 - Cursando"
     }
   ],
+  "projetos": [
+    {
+      "name": "Meu Projeto Web",
+      "url": "https://fabianoresende.github.io/meu-projeto-web",
+      "repo": "https://github.com/FabianoResende/meu-projeto-web",
+      "description": "Projeto front-end simples utilizando HTML, CSS e JavaScript, publicado via GitHub Pages. Demonstra domínio de estruturação de pastas, versionamento com Git e deploy estático."
+    }
+  ],
   "competencias": {
     "linguagens": ["Python", "SQL", "Java"],
     "ferramentas": ["Git & GitHub", "VS Code", "IA Generativa"]
