@@ -14,7 +14,7 @@ class PDF(FPDF):
         self.cell(0, 6, dados["contato"]["email"], ln=True, align="C", link=f"mailto:{dados['contato']['email']}")
         self.cell(0, 6, "LinkedIn: /fabianofr", ln=True, align="C", link=dados["contato"]["linkedin"])
         self.cell(0, 6, "GitHub: /FabianoResende", ln=True, align="C", link=dados["contato"]["github"])
-        self.cell(0, 6, "https://fabianoresende.github.io/meu-projeto-web/", ln=True, align="C", link=dados["contato"]["site"])
+        self.cell(0, 6, "Site: /FabianoResende WEB", ln=True, align="C", link=dados["contato"]["site"])
         self.set_text_color(0, 0, 0)
         self.set_font("Arial", "B", 11)
         self.cell(0, 6, f"{dados['cargo']} | {dados['foco']}", ln=True, align="C")
