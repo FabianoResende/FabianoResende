@@ -11,7 +11,7 @@ class PDF(FPDF):
         self.cell(0, 10, dados["nome"], ln=True, align="C")
         self.set_font("Arial", "", 10)
         self.set_text_color(0, 0, 255)
-        self.cell(0, 6, "E-mail:", "fabianofariaderesende@gmail.com", dados["contato"]["email"], ln=True, align="C", link=f"mailto:{dados['contato']['email']}")
+        self.cell(0, 6, "E-mail: fabianofariaderesende@gmail.com", dados["contato"]["email"], ln=True, align="C", link=f"mailto:{dados['contato']['email']}")
         self.cell(0, 6, "LinkedIn: /fabianofr", ln=True, align="C", link=dados["contato"]["linkedin"])
         self.cell(0, 6, "GitHub: /FabianoResende", ln=True, align="C", link=dados["contato"]["github"])
         self.cell(0, 6, "Site: /FabianoResende Web", ln=True, align="C", link=dados["contato"]["site"])
