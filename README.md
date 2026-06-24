@@ -74,7 +74,7 @@ Modelagem profissional com diagramas de classes, casos de uso, sequência e ativ
 
 ## 🚀 Em evolução constante
 
-> “A consistência vence do talento quando o talento não é consistente.”
+> “Pequenos passos diários constroem resultados extraordinários.”
 
 Estou construindo meu portfólio com dedicação, disciplina e foco — um passo de cada vez, sempre evoluindo.
 
