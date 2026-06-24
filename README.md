@@ -1,38 +1,80 @@
-# Fabiano Faria de Resende 👋
+# 👋 Olá! Eu sou o Fabiano Faria de Resende
 
-### Estudante de Sistemas de Informação (4º período)
+🎓 Estagiário de **Engenharia de IA Front‑end — FlyRank (Jul/2026)**  
+💻 Desenvolvedor em evolução constante  
+🚀 Apaixonado por tecnologia, IA, front‑end e boas práticas de engenharia  
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![SQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
+---
 
-## 🚀 Sobre
-Sou estudante de Sistemas de Informação e estou em transição de carreira para a área de Tecnologia, com foco em Desenvolvimento Front‑end e Inteligência Artificial aplicada.
+## 🌟 Sobre mim
 
-Fui aprovado para a coorte de Julho/2026 do Estágio FlyRank, na trilha de Engenharia de IA Front‑end, onde irei desenvolver projetos reais integrando JavaScript, APIs e modelos de IA.
+Sou um desenvolvedor em formação, focado em construir uma base sólida em:
 
-Trago mais de uma década de experiência em áreas administrativas e operacionais, o que me deu disciplina, responsabilidade e visão analítica — habilidades que hoje aplico nos meus estudos e projetos.
+- **Front‑end moderno**  
+- **Python e automações**  
+- **Java + SQL (CRUD, JDBC, DAO)**  
+- **Engenharia de Software (UML, arquitetura, boas práticas)**  
+- **Git e GitHub profissional**  
 
-Atualmente estudo e pratico:
+Atualmente participo do programa **FlyRank AI Internship**, onde desenvolvo projetos reais, estudo IA aplicada ao front‑end e evoluo minhas habilidades técnicas e profissionais.
 
-HTML, CSS e JavaScript
+---
 
-Python e SQL
+## 🛠️ Tecnologias & Ferramentas
 
-Git e GitHub
+**Linguagens:**  
+HTML • CSS • JavaScript • Python • Java • SQL
 
-Automação com IA
+**Ferramentas:**  
+Git • GitHub • VS Code • IntelliJ • Astah UML • SQLite
 
-Integração de APIs e ferramentas generativas
+**Conceitos:**  
+CRUD • JDBC • DAO • UML • Responsividade • Versionamento • Boas práticas
 
-Busco oportunidades para aplicar meus conhecimentos, construir portfólio e crescer profissionalmente na área de tecnologia.
+---
 
-Se quiser trocar ideias sobre IA, desenvolvimento ou carreira, será um prazer me conectar.
+## 📌 Projetos em Destaque
 
-## 🛠️ Competências
-- **Linguagens:** Python, SQL, Java
-- **Ferramentas:** Git & GitHub, VS Code, IA Generativa
+### 🔐 **Password Manager — Python + SQLite**  
+Gerenciador de senhas com CRUD completo e persistência local.  
+➡️ https://github.com/FabianoResende/password-manager-python-sql
 
---- 
-### 📄 Currículo Completo Atualizado
-[👉 Visualizar PDF](./curriculo_fabiano.pdf)
+### 🌐 **Landing Page — HTML, CSS & JS**  
+Página moderna, responsiva e publicada no GitHub Pages.  
+➡️ https://github.com/FabianoResende/landing-page-html-css-js
 
-*Nota: Atualizado via Automação.*
+### ☕ **Java CRUD — JDBC + SQLite**  
+Aplicação Java com arquitetura DAO e operações completas de CRUD.  
+➡️ https://github.com/FabianoResende/java-sql-crud-jdbc
+
+### 🧩 **Diagramas UML — Astah**  
+Modelagem profissional com diagramas de classes, casos de uso, sequência e atividades.  
+➡️ https://github.com/FabianoResende/uml-diagrams-astah
+
+---
+
+## 📈 Estatísticas do GitHub
+
+<div align="center">
+  
+![Fabiano GitHub Stats](https://github-readme-stats.vercel.app/api?username=FabianoResende&show_icons=true&theme=tokyonight&hide_border=true)
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=FabianoResende&layout=compact&theme=tokyonight&hide_border=true)
+
+</div>
+
+---
+
+## 📫 Como me encontrar
+
+📌 **GitHub:** https://github.com/FabianoResende  
+📌 **LinkedIn:** https://www.linkedin.com/in/fabianofr/  
+
+---
+
+## 🚀 Em evolução constante
+
+> “A consistência vence do talento quando o talento não é consistente.”
+
+Estou construindo meu portfólio com dedicação, disciplina e foco — um passo de cada vez, sempre evoluindo.
+
