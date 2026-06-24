@@ -5,13 +5,27 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![SQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 
 ## 🚀 Sobre
-Sou estudante de Sistemas de Informação (4º período) e estou em transição de carreira para a área de Tecnologia. Aos 50 anos, trago responsabilidade e visão analítica desenvolvidas ao longo de mais de uma década em funções administrativas, financeiras e operacionais - competências que hoje aplico nos meus estudos e projetos em TI.
+Sou estudante de Sistemas de Informação e estou em transição de carreira para a área de Tecnologia, com foco em Desenvolvimento Front‑end e Inteligência Artificial aplicada.
 
-Atualmente foco meu desenvolvimento em programação, dados e automação, utilizando Python, SQL, HTML/CSS/JavaScript, Git/GitHub e ferramentas de Inteligência Artificial para aprendizado, estruturar projetos e otimizar código. Recentemente desenvolvi um projeto de automação em Python para geração de documentos PDF, aplicando conceitos práticos com apoio de IAs generativas.
+Fui aprovado para a coorte de Julho/2026 do Estágio FlyRank, na trilha de Engenharia de IA Front‑end, onde irei desenvolver projetos reais integrando JavaScript, APIs e modelos de IA.
 
-Busco uma oportunidade de estágio em TI onde eu possa unir minha experiência profissional, minha disciplina e minha evolução técnica para contribuir com projetos reais e crescer junto com a equipe.
+Trago mais de uma década de experiência em áreas administrativas e operacionais, o que me deu disciplina, responsabilidade e visão analítica — habilidades que hoje aplico nos meus estudos e projetos.
 
-Se você atua em tecnologia ou conhece oportunidades de estágio, ficarei feliz em me conectar e trocar experiências.
+Atualmente estudo e pratico:
+
+HTML, CSS e JavaScript
+
+Python e SQL
+
+Git e GitHub
+
+Automação com IA
+
+Integração de APIs e ferramentas generativas
+
+Busco oportunidades para aplicar meus conhecimentos, construir portfólio e crescer profissionalmente na área de tecnologia.
+
+Se quiser trocar ideias sobre IA, desenvolvimento ou carreira, será um prazer me conectar.
 
 ## 🛠️ Competências
 - **Linguagens:** Python, SQL, Java
