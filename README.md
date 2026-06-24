@@ -1,80 +1,24 @@
-# 👋 Olá! Eu sou o Fabiano Faria de Resende
+# Fabiano Faria de Resende 👋
 
-🎓 Estagiário de **Engenharia de IA Front‑end — FlyRank (Jul/2026)**  
-💻 Desenvolvedor em evolução constante  
-🚀 Apaixonado por tecnologia, IA, front‑end e boas práticas de engenharia  
+### Estudante de Sistemas de Informação (4º período)
 
----
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![SQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 
-## 🌟 Sobre mim
+## 🚀 Sobre
+Sou estudante de Sistemas de Informação (4º período) e estou em transição de carreira para a área de Tecnologia. Aos 50 anos, trago responsabilidade e visão analítica desenvolvidas ao longo de mais de uma década em funções administrativas, financeiras e operacionais - competências que hoje aplico nos meus estudos e projetos em TI.
 
-Sou um desenvolvedor em formação, focado em construir uma base sólida em:
+Atualmente foco meu desenvolvimento em programação, dados e automação, utilizando Python, SQL, HTML/CSS/JavaScript, Git/GitHub e ferramentas de Inteligência Artificial para aprendizado, estruturar projetos e otimizar código. Recentemente desenvolvi um projeto de automação em Python para geração de documentos PDF, aplicando conceitos práticos com apoio de IAs generativas.
 
-- **Front‑end moderno**  
-- **Python e automações**  
-- **Java + SQL (CRUD, JDBC, DAO)**  
-- **Engenharia de Software (UML, arquitetura, boas práticas)**  
-- **Git e GitHub profissional**  
+Busco uma oportunidade de estágio em TI onde eu possa unir minha experiência profissional, minha disciplina e minha evolução técnica para contribuir com projetos reais e crescer junto com a equipe.
 
-Atualmente participo do programa **FlyRank AI Internship**, onde desenvolvo projetos reais, estudo IA aplicada ao front‑end e evoluo minhas habilidades técnicas e profissionais.
+Se você atua em tecnologia ou conhece oportunidades de estágio, ficarei feliz em me conectar e trocar experiências.
 
----
+## 🛠️ Competências
+- **Linguagens:** Python, SQL, Java
+- **Ferramentas:** Git & GitHub, VS Code, IA Generativa
 
-## 🛠️ Tecnologias & Ferramentas
+--- 
+### 📄 Currículo Completo Atualizado
+[👉 Visualizar PDF](./curriculo_fabiano.pdf)
 
-**Linguagens:**  
-HTML • CSS • JavaScript • Python • Java • SQL
-
-**Ferramentas:**  
-Git • GitHub • VS Code • IntelliJ • Astah UML • SQLite
-
-**Conceitos:**  
-CRUD • JDBC • DAO • UML • Responsividade • Versionamento • Boas práticas
-
----
-
-## 📌 Projetos em Destaque
-
-### 🔐 **Password Manager — Python + SQLite**  
-Gerenciador de senhas com CRUD completo e persistência local.  
-➡️ https://github.com/FabianoResende/password-manager-python-sql
-
-### 🌐 **Landing Page — HTML, CSS & JS**  
-Página moderna, responsiva e publicada no GitHub Pages.  
-➡️ https://github.com/FabianoResende/landing-page-html-css-js
-
-### ☕ **Java CRUD — JDBC + SQLite**  
-Aplicação Java com arquitetura DAO e operações completas de CRUD.  
-➡️ https://github.com/FabianoResende/java-sql-crud-jdbc
-
-### 🧩 **Diagramas UML — Astah**  
-Modelagem profissional com diagramas de classes, casos de uso, sequência e atividades.  
-➡️ https://github.com/FabianoResende/uml-diagrams-astah
-
----
-
-## 📈 Estatísticas do GitHub
-
-<div align="center">
-  
-![Fabiano GitHub Stats](https://github-readme-stats.vercel.app/api?username=FabianoResende&show_icons=true&theme=tokyonight&hide_border=true)
-
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=FabianoResende&layout=compact&theme=tokyonight&hide_border=true)
-
-</div>
-
----
-
-## 📫 Como me encontrar
-
-📌 **GitHub:** https://github.com/FabianoResende  
-📌 **LinkedIn:** https://www.linkedin.com/in/fabianofr/  
-
----
-
-## 🚀 Em evolução constante
-
-> “Pequenos passos diários constroem resultados extraordinários.”
-
-Estou construindo meu portfólio com dedicação, disciplina e foco — um passo de cada vez, sempre evoluindo.
-
+*Nota: Atualizado via Automação.*
