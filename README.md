@@ -1,6 +1,6 @@
 # 👋 Olá! Eu sou o Fabiano Faria de Resende
 
-🎓 Estagiário de **Engenharia de IA Front‑end — FlyRank (Jul/2026)**  
+🎓 Estagiário de **Engenharia de IA — FlyRank**  
 💻 Desenvolvedor em evolução constante  
 🚀 Apaixonado por tecnologia, IA, front‑end e boas práticas de engenharia  
 
