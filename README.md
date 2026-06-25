@@ -1,14 +1,14 @@
 # 👋 Olá! Eu sou o Fabiano Faria de Resende
 
 🎓 **Estagiário de Engenharia de IA — FlyRank**  
-💻 **Desenvolvedor em evolução constante**  
+💻 Desenvolvedor em evolução constante  
 🚀 Apaixonado por **IA aplicada**, **automação**, **front‑end** e **boas práticas de engenharia**
 
 ---
 
 ## 🌟 Sobre mim
 
-Sou um desenvolvedor em formação, construindo uma base sólida em:
+Sou estudante de Sistemas de Informação e desenvolvedor em formação, construindo uma base sólida em:
 
 - **Desenvolvimento Web** (HTML, CSS, JavaScript)  
 - **Python e automações**  
@@ -20,9 +20,9 @@ Atualmente atuo como **Estagiário de Engenharia de IA na FlyRank**, onde desenv
 
 - IA aplicada ao front‑end  
 - automação com modelos generativos  
-- consumo de APIs  
-- boas práticas de engenharia  
+- consumo e integração de APIs  
 - desafios semanais e trilhas técnicas  
+- boas práticas de engenharia  
 
 ---
 
@@ -71,7 +71,6 @@ Modelagem profissional com diagramas de classes, casos de uso, sequência e ativ
 
 </div>
 
-
 ---
 
 ## 📫 Como me encontrar
@@ -84,4 +83,4 @@ Modelagem profissional com diagramas de classes, casos de uso, sequência e ativ
 ## 🚀 Em evolução constante
 
 > “Pequenos passos diários constroem resultados extraordinários.”  
-Estou construindo meu portfólio com dedicação, disciplina e foco — um passo de cada vez, sempre evoluindo.
+Sempre aprendendo, sempre evoluindo, sempre construindo.
