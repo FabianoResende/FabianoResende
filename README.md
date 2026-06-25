@@ -61,7 +61,16 @@ Modelagem profissional com diagramas de classes, casos de uso, sequência e ativ
 
 ## 📈 Estatísticas do GitHub
 
-> *As estatísticas aparecerão automaticamente quando você ativar o GitHub Stats no seu perfil.*
+<div align="center">
+
+![Fabiano GitHub stats](https://github-readme-stats.vercel.app/api?username=FabianoResende&show_icons=true&theme=tokyonight)
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=FabianoResende&layout=compact&theme=tokyonight)
+
+![GitHub Streak](https://streak-stats.demolab.com/?user=FabianoResende&theme=tokyonight)
+
+</div>
+
 
 ---
 
