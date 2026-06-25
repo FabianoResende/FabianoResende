@@ -14,7 +14,7 @@ Sou um desenvolvedor em formação, focado em construir uma base sólida em:
 - **Python e automações**  
 - **Java + SQL (CRUD, JDBC, DAO)**  
 - **Engenharia de Software (UML, arquitetura, boas práticas)**  
-- **Git e GitHub profissional**  
+- **Git e GitHub**  
 
 Atualmente participo do programa **FlyRank AI Internship**, onde desenvolvo projetos reais, estudo IA aplicada ao front‑end e evoluo minhas habilidades técnicas e profissionais.
 
