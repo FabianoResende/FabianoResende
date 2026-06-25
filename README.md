@@ -59,7 +59,8 @@ Modelagem profissional com diagramas de classes, casos de uso, sequência e ativ
 
 ---
 
-## 📈 Estatísticas do GitHub
+## 📊 Minhas Estatísticas no GitHub
+
 
 <div align="center">
 
