@@ -1,4 +1,4 @@
-# 👋 Olá! Eu sou o Fabiano Faria de Resende
+# 👋 Olá! Eu sou Fabiano Faria de Resende
 
 🎓 **Estagiário de Engenharia de IA — FlyRank**  
 💻 Desenvolvedor em evolução constante  
