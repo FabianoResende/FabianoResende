@@ -1,16 +1,75 @@
 {
   "nome": "Fabiano Faria de Resende",
+  "titulo": "Estagiário de Engenharia de IA Front-end",
   "cargo": "Estudante de Sistemas de Informação (4º período)",
-  "objetivo": "Estágio em desenvolvimento, suporte técnico ou análise.",
-  "foco": "Desenvolvimento | Automação | Análise de Dados",
+  "foco": "Desenvolvimento Front-end | IA Aplicada | Automação | Análise de Dados",
+
   "contato": {
-    "email": "E-mail: fabianofariaderesende@gmail.com",
+    "email": "fabianofariaderesende@gmail.com",
     "cidade": "São Gonçalo - RJ",
     "linkedin": "https://www.linkedin.com/in/fabianofr",
     "github": "https://github.com/FabianoResende",
     "site": "https://fabianoresende.github.io/landing-page-html-css-js/"
   },
-  "sobre": "Sou estudante de Sistemas de Informação (4º período) e estou em transição de carreira para a área de Tecnologia. Aos 50 anos, trago responsabilidade e visão analítica desenvolvidas ao longo de mais de uma década em funções administrativas, financeiras e operacionais - competências que hoje aplico nos meus estudos e projetos em TI.\n\nAtualmente foco meu desenvolvimento em programação, dados e automação, utilizando Python, SQL, HTML/CSS/JavaScript, Git/GitHub e ferramentas de Inteligência Artificial para aprendizado, estruturar projetos e otimizar código. Recentemente desenvolvi um projeto de automação em Python para geração de documentos PDF, aplicando conceitos práticos com apoio de IAs generativas.\n\nBusco uma oportunidade de estágio em TI onde eu possa unir minha experiência profissional, minha disciplina e minha evolução técnica para contribuir com projetos reais e crescer junto com a equipe.\nSe você atua em tecnologia ou conhece oportunidades de estágio, ficarei feliz em me conectar e trocar experiências.",
+
+  "objetivo": "Oportunidade de estágio em desenvolvimento ou engenharia de IA, aplicando minha experiência profissional, disciplina e evolução técnica em projetos reais.",
+
+  "sobre": "Sou estudante de Sistemas de Informação e estou em transição de carreira para Tecnologia, com foco em Desenvolvimento Front-end e Inteligência Artificial aplicada. Aos 50 anos, trago responsabilidade, disciplina e visão analítica desenvolvidas ao longo de mais de uma década em funções administrativas e operacionais — competências que hoje aplico nos meus estudos e projetos em TI. Atualmente desenvolvo projetos com HTML, CSS, JavaScript, Python, SQL, Git/GitHub, automação com IA e integração de APIs. Atuo como Estagiário de Engenharia de IA Front-end na FlyRank, onde construo soluções reais integrando modelos generativos, Next.js, TypeScript e boas práticas de engenharia. Busco oportunidades para aplicar meus conhecimentos, evoluir tecnicamente e contribuir com equipes de tecnologia.",
+
+  "competencias": {
+    "linguagens": ["HTML", "CSS", "JavaScript", "Python", "Java", "SQL"],
+    "ferramentas": ["Git & GitHub", "VS Code", "IntelliJ", "Astah UML", "IA Generativa", "GitHub Actions"],
+    "sistemas": ["Windows", "Linux"],
+    "banco_de_dados": ["SQLite"],
+    "conceitos": ["CRUD", "JDBC", "DAO", "UML", "APIs", "Responsividade", "Versionamento", "Boas práticas de engenharia"]
+  },
+
+  "experiencia": [
+    {
+      "empresa": "FlyRank AI",
+      "cargo": "Estagiário de Engenharia de IA Front-end",
+      "periodo": "jul de 2026 - o momento",
+      "resumo": "Desenvolvimento de projetos reais integrando JavaScript, Next.js, TypeScript, APIs e modelos de IA. Construção do capstone FE-04, incluindo rotas estruturadas, endpoint /health e deploy no Vercel. Implementação de automações com modelos generativos, integração de APIs e boas práticas de engenharia. Projetos desenvolvidos: Capstone FE-04, Pipeline FL-04, Chatbot IA Frontend, Password Manager Python + SQL, Landing Page HTML/CSS/JS."
+    },
+    {
+      "empresa": "Indigo Estacionamento (Niterói/RJ)",
+      "cargo": "Assistente Administrativo Financeiro",
+      "periodo": "nov de 2016 - nov de 2019",
+      "resumo": "Atuação nas áreas operacional, administrativa e financeira, suporte técnico e controle de sistemas. Responsável pelo acompanhamento diário dos sistemas WA e WPS, suporte técnico nível 1 em terminais PERTO TPC 4110, abastecimento e recolhimento de numerário, faturamento diário e prestação de contas via planilhas e e-mail. Desenvolvimento de habilidades de atendimento, organização, análise de dados operacionais e resolução de problemas — base importante para minha transição para Tecnologia."
+    }
+  ],
+
+  "projetos": [
+    {
+      "nome": "Capstone FE-04 — Plataforma de Suporte Técnico com IA",
+      "descricao": "Next.js, TypeScript, Claude Code, Vercel. Rotas estruturadas, endpoint /health, integração de IA e deploy funcional."
+    },
+    {
+      "nome": "Pipeline FL-04 — Notas de Estudo Baseadas em Fontes",
+      "descricao": "NotebookLM + Claude. Redução de ~3h por ciclo, 5 execuções reais."
+    },
+    {
+      "nome": "Chatbot IA Frontend",
+      "descricao": "HTML, CSS, JS. Integração com API de IA."
+    },
+    {
+      "nome": "Password Manager Python + SQL",
+      "descricao": "Python + SQLite. CRUD seguro e armazenamento criptografado."
+    },
+    {
+      "nome": "Landing Page HTML/CSS/JS",
+      "descricao": "Página moderna, responsiva e publicada no GitHub Pages."
+    },
+    {
+      "nome": "Java CRUD — JDBC + SQLite",
+      "descricao": "Aplicação Java com arquitetura DAO e operações completas de CRUD."
+    },
+    {
+      "nome": "Diagramas UML — Astah",
+      "descricao": "Modelagem profissional com diagramas de classes, casos de uso, sequência e atividades."
+    }
+  ],
+
   "educacao": [
     {
       "instituicao": "Universidade Estácio",
@@ -18,23 +77,19 @@
       "periodo": "2024 - Cursando"
     }
   ],
-  "competencias": {
-    "linguagens": ["Python", "SQL", "Java"],
-    "ferramentas": ["Git & GitHub", "VS Code", "IA Generativa"]
-  },
-  "experiencia": [
-    {
-      "empresa": "Indigo Estacionamento (Niterói/RJ)",
-      "cargo": "Assistente Administrativo Financeiro",
-      "periodo": "nov de 2016 - nov de 2019 (3 anos)",
-      "resumo": "Atuação nas áreas operacional, administrativa e financeira, suporte técnico e controle de sistemas. Responsável pelo acompanhamento diário dos sistemas WA e WPS, suporte técnico nível 1 em terminais PERTO TPC 4110, abastecimento e recolhimento de numerário, faturamento diário e prestação de contas via planilhas e e-mail. Realização de rotinas de tesouraria, controle de caixa, conferência de pagamentos, organização de documentos e registro/análise de ocorrências operacionais. Desenvolvimento de habilidades de atendimento, organização e suporte técnico. Foi nessa função que desenvolvi minhas primeiras habilidades técnicas, incluindo suporte a sistemas, análise de dados operacionais e resolução de problemas - base importante para minha transição para a área de Tecnologia e Engenharia de IA Front-end."
-    }
-  ],
+
   "certificados": [
     {
       "nome": "Certificados de Cursos (Pasta Completa)",
       "instituicao": "Diversas Instituições",
       "link": "https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM?usp=sharing"
     }
-  ]
+  ],
+
+  "links": {
+    "github": "https://github.com/FabianoResende",
+    "linkedin": "https://www.linkedin.com/in/fabianofr",
+    "portfolio": "https://fabianoresende.github.io/landing-page-html-css-js/",
+    "pdf": "./curriculo_fabiano.pdf"
+  }
 }
