@@ -1,207 +1,92 @@
 import json
-import os
-import sys
-import unicodedata
-import urllib.request
 from fpdf import FPDF
-
-FONT_FILENAME = "DejaVuSans.ttf"
-FONT_URL = "https://github.com/dejavu-fonts/dejavu-fonts/raw/master/ttf/DejaVuSans.ttf"
-
-def baixar_fonte_se_necessario():
-    if os.path.isfile(FONT_FILENAME):
-        return True
-    try:
-        urllib.request.urlretrieve(FONT_URL, FONT_FILENAME)
-        return True
-    except Exception as e:
-        print(f"Aviso: falha ao baixar fonte: {e}")
-        return False
 
 def carregar_dados():
     with open("dados_curriculo.json", "r", encoding="utf-8") as f:
         return json.load(f)
 
-def limpar_email(email_raw):
-    if not isinstance(email_raw, str):
-        return ""
-    return email_raw.replace("E-mail:", "").strip()
-
-def ascii_fallback(text):
-    if not isinstance(text, str):
-        return str(text)
-    nfkd = unicodedata.normalize("NFKD", text)
-    ascii_text = nfkd.encode("ascii", "ignore").decode("ascii")
-    ascii_text = ascii_text.replace("–", "-").replace("—", "-").replace("…", "...")
-    return ascii_text
-
 class PDF(FPDF):
-    def registrar_fonte(self):
-        try:
-            self.add_font("DejaVu", "", FONT_FILENAME, uni=True)
-            return True
-        except Exception as e:
-            print(f"Aviso: não foi possível registrar fonte Unicode: {e}")
-            return False
-
-    def header_curriculo(self, dados, fonte_disponivel=True):
-        if fonte_disponivel:
-            fonte_disponivel = self.registrar_fonte()
-
-        if fonte_disponivel:
-            self.set_font("DejaVu", "B", 18)
-        else:
-            self.set_font("Helvetica", "B", 18)
-
-        nome = dados.get("nome", "")
-        self.cell(0, 10, nome, ln=1, align="C")
-
-        contato = dados.get("contato", {})
-        email_raw = contato.get("email", "")
-        email = limpar_email(email_raw)
-        linkedin_link = contato.get("linkedin", "")
-        github_link = contato.get("github", "")
-        site_link = contato.get("site", "")
-
-        linkedin_display = "LinkedIn: /fabianofr"
-        github_display = "GitHub: /FabianoResende"
-        site_display = "Site: /FabianoResende Web"
-        email_display = f"E-mail: {email}"
-
-        if not fonte_disponivel:
-            email_display = ascii_fallback(email_display)
-            linkedin_display = ascii_fallback(linkedin_display)
-            github_display = ascii_fallback(github_display)
-            site_display = ascii_fallback(site_display)
-
-        try:
-            if fonte_disponivel:
-                self.set_font("DejaVu", "", 10)
-                self.set_text_color(0, 0, 255)
-            else:
-                self.set_font("Helvetica", "", 10)
-                self.set_text_color(0, 0, 0)
-
-            self.cell(0, 6, email_display, ln=1, align="C", link=f"mailto:{email}")
-            self.cell(0, 6, linkedin_display, ln=1, align="C", link=linkedin_link)
-            self.cell(0, 6, github_display, ln=1, align="C", link=github_link)
-            self.cell(0, 6, site_display, ln=1, align="C", link=site_link)
-        except Exception:
-            self.set_text_color(0, 0, 0)
-            self.cell(0, 6, email_display, ln=1, align="C")
-            self.cell(0, 6, linkedin_display, ln=1, align="C")
-            self.cell(0, 6, github_display, ln=1, align="C")
-            self.cell(0, 6, site_display, ln=1, align="C")
-
+    def header_curriculo(self, dados):
+        self.set_font("Arial", "B", 18)
+        self.cell(0, 10, dados["nome"], ln=True, align="C")
+        self.set_font("Arial", "", 10)
+        self.set_text_color(0, 0, 255)
+        self.cell(0, 6, "E-mail: fabianofariaderesende@gmail.com", dados["contato"]["email"], ln=True, align="C", link=f"mailto:{dados['contato']['email']}")
+        self.cell(0, 6, "LinkedIn: /fabianofr", ln=True, align="C", link=dados["contato"]["linkedin"])
+        self.cell(0, 6, "GitHub: /FabianoResende", ln=True, align="C", link=dados["contato"]["github"])
+        self.cell(0, 6, "Site: /FabianoResende Web", ln=True, align="C", link=dados["contato"]["site"])
         self.set_text_color(0, 0, 0)
-        if fonte_disponivel:
-            self.set_font("DejaVu", "B", 11)
-        else:
-            self.set_font("Helvetica", "B", 11)
-        cargo = dados.get("cargo", "")
-        foco = dados.get("foco", "")
-        self.cell(0, 6, f"{cargo} | {foco}", ln=1, align="C")
-
-        if fonte_disponivel:
-            self.set_font("DejaVu", "", 10)
-        else:
-            self.set_font("Helvetica", "", 10)
-        cidade = dados.get("contato", {}).get("cidade", "")
-        if not fonte_disponivel:
-            cidade = ascii_fallback(cidade)
-        self.cell(0, 6, cidade, ln=1, align="C")
+        self.set_font("Arial", "B", 11)
+        self.cell(0, 6, f"{dados['cargo']} | {dados['foco']}", ln=True, align="C")
+        self.set_font("Arial", "", 10)
+        self.cell(0, 6, dados["contato"]["cidade"], ln=True, align="C")
         self.ln(5)
 
-    def secao_titulo(self, texto, fonte_disponivel=True):
-        if fonte_disponivel:
-            self.set_font("DejaVu", "B", 12)
-        else:
-            self.set_font("Helvetica", "B", 12)
+    def secao_titulo(self, texto):
+        self.set_font("Arial", "B", 12)
         self.set_fill_color(230, 230, 230)
-        self.cell(0, 8, f"  {texto}", ln=1, fill=True)
+        self.cell(0, 8, f"  {texto}", ln=True, fill=True)
         self.ln(2)
 
 def gerar_pdf(dados):
-    fonte_ok = baixar_fonte_se_necessario()
     pdf = PDF()
     pdf.set_auto_page_break(auto=True, margin=15)
     pdf.add_page()
-    pdf.header_curriculo(dados, fonte_disponivel=fonte_ok)
+    pdf.header_curriculo(dados)
 
     sections = [
-        ("Objetivo", dados.get("objetivo", "")),
-        ("Resumo Profissional", dados.get("sobre", ""))
+        ("Objetivo", dados["objetivo"]),
+        ("Resumo Profissional", dados["sobre"])
     ]
 
     for title, content in sections:
-        pdf.secao_titulo(title, fonte_disponivel=fonte_ok)
-        if fonte_ok:
-            pdf.set_font("DejaVu", "", 11)
-            pdf.multi_cell(0, 6, content)
-        else:
-            pdf.set_font("Helvetica", "", 11)
-            pdf.multi_cell(0, 6, ascii_fallback(content))
+        pdf.secao_titulo(title)
+        pdf.set_font("Arial", "", 11)
+        pdf.multi_cell(0, 6, content)
         pdf.ln(4)
 
-    pdf.secao_titulo("Formação Acadêmica", fonte_disponivel=fonte_ok)
-    for ed in dados.get("educacao", []):
-        linha = f"{ed.get('curso','')} - {ed.get('instituicao','')} ({ed.get('periodo','')})"
-        if not fonte_ok:
-            linha = ascii_fallback(linha)
-        pdf.set_font("DejaVu", "B", 11) if fonte_ok else pdf.set_font("Helvetica", "B", 11)
-        pdf.cell(0, 6, linha, ln=1)
+    pdf.secao_titulo("Formação Acadêmica")
+    for ed in dados["educacao"]:
+        pdf.set_font("Arial", "B", 11)
+        pdf.cell(0, 6, f"{ed['curso']} - {ed['instituicao']} ({ed['periodo']})", ln=True)
     pdf.ln(4)
 
-    pdf.secao_titulo("Experiência Profissional", fonte_disponivel=fonte_ok)
-    for exp in dados.get("experiencia", []):
-        cargo_empresa = f"{exp.get('cargo','')} - {exp.get('empresa','')}"
-        periodo = exp.get('periodo','')
-        resumo = exp.get('resumo','')
-        if not fonte_ok:
-            cargo_empresa = ascii_fallback(cargo_empresa)
-            periodo = ascii_fallback(periodo)
-            resumo = ascii_fallback(resumo)
-        pdf.set_font("DejaVu", "B", 11) if fonte_ok else pdf.set_font("Helvetica", "B", 11)
-        pdf.cell(0, 6, cargo_empresa, ln=1)
-        pdf.set_font("DejaVu", "I", 10) if fonte_ok else pdf.set_font("Helvetica", "I", 10)
-        pdf.cell(0, 6, periodo, ln=1)
-        pdf.set_font("DejaVu", "", 10) if fonte_ok else pdf.set_font("Helvetica", "", 10)
-        pdf.multi_cell(0, 5, resumo)
+    pdf.secao_titulo("Experiência Profissional")
+    for exp in dados["experiencia"]:
+        pdf.set_font("Arial", "B", 11)
+        pdf.cell(0, 6, f"{exp['cargo']} - {exp['empresa']}", ln=True)
+        pdf.set_font("Arial", "I", 10)
+        pdf.cell(0, 6, exp["periodo"], ln=True)
+        pdf.set_font("Arial", "", 10)
+        pdf.multi_cell(0, 5, exp["resumo"])
         pdf.ln(3)
 
-    pdf.secao_titulo("Certificados e Cursos", fonte_disponivel=fonte_ok)
-    for cert in dados.get("certificados", []):
-        nome = cert.get("nome","")
-        instituicao = cert.get("instituicao","")
-        link = cert.get("link","")
-        if not fonte_ok:
-            linha = ascii_fallback(f"{nome} - {instituicao} {link}")
-            pdf.set_font("Helvetica", "", 11)
-            pdf.multi_cell(0, 6, linha)
-        else:
-            pdf.set_font("DejaVu", "", 11)
-            pdf.write(6, f"{nome} - {instituicao} ")
-            pdf.set_text_color(0, 0, 255)
-            try:
-                pdf.set_font("DejaVu", "U", 11)
-                pdf.write(6, "[Acesse a pasta aqui]", link)
-            except Exception:
-                pdf.write(6, link)
-            pdf.set_text_color(0, 0, 0)
+    pdf.secao_titulo("Certificados e Cursos")
+    for cert in dados["certificados"]:
+        pdf.set_font("Arial", "", 11)
+        pdf.write(6, f"{cert['nome']} - {cert['instituicao']} ")
+        pdf.set_text_color(0, 0, 255)
+        pdf.set_font("Arial", "U", 11)
+        pdf.write(6, "[Acesse a pasta aqui]", cert["link"])
+        pdf.set_text_color(0, 0, 0)
         pdf.ln(8)
 
-    output_file = "curriculo_fabiano.pdf"
-    pdf.output(output_file)
-    print(f"PDF gerado: {output_file}")
+    pdf.output("curriculo_fabiano.pdf")
+
+def atualizar_readme(dados):
+    with open("README.md", "w", encoding="utf-8") as f:
+        f.write(f"# {dados['nome']} 👋\n\n")
+        f.write(f"### {dados['cargo']}\n\n")
+        f.write("![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ")
+        f.write("![SQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) ")
+        f.write("![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)\n\n")
+        f.write(f"## 🚀 Sobre\n{dados['sobre']}\n\n")
+        f.write(f"## 🛠️ Competências\n- **Linguagens:** {', '.join(dados['competencias']['linguagens'])}\n")
+        f.write(f"- **Ferramentas:** {', '.join(dados['competencias']['ferramentas'])}\n\n")
+        f.write(f"--- \n### 📄 Currículo Completo Atualizado\n[👉 Visualizar PDF](./curriculo_fabiano.pdf)\n\n")
+        f.write(f"*Nota: Atualizado via Automação.*")
 
 if __name__ == "__main__":
-    try:
-        info = carregar_dados()
-    except Exception as e:
-        print(f"Erro ao carregar dados_curriculo.json: {e}")
-        sys.exit(1)
-    try:
-        gerar_pdf(info)
-    except Exception as e:
-        print(f"Erro ao gerar PDF: {e}")
-        sys.exit(1)
+    info = carregar_dados()
+    gerar_pdf(info)
+    atualizar_readme(info)
