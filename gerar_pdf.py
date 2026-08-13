@@ -56,7 +56,6 @@ class PDF(FPDF):
         nome = dados.get("nome", "")
         self.cell(0, 10, nome, ln=1, align="C")
 
-        # Preparar contato
         contato = dados.get("contato", {})
         email_raw = contato.get("email", "")
         email = limpar_email(email_raw)
@@ -64,7 +63,6 @@ class PDF(FPDF):
         github_link = contato.get("github", "")
         site_link = contato.get("site", "")
 
-        # Exibição conforme PDF "Antes" (rótulos curtos)
         linkedin_display = "LinkedIn: /fabianofr"
         github_display = "GitHub: /FabianoResende"
         site_display = "Site: /FabianoResende Web"
@@ -76,7 +74,6 @@ class PDF(FPDF):
             github_display = ascii_fallback(github_display)
             site_display = ascii_fallback(site_display)
 
-        # Cabeçalho com links (se possível)
         try:
             if fonte_disponivel:
                 self.set_font("DejaVu", "", 10)
@@ -85,21 +82,17 @@ class PDF(FPDF):
                 self.set_font("Helvetica", "", 10)
                 self.set_text_color(0, 0, 0)
 
-            # E-mail com mailto
             self.cell(0, 6, email_display, ln=1, align="C", link=f"mailto:{email}")
-            # rótulos curtos com links reais
             self.cell(0, 6, linkedin_display, ln=1, align="C", link=linkedin_link)
             self.cell(0, 6, github_display, ln=1, align="C", link=github_link)
             self.cell(0, 6, site_display, ln=1, align="C", link=site_link)
         except Exception:
-            # fallback sem links
             self.set_text_color(0, 0, 0)
             self.cell(0, 6, email_display, ln=1, align="C")
             self.cell(0, 6, linkedin_display, ln=1, align="C")
             self.cell(0, 6, github_display, ln=1, align="C")
             self.cell(0, 6, site_display, ln=1, align="C")
 
-        # Cargo | Foco
         self.set_text_color(0, 0, 0)
         if fonte_disponivel:
             self.set_font("DejaVu", "B", 11)
@@ -109,7 +102,6 @@ class PDF(FPDF):
         foco = dados.get("foco", "")
         self.cell(0, 6, f"{cargo} | {foco}", ln=1, align="C")
 
-        # Cidade
         if fonte_disponivel:
             self.set_font("DejaVu", "", 10)
         else:
