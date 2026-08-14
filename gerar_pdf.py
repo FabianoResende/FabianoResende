@@ -90,3 +90,4 @@ def gerar_pdf(dados):
 
 if __name__ == "__main__":
     gerar_pdf(carregar_dados())
+    
