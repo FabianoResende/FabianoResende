@@ -7,11 +7,11 @@ def carregar_dados():
 
 class PDF(FPDF):
     def header_curriculo(self, dados):
-        # Fonte padrão (core) - Helvetica
+        # Título
         self.set_font("Helvetica", "B", 18)
         self.cell(0, 10, dados["nome"], new_x="LMARGIN", new_y="NEXT", align="C")
 
-        # Contatos
+        # Contatos com links
         self.set_font("Helvetica", "", 10)
         self.set_text_color(0, 0, 255)
 
@@ -48,22 +48,22 @@ class PDF(FPDF):
         self.cell(
             0,
             6,
-            f"Portfólio: {dados['contato']['site']}",
+            f"Site: {dados['contato']['site']}",
             new_x="LMARGIN",
             new_y="NEXT",
             align="C",
             link=dados["contato"]["site"]
         )
 
-        # Reset cor
+        # Reset de cor
         self.set_text_color(0, 0, 0)
 
-        # Cargo
+        # Cargo + foco
         self.set_font("Helvetica", "B", 11)
         self.cell(
             0,
             6,
-            dados["cargo"],
+            f"{dados['cargo']} | {dados['foco']}",
             new_x="LMARGIN",
             new_y="NEXT",
             align="C"
@@ -92,22 +92,35 @@ def gerar_pdf(dados):
     pdf = PDF()
     pdf.set_auto_page_break(auto=True, margin=15)
     pdf.add_page()
-
     pdf.header_curriculo(dados)
 
-    # OBJETIVO
-    pdf.secao_titulo("OBJETIVO")
-    pdf.set_font("Helvetica", "", 11)
-    pdf.multi_cell(0, 6, dados["objetivo"])
+    # Objetivo e resumo
+    sections = [
+        ("Objetivo", dados["objetivo"]),
+        ("Resumo Profissional", dados["sobre"])
+    ]
+
+    for title, content in sections:
+        pdf.secao_titulo(title)
+        pdf.set_font("Helvetica", "", 11)
+        pdf.multi_cell(0, 6, content)
+        pdf.ln(4)
+
+    # Formação
+    pdf.secao_titulo("Formação Acadêmica")
+    for ed in dados["educacao"]:
+        pdf.set_font("Helvetica", "B", 11)
+        pdf.cell(
+            0,
+            6,
+            f"{ed['curso']} - {ed['instituicao']} ({ed['periodo']})",
+            new_x="LMARGIN",
+            new_y="NEXT"
+        )
     pdf.ln(4)
 
-    # PERFIL
-    pdf.secao_titulo("PERFIL")
-    pdf.multi_cell(0, 6, dados["sobre"])
-    pdf.ln(4)
-
-    # EXPERIÊNCIA
-    pdf.secao_titulo("EXPERIÊNCIA")
+    # Experiência
+    pdf.secao_titulo("Experiência Profissional")
     for exp in dados["experiencia"]:
         pdf.set_font("Helvetica", "B", 11)
         pdf.cell(
@@ -129,30 +142,11 @@ def gerar_pdf(dados):
         pdf.multi_cell(0, 5, exp["resumo"])
         pdf.ln(3)
 
-    # COMPETÊNCIAS
-    pdf.secao_titulo("COMPETÊNCIAS TÉCNICAS")
-    comp = dados["competencias"]
-    pdf.multi_cell(0, 6, "Front-end: " + ", ".join(comp["front_end"]))
-    pdf.multi_cell(0, 6, "Dados & Back-end: " + ", ".join(comp["dados_back_end"]))
-    pdf.multi_cell(0, 6, "IA Aplicada: " + ", ".join(comp["ia_aplicada"]))
-    pdf.multi_cell(0, 6, "Ferramentas: " + ", ".join(comp["ferramentas"]))
-    pdf.ln(4)
-
-    # FORMAÇÃO
-    pdf.secao_titulo("FORMAÇÃO")
-    for form in dados["formacao"]:
-        pdf.multi_cell(
-            0,
-            6,
-            f"{form['curso']} - {form['instituicao']} ({form['periodo']})"
-        )
-    pdf.ln(3)
-
-    # CERTIFICADOS
-    pdf.secao_titulo("CERTIFICAÇÕES & FORMAÇÃO COMPLEMENTAR")
+    # Certificados
+    pdf.secao_titulo("Certificados e Cursos")
     for cert in dados["certificados"]:
         pdf.set_font("Helvetica", "", 11)
-        pdf.write(6, cert["nome"] + " ")
+        pdf.write(6, f"{cert['nome']} - {cert['instituicao']} ")
         pdf.set_text_color(0, 0, 255)
         pdf.set_font("Helvetica", "U", 11)
         pdf.write(6, "[Acesse a pasta aqui]", cert["link"])
@@ -161,6 +155,21 @@ def gerar_pdf(dados):
 
     pdf.output("curriculo_fabiano.pdf")
 
+def atualizar_readme(dados):
+    with open("README.md", "w", encoding="utf-8") as f:
+        f.write(f"# {dados['nome']} 👋\n\n")
+        f.write(f"### {dados['cargo']}\n\n")
+        f.write("![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ")
+        f.write("![SQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) ")
+        f.write("![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)\n\n")
+        f.write(f"## 🚀 Sobre\n{dados['sobre']}\n\n")
+        f.write(f"## 🛠️ Competências\n- **Linguagens:** {', '.join(dados['competencias']['linguagens'])}\n")
+        f.write(f"- **Ferramentas:** {', '.join(dados['competencias']['ferramentas'])}\n\n")
+        f.write(f"--- \n### 📄 Currículo Completo Atualizado\n[👉 Visualizar PDF](./curriculo_fabiano.pdf)\n\n")
+        f.write(f"*Nota: Atualizado via Automação.*")
+
 if __name__ == "__main__":
     info = carregar_dados()
     gerar_pdf(info)
+    atualizar_readme(info)
+
