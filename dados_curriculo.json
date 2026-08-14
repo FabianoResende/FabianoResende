@@ -1,40 +1,55 @@
 {
   "nome": "Fabiano Faria de Resende",
-  "cargo": "Estudante de Sistemas de Informação (4º período)",
-  "objetivo": "Estágio em desenvolvimento, suporte técnico ou análise.",
-  "foco": "Desenvolvimento | Automação | Análise de Dados",
+  "cargo": "Estagiário de Engenharia Front-end com IA",
+  "objetivo": "Atuar como Desenvolvedor Front-end com Inteligência Artificial aplicada, contribuindo em projetos que integrem JavaScript, TypeScript, React/Next.js, APIs e modelos de IA, com foco em qualidade de código, experiência do usuário e automação de processos.",
   "contato": {
     "email": "fabianofariaderesende@gmail.com",
-    "cidade": "São Gonçalo - RJ",
+    "cidade": "São Gonçalo, RJ, Brasil",
     "linkedin": "https://www.linkedin.com/in/fabianofr",
     "github": "https://github.com/FabianoResende",
-    "site": "https://fabianoresende.github.io/landing-page-html-css-js/"
+    "portfolio": "https://fabianoresende.github.io/landing-page-html-css-js/"
   },
-  "sobre": "Sou estudante de Sistemas de Informação (4º período) e estou em transição de carreira para a área de Tecnologia. Aos 50 anos, trago responsabilidade e visão analítica desenvolvidas ao longo de mais de uma década em funções administrativas, financeiras e operacionais - competências que hoje aplico nos meus estudos e projetos em TI.\n\nAtualmente foco meu desenvolvimento em programação, dados e automação, utilizando Python, SQL, HTML/CSS/JavaScript, Git/GitHub e ferramentas de Inteligência Artificial para aprendizado, estruturar projetos e otimizar código. Recentemente desenvolvi um projeto de automação em Python para geração de documentos PDF, aplicando conceitos práticos com apoio de IAs generativas.\n\nBusco uma oportunidade de estágio em TI onde eu possa unir minha experiência profissional, minha disciplina e minha evolução técnica para contribuir com projetos reais e crescer junto com a equipe.\nSe você atua em tecnologia ou conhece oportunidades de estágio, ficarei feliz em me conectar e trocar experiências.",
-  "educacao": [
+  "perfil": "Sou estudante de Sistemas de Informação em transição para a área de Tecnologia, com foco em Desenvolvimento Front-end e Inteligência Artificial Aplicada. Fui selecionado para a turma de estágio de julho de 2026 da FlyRank, na trilha de Engenharia Front-end com IA, onde desenvolvo projetos reais que integram JavaScript, APIs e modelos de IA. Trago mais de uma década de experiência administrativa e operacional, com forte disciplina, responsabilidade e pensamento analítico. Atualmente pratico HTML, CSS, JavaScript, Python, SQL, Git/GitHub, automação com IA e integração de APIs.",
+  "experiencia": [
     {
-      "instituicao": "Universidade Estácio",
-      "curso": "Bacharelado em Sistemas de Informação",
-      "periodo": "2024 - Cursando"
+      "empresa": "FlyRank AI",
+      "cargo": "Estagiário de Engenharia Front-end com IA",
+      "periodo": "Jul 2026 – Atual",
+      "local": "Remoto | São Gonçalo, RJ",
+      "atividades": [
+        "Trilha de Engenharia Front-end com IA voltada a projetos práticos que integram tecnologias web, APIs e ferramentas de IA.",
+        "Capstone FE-04 — Plataforma de Suporte Técnico com IA: Next.js, TypeScript e Claude Code; publicada na Vercel com rotas estruturadas e endpoint /health.",
+        "FL-04 Study Notes Pipeline: NotebookLM + Claude; cerca de 3 horas economizadas por ciclo em 5 execuções reais.",
+        "Chatbot Front-end com IA: HTML, CSS e JavaScript com integração de API de IA.",
+        "Gerenciador de Senhas: Python + SQLite com operações CRUD e armazenamento criptografado.",
+        "Landing Page Responsiva: HTML, CSS e JavaScript."
+      ]
+    },
+    {
+      "empresa": "Indigo Estacionamento",
+      "cargo": "Assistente Administrativo Financeiro",
+      "periodo": "Nov 2016 – Nov 2019",
+      "local": "Niterói, RJ",
+      "resumo": "Atuei em rotinas operacionais, administrativas e financeiras, incluindo monitoramento diário dos sistemas WA e WPS, suporte técnico de nível 1 aos terminais PERTO TPC 4110, manuseio de numerário, faturamento diário, relatórios em planilhas, rotinas de tesouraria, conciliação de pagamentos, organização de documentos e análise de ocorrências operacionais. Desenvolvi habilidades técnicas iniciais em suporte a sistemas, análise de dados operacionais e resolução de problemas, formando a base para a minha transição para Tecnologia e Engenharia Front-end com IA."
     }
   ],
   "competencias": {
-    "linguagens": ["Python", "SQL", "Java"],
-    "ferramentas": ["Git & GitHub", "VS Code", "IA Generativa"]
+    "front_end": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
+    "dados_back_end": ["Python", "SQL", "SQLite", "Java (JDBC)"],
+    "ia_aplicada": ["Engenharia de Prompt", "Integração de APIs de IA", "Conceitos de Agentes de IA", "MCP (Model Context Protocol)", "Automação e auditoria de fluxos com IA", "Claude Code", "NotebookLM"],
+    "ferramentas": ["Git", "GitHub", "GitHub Actions", "Node.js/Express", "UML (Astah)"]
   },
-  "experiencia": [
+  "formacao": [
     {
-      "empresa": "Indigo Estacionamento (Niterói/RJ)",
-      "cargo": "Assistente Administrativo Financeiro",
-      "periodo": "nov de 2016 - nov de 2019 (3 anos)",
-      "resumo": "Atuação nas áreas operacional, administrativa e financeira, suporte técnico e controle de sistemas. Responsável pelo acompanhamento diário dos sistemas WA e WPS, suporte técnico nível 1 em terminais PERTO TPC 4110, abastecimento e recolhimento de numerário, faturamento diário e prestação de contas via planilhas e e-mail. Realização de rotinas de tesouraria, controle de caixa, conferência de pagamentos, organização de documentos e registro/análise de ocorrências operacionais. Desenvolvimento de habilidades de atendimento, organização e suporte técnico. Foi nessa função que desenvolvi minhas primeiras habilidades técnicas, incluindo suporte a sistemas, análise de dados operacionais e resolução de problemas - base importante para minha transição para a área de Tecnologia e Engenharia de IA Front-end."
+      "instituicao": "Universidade Estácio",
+      "curso": "Bacharelado em Sistemas de Informação",
+      "periodo": "2024 – Atual"
     }
   ],
   "certificados": [
     {
-      "nome": "Certificados de Cursos (Pasta Completa)",
-      "instituicao": "Diversas Instituições",
-      "link": "https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM?usp=sharing"
+      "nome": "Certificados e Cursos — Google Drive",
+      "link": "https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM"
     }
   ]
 }
