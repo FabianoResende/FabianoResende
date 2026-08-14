@@ -172,4 +172,5 @@ if __name__ == "__main__":
     info = carregar_dados()
     gerar_pdf(info)
     atualizar_readme(info)
+    
 
