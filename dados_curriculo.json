@@ -1,7 +1,7 @@
 {
   "nome": "Fabiano Faria de Resende",
-  "cargo": "Estagiário de Engenharia Front-end com IA",
-  "objetivo": "Atuar como Desenvolvedor Front-end com Inteligencia Artificial aplicada, contribuindo em projetos que integrem JavaScript, TypeScript, React/Next.js, APIs e modelos de IA, com foco em qualidade de codigo, experiencia do usuário e automacao de processos.",
+  "cargo": "Estagiario de Engenharia Front-end com IA",
+  "objetivo": "Atuar como Desenvolvedor Front-end com Inteligencia Artificial aplicada, contribuindo em projetos que integrem JavaScript, TypeScript, React/Next.js, APIs e modelos de IA, com foco em qualidade de codigo, experiencia do usuario e automacao de processos.",
   "foco": "Desenvolvimento Front-end | IA Aplicada | Automacao",
   "contato": {
     "email": "fabianofariaderesende@gmail.com",
@@ -10,12 +10,12 @@
     "github": "https://github.com/FabianoResende",
     "site": "https://fabianoresende.github.io/landing-page-html-css-js/"
   },
-  "sobre": "Sou estudante de Sistemas de Informacao em transicao para a área de Tecnologia, com foco em Desenvolvimento Front-end e Inteligencia Artificial Aplicada. Fui selecionado para a turma de estágio de julho de 2026 da FlyRank, na trilha de Engenharia Front-end com IA, onde desenvolvo projetos reais que integram JavaScript, APIs e modelos de IA. Trago mais de uma década de experiencia administrativa e operacional, com disciplina, responsabilidade e pensamento analítico. Atualmente pratico HTML, CSS, JavaScript, Python, SQL, Git/GitHub, automacao com IA e integracao de APIs.",
+  "sobre": "Sou estudante de Sistemas de Informacao em transicao para a area de Tecnologia, com foco em Desenvolvimento Front-end e Inteligencia Artificial Aplicada. Fui selecionado para a turma de estagio de julho de 2026 da FlyRank, na trilha de Engenharia Front-end com IA, onde desenvolvo projetos reais que integram JavaScript, APIs e modelos de IA. Trago mais de uma decada de experiencia administrativa e operacional, com forte disciplina, responsabilidade e pensamento analitico. Atualmente pratico HTML, CSS, JavaScript, Python, SQL, Git/GitHub, automacao com IA e integracao de APIs.",
   "educacao": [
     {
-      "instituicao": "Universidade Estácio",
+      "instituicao": "Universidade Estacio",
       "curso": "Bacharelado em Sistemas de Informacao",
-      "período": "2024 - Atual"
+      "periodo": "2024 - Atual"
     }
   ],
   "competencias": {
@@ -25,15 +25,15 @@
   "experiencia": [
     {
       "empresa": "FlyRank AI",
-      "cargo": "Estagiário de Engenharia Front-end com IA",
+      "cargo": "Estagiario de Engenharia Front-end com IA",
       "periodo": "Jul 2026 - Atual | Remoto | Sao Goncalo, RJ",
-      "resumo": "Trilha de Engenharia Front-end com IA voltada a projetos práticos que integram tecnologias web, APIs e ferramentas de IA. Capstone FE-04: Plataforma de Suporte Técnico com IA usando Next.js, TypeScript e Claude Code. FL-04 Study Notes Pipeline: NotebookLM + Claude, cerca de 3 horas economizadas por ciclo em 5 execucoes reais. Chatbot Front-end com IA: HTML, CSS e JavaScript com integracao de API de IA. Gerenciador de Senhas: Python + SQLite com operacoes CRUD e armazenamento criptografado. Landing Page Responsiva: HTML, CSS e JavaScript."
+      "resumo": "Trilha de Engenharia Front-end com IA voltada a projetos praticos que integram tecnologias web, APIs e ferramentas de IA. Capstone FE-04: Plataforma de Suporte Tecnico com IA usando Next.js, TypeScript e Claude Code. FL-04 Study Notes Pipeline: NotebookLM + Claude, cerca de 3 horas economizadas por ciclo em 5 execucoes reais. Chatbot Front-end com IA: HTML, CSS e JavaScript com integracao de API de IA. Gerenciador de Senhas: Python + SQLite com operacoes CRUD e armazenamento criptografado. Landing Page Responsiva: HTML, CSS e JavaScript."
     },
     {
       "empresa": "Indigo Estacionamento",
       "cargo": "Assistente Administrativo Financeiro",
       "periodo": "Nov 2016 - Nov 2019 | Niteroi, RJ",
-      "resumo": "Atuei em rotinas operacionais, administrativas e financeiras, incluindo monitoramento diário dos sistemas WA e WPS, suporte técnico de nível 1 aos terminais PERTO TPC 4110, manuseio de numerário, faturamento diário, relatórios em planilhas, rotinas de tesouraria, pagamentos, organizacao de documentos e análise de ocorrencias operacionais. Desenvolvi habilidades técnicas iniciais em suporte a sistemas, análise de dados operacionais e resolucao de problemas, formando a base para a minha transicao para Tecnologia e Engenharia Front-end com IA."
+      "resumo": "Atuei em rotinas operacionais, administrativas e financeiras, incluindo monitoramento diario dos sistemas WA e WPS, suporte tecnico de nivel 1 aos terminais PERTO TPC 4110, manuseio de numerario, faturamento diario, relatorios em planilhas, rotinas de tesouraria, conciliacao de pagamentos, organizacao de documentos e analise de ocorrencias operacionais. Desenvolvi habilidades tecnicas iniciais em suporte a sistemas, analise de dados operacionais e resolucao de problemas, formando a base para a minha transicao para Tecnologia e Engenharia Front-end com IA."
     }
   ],
   "certificados": [
