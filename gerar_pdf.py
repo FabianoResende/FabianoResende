@@ -97,7 +97,7 @@ def gerar_pdf(dados):
     # Objetivo e resumo
     sections = [
         ("Objetivo", dados["objetivo"]),
-        ("Resumo Profissional", dados["sobre"])
+        ("Perfil", dados["sobre"])
     ]
 
     for title, content in sections:
