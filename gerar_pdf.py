@@ -16,41 +16,33 @@ class PDF(FPDF):
         self.set_text_color(0, 0, 255)
 
         self.cell(
-            0,
-            6,
+            0, 6,
             f"E-mail: {dados['contato']['email']}",
-            new_x="LMARGIN",
-            new_y="NEXT",
+            new_x="LMARGIN", new_y="NEXT",
             align="C",
             link=f"mailto:{dados['contato']['email']}"
         )
 
         self.cell(
-            0,
-            6,
+            0, 6,
             f"LinkedIn: {dados['contato']['linkedin']}",
-            new_x="LMARGIN",
-            new_y="NEXT",
+            new_x="LMARGIN", new_y="NEXT",
             align="C",
             link=dados["contato"]["linkedin"]
         )
 
         self.cell(
-            0,
-            6,
+            0, 6,
             f"GitHub: {dados['contato']['github']}",
-            new_x="LMARGIN",
-            new_y="NEXT",
+            new_x="LMARGIN", new_y="NEXT",
             align="C",
             link=dados["contato"]["github"]
         )
 
         self.cell(
-            0,
-            6,
-            f"Site: {dados['contato']['site']}",
-            new_x="LMARGIN",
-            new_y="NEXT",
+            0, 6,
+            f"Portfólio: {dados['contato']['site']}",
+            new_x="LMARGIN", new_y="NEXT",
             align="C",
             link=dados["contato"]["site"]
         )
@@ -61,22 +53,18 @@ class PDF(FPDF):
         # Cargo + foco
         self.set_font("Helvetica", "B", 11)
         self.cell(
-            0,
-            6,
+            0, 6,
             f"{dados['cargo']} | {dados['foco']}",
-            new_x="LMARGIN",
-            new_y="NEXT",
+            new_x="LMARGIN", new_y="NEXT",
             align="C"
         )
 
         # Cidade
         self.set_font("Helvetica", "", 10)
         self.cell(
-            0,
-            6,
+            0, 6,
             dados["contato"]["cidade"],
-            new_x="LMARGIN",
-            new_y="NEXT",
+            new_x="LMARGIN", new_y="NEXT",
             align="C"
         )
 
@@ -94,28 +82,25 @@ def gerar_pdf(dados):
     pdf.add_page()
     pdf.header_curriculo(dados)
 
-    # Objetivo e resumo
-    sections = [
-        ("Objetivo", dados["objetivo"]),
-        ("Resumo Profissional", dados["sobre"])
-    ]
+    # Objetivo e perfil
+    pdf.secao_titulo("Objetivo")
+    pdf.set_font("Helvetica", "", 11)
+    pdf.multi_cell(0, 6, dados["objetivo"])
+    pdf.ln(4)
 
-    for title, content in sections:
-        pdf.secao_titulo(title)
-        pdf.set_font("Helvetica", "", 11)
-        pdf.multi_cell(0, 6, content)
-        pdf.ln(4)
+    pdf.secao_titulo("Perfil")
+    pdf.set_font("Helvetica", "", 11)
+    pdf.multi_cell(0, 6, dados["sobre"])
+    pdf.ln(4)
 
     # Formação
     pdf.secao_titulo("Formação Acadêmica")
     for ed in dados["educacao"]:
         pdf.set_font("Helvetica", "B", 11)
         pdf.cell(
-            0,
-            6,
-            f"{ed['curso']} - {ed['instituicao']} ({ed['periodo']})",
-            new_x="LMARGIN",
-            new_y="NEXT"
+            0, 6,
+            f"{ed['curso']} — {ed['instituicao']} ({ed['periodo']})",
+            new_x="LMARGIN", new_y="NEXT"
         )
     pdf.ln(4)
 
@@ -124,29 +109,32 @@ def gerar_pdf(dados):
     for exp in dados["experiencia"]:
         pdf.set_font("Helvetica", "B", 11)
         pdf.cell(
-            0,
-            6,
-            f"{exp['cargo']} - {exp['empresa']}",
-            new_x="LMARGIN",
-            new_y="NEXT"
+            0, 6,
+            f"{exp['cargo']} — {exp['empresa']}",
+            new_x="LMARGIN", new_y="NEXT"
         )
         pdf.set_font("Helvetica", "I", 10)
         pdf.cell(
-            0,
-            6,
-            exp["periodo"],
-            new_x="LMARGIN",
-            new_y="NEXT"
+            0, 6,
+            f"{exp['periodo']} | {exp['local']}",
+            new_x="LMARGIN", new_y="NEXT"
         )
         pdf.set_font("Helvetica", "", 10)
         pdf.multi_cell(0, 5, exp["resumo"])
         pdf.ln(3)
 
+    # Competências
+    pdf.secao_titulo("Competências Técnicas")
+    pdf.set_font("Helvetica", "", 11)
+    pdf.multi_cell(0, 6, f"Linguagens: {', '.join(dados['competencias']['linguagens'])}")
+    pdf.multi_cell(0, 6, f"Ferramentas: {', '.join(dados['competencias']['ferramentas'])}")
+    pdf.ln(4)
+
     # Certificados
-    pdf.secao_titulo("Certificados e Cursos")
+    pdf.secao_titulo("Certificações & Formação Complementar")
     for cert in dados["certificados"]:
         pdf.set_font("Helvetica", "", 11)
-        pdf.write(6, f"{cert['nome']} - {cert['instituicao']} ")
+        pdf.write(6, f"{cert['nome']} — {cert['instituicao']} ")
         pdf.set_text_color(0, 0, 255)
         pdf.set_font("Helvetica", "U", 11)
         pdf.write(6, "[Acesse a pasta aqui]", cert["link"])
@@ -163,10 +151,11 @@ def atualizar_readme(dados):
         f.write("![SQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) ")
         f.write("![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)\n\n")
         f.write(f"## 🚀 Sobre\n{dados['sobre']}\n\n")
-        f.write(f"## 🛠️ Competências\n- **Linguagens:** {', '.join(dados['competencias']['linguagens'])}\n")
+        f.write("## 🛠️ Competências\n")
+        f.write(f"- **Linguagens:** {', '.join(dados['competencias']['linguagens'])}\n")
         f.write(f"- **Ferramentas:** {', '.join(dados['competencias']['ferramentas'])}\n\n")
-        f.write(f"--- \n### 📄 Currículo Completo Atualizado\n[👉 Visualizar PDF](./curriculo_fabiano.pdf)\n\n")
-        f.write(f"*Nota: Atualizado via Automação.*")
+        f.write("--- \n### 📄 Currículo Completo Atualizado\n[👉 Visualizar PDF](./curriculo_fabiano.pdf)\n\n")
+        f.write("*Nota: Atualizado via Automação.*")
 
 if __name__ == "__main__":
     info = carregar_dados()
