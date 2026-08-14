@@ -7,25 +7,85 @@ def carregar_dados():
 
 class PDF(FPDF):
     def header_curriculo(self, dados):
-        self.set_font("Arial", "B", 18)
-        self.cell(0, 10, dados["nome"], ln=True, align="C")
-        self.set_font("Arial", "", 10)
+        # Título
+        self.set_font("Helvetica", "B", 18)
+        self.cell(0, 10, dados["nome"], new_x="LMARGIN", new_y="NEXT", align="C")
+
+        # Contatos com links
+        self.set_font("Helvetica", "", 10)
         self.set_text_color(0, 0, 255)
-        self.cell(0, 6, "E-mail: fabianofariaderesende@gmail.com", dados["contato"]["email"], ln=True, align="C", link=f"mailto:{dados['contato']['email']}")
-        self.cell(0, 6, "LinkedIn: /fabianofr", ln=True, align="C", link=dados["contato"]["linkedin"])
-        self.cell(0, 6, "GitHub: /FabianoResende", ln=True, align="C", link=dados["contato"]["github"])
-        self.cell(0, 6, "Site: /FabianoResende Web", ln=True, align="C", link=dados["contato"]["site"])
+
+        self.cell(
+            0,
+            6,
+            f"E-mail: {dados['contato']['email']}",
+            new_x="LMARGIN",
+            new_y="NEXT",
+            align="C",
+            link=f"mailto:{dados['contato']['email']}"
+        )
+
+        self.cell(
+            0,
+            6,
+            f"LinkedIn: {dados['contato']['linkedin']}",
+            new_x="LMARGIN",
+            new_y="NEXT",
+            align="C",
+            link=dados["contato"]["linkedin"]
+        )
+
+        self.cell(
+            0,
+            6,
+            f"GitHub: {dados['contato']['github']}",
+            new_x="LMARGIN",
+            new_y="NEXT",
+            align="C",
+            link=dados["contato"]["github"]
+        )
+
+        self.cell(
+            0,
+            6,
+            f"Site: {dados['contato']['site']}",
+            new_x="LMARGIN",
+            new_y="NEXT",
+            align="C",
+            link=dados["contato"]["site"]
+        )
+
+        # Reset de cor
         self.set_text_color(0, 0, 0)
-        self.set_font("Arial", "B", 11)
-        self.cell(0, 6, f"{dados['cargo']} | {dados['foco']}", ln=True, align="C")
-        self.set_font("Arial", "", 10)
-        self.cell(0, 6, dados["contato"]["cidade"], ln=True, align="C")
+
+        # Cargo + foco
+        self.set_font("Helvetica", "B", 11)
+        self.cell(
+            0,
+            6,
+            f"{dados['cargo']} | {dados['foco']}",
+            new_x="LMARGIN",
+            new_y="NEXT",
+            align="C"
+        )
+
+        # Cidade
+        self.set_font("Helvetica", "", 10)
+        self.cell(
+            0,
+            6,
+            dados["contato"]["cidade"],
+            new_x="LMARGIN",
+            new_y="NEXT",
+            align="C"
+        )
+
         self.ln(5)
 
     def secao_titulo(self, texto):
-        self.set_font("Arial", "B", 12)
+        self.set_font("Helvetica", "B", 12)
         self.set_fill_color(230, 230, 230)
-        self.cell(0, 8, f"  {texto}", ln=True, fill=True)
+        self.cell(0, 8, f"  {texto}", new_x="LMARGIN", new_y="NEXT", fill=True)
         self.ln(2)
 
 def gerar_pdf(dados):
@@ -34,6 +94,7 @@ def gerar_pdf(dados):
     pdf.add_page()
     pdf.header_curriculo(dados)
 
+    # Objetivo e resumo
     sections = [
         ("Objetivo", dados["objetivo"]),
         ("Resumo Profissional", dados["sobre"])
@@ -41,32 +102,53 @@ def gerar_pdf(dados):
 
     for title, content in sections:
         pdf.secao_titulo(title)
-        pdf.set_font("Arial", "", 11)
+        pdf.set_font("Helvetica", "", 11)
         pdf.multi_cell(0, 6, content)
         pdf.ln(4)
 
+    # Formação
     pdf.secao_titulo("Formação Acadêmica")
     for ed in dados["educacao"]:
-        pdf.set_font("Arial", "B", 11)
-        pdf.cell(0, 6, f"{ed['curso']} - {ed['instituicao']} ({ed['periodo']})", ln=True)
+        pdf.set_font("Helvetica", "B", 11)
+        pdf.cell(
+            0,
+            6,
+            f"{ed['curso']} - {ed['instituicao']} ({ed['periodo']})",
+            new_x="LMARGIN",
+            new_y="NEXT"
+        )
     pdf.ln(4)
 
+    # Experiência
     pdf.secao_titulo("Experiência Profissional")
     for exp in dados["experiencia"]:
-        pdf.set_font("Arial", "B", 11)
-        pdf.cell(0, 6, f"{exp['cargo']} - {exp['empresa']}", ln=True)
-        pdf.set_font("Arial", "I", 10)
-        pdf.cell(0, 6, exp["periodo"], ln=True)
-        pdf.set_font("Arial", "", 10)
+        pdf.set_font("Helvetica", "B", 11)
+        pdf.cell(
+            0,
+            6,
+            f"{exp['cargo']} - {exp['empresa']}",
+            new_x="LMARGIN",
+            new_y="NEXT"
+        )
+        pdf.set_font("Helvetica", "I", 10)
+        pdf.cell(
+            0,
+            6,
+            exp["periodo"],
+            new_x="LMARGIN",
+            new_y="NEXT"
+        )
+        pdf.set_font("Helvetica", "", 10)
         pdf.multi_cell(0, 5, exp["resumo"])
         pdf.ln(3)
 
+    # Certificados
     pdf.secao_titulo("Certificados e Cursos")
     for cert in dados["certificados"]:
-        pdf.set_font("Arial", "", 11)
+        pdf.set_font("Helvetica", "", 11)
         pdf.write(6, f"{cert['nome']} - {cert['instituicao']} ")
         pdf.set_text_color(0, 0, 255)
-        pdf.set_font("Arial", "U", 11)
+        pdf.set_font("Helvetica", "U", 11)
         pdf.write(6, "[Acesse a pasta aqui]", cert["link"])
         pdf.set_text_color(0, 0, 0)
         pdf.ln(8)
