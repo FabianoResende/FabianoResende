@@ -1,6 +1,6 @@
 # Fabiano Faria de Resende 👋
 
-### Estagiario de Engenharia Front-end com IA
+### Estagiário de Engenharia Front-end com IA
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![SQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 
