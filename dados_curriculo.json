@@ -1,55 +1,90 @@
-{
-  "nome": "Fabiano Faria de Resende",
-  "cargo": "Estagiário de Engenharia Front-end com IA",
-  "objetivo": "Atuar como Desenvolvedor Front-end com Inteligência Artificial aplicada, contribuindo em projetos que integrem JavaScript, TypeScript, React/Next.js, APIs e modelos de IA, com foco em qualidade de código, experiência do usuário e automação de processos.",
-  "contato": {
-    "email": "fabianofariaderesende@gmail.com",
-    "cidade": "São Gonçalo - RJ",
-    "linkedin": "https://www.linkedin.com/in/fabianofr",
-    "github": "https://github.com/FabianoResende",
-    "portfolio": "https://fabianoresende.github.io/landing-page-html-css-js/",
-    "certificados": "https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM"
-  },
-  "perfil": "Sou estudante de Sistemas de Informação em transição para a área de Tecnologia, com foco em Desenvolvimento Front-end e Inteligência Artificial Aplicada. Fui selecionado para a turma de estágio de julho de 2026 da FlyRank, na trilha de Engenharia Front-end com IA, onde desenvolvo projetos reais que integram JavaScript, APIs e modelos de IA. Trago mais de uma década de experiência administrativa e operacional, com forte disciplina, responsabilidade e pensamento analítico. Atualmente pratico HTML, CSS, JavaScript, Python, SQL, Git/GitHub, automação com IA e integração de APIs.",
-  "experiencia": [
-    {
-      "empresa": "FlyRank AI",
-      "cargo": "Estagiário de Engenharia Front-end com IA",
-      "periodo": "Jul 2026 - Atual",
-      "local": "Remoto | São Gonçalo, RJ",
-      "atividades": [
-        "Capstone FE-04 — Plataforma de Suporte Técnico com IA usando Next.js, TypeScript e Claude Code; publicada na Vercel com rotas estruturadas e endpoint /health.",
-        "FL-04 Study Notes Pipeline — NotebookLM + Claude; cerca de 3 horas economizadas por ciclo em 5 execuções reais.",
-        "Chatbot Front-end com IA — HTML, CSS e JavaScript com integração de API de IA.",
-        "Gerenciador de Senhas — Python + SQLite com operações CRUD e armazenamento criptografado.",
-        "Landing Page Responsiva — HTML, CSS e JavaScript."
-      ]
-    },
-    {
-      "empresa": "Indigo Estacionamento",
-      "cargo": "Assistente Administrativo Financeiro",
-      "periodo": "Nov 2016 - Nov 2019",
-      "local": "Niterói, RJ",
-      "resumo": "Atuei em rotinas operacionais, administrativas e financeiras, incluindo monitoramento diário dos sistemas WA e WPS, suporte técnico de nível 1 aos terminais PERTO TPC 4110, manuseio de numerário, faturamento diário, relatórios em planilhas, rotinas de tesouraria, conciliação de pagamentos, organização de documentos e análise de ocorrências operacionais. Desenvolvi habilidades técnicas iniciais em suporte a sistemas, análise de dados operacionais e resolução de problemas, formando a base para a minha transição para Tecnologia e Engenharia Front-end com IA."
-    }
-  ],
-  "competencias": {
-    "front_end": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
-    "dados_back_end": ["Python", "SQL", "SQLite", "Java (JDBC)"],
-    "ia_aplicada": ["Engenharia de Prompt", "Integração de APIs de IA", "Agentes de IA", "MCP", "Automação com IA", "Claude Code", "NotebookLM"],
-    "ferramentas": ["Git", "GitHub", "GitHub Actions", "Node.js/Express", "UML (Astah)"]
-  },
-  "formacao": [
-    {
-      "instituicao": "Universidade Estácio",
-      "curso": "Bacharelado em Sistemas de Informação",
-      "periodo": "2024 - Atual"
-    }
-  ],
-  "certificados": [
-    {
-      "nome": "Certificados e Cursos",
-      "link": "https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM"
-    }
-  ]
-}
+from fpdf import FPDF
+import json
+
+class PDF(FPDF):
+    def header_curriculo(self, dados):
+        self.set_font("Helvetica", "B", 18)
+        self.cell(0, 10, dados["nome"], new_x="LMARGIN", new_y="NEXT", align="C")
+
+        self.set_font("Helvetica", "", 10)
+        self.cell(0, 6, f"E-mail: {dados['contato']['email']}", new_x="LMARGIN", new_y="NEXT", align="C", link=f"mailto:{dados['contato']['email']}")
+        self.cell(0, 6, f"LinkedIn: {dados['contato']['linkedin']}", new_x="LMARGIN", new_y="NEXT", align="C", link=dados["contato"]["linkedin"])
+        self.cell(0, 6, f"GitHub: {dados['contato']['github']}", new_x="LMARGIN", new_y="NEXT", align="C", link=dados["contato"]["github"])
+        self.cell(0, 6, f"Portfólio: {dados['contato']['portfolio']}", new_x="LMARGIN", new_y="NEXT", align="C", link=dados["contato"]["portfolio"])
+        self.ln(5)
+
+def gerar_pdf(dados):
+    pdf = PDF()
+    pdf.set_auto_page_break(auto=True, margin=15)
+    pdf.add_page()
+
+    # OBJETIVO
+    pdf.set_font("Helvetica", "B", 14)
+    pdf.cell(0, 10, "OBJETIVO", new_x="LMARGIN", new_y="NEXT")
+    pdf.set_font("Helvetica", "", 11)
+    pdf.multi_cell(0, 6, dados["objetivo"])
+    pdf.ln(3)
+
+    # PERFIL
+    pdf.set_font("Helvetica", "B", 14)
+    pdf.cell(0, 10, "PERFIL", new_x="LMARGIN", new_y="NEXT")
+    pdf.set_font("Helvetica", "", 11)
+    pdf.multi_cell(0, 6, dados["perfil"])
+    pdf.ln(3)
+
+    # EXPERIÊNCIA
+    pdf.set_font("Helvetica", "B", 14)
+    pdf.cell(0, 10, "EXPERIÊNCIA", new_x="LMARGIN", new_y="NEXT")
+
+    pdf.set_font("Helvetica", "B", 12)
+    for exp in dados["experiencia"]:
+        pdf.cell(0, 8, f"{exp['cargo']} — {exp['empresa']}", new_x="LMARGIN", new_y="NEXT")
+        pdf.set_font("Helvetica", "", 11)
+        pdf.cell(0, 6, f"{exp['periodo']} | {exp['local']}", new_x="LMARGIN", new_y="NEXT")
+
+        if "atividades" in exp:
+            for item in exp["atividades"]:
+                pdf.multi_cell(0, 6, f"• {item}")
+        else:
+            pdf.multi_cell(0, 6, exp["resumo"])
+
+        pdf.ln(3)
+        pdf.set_font("Helvetica", "B", 12)
+
+    # COMPETÊNCIAS
+    pdf.set_font("Helvetica", "B", 14)
+    pdf.cell(0, 10, "COMPETÊNCIAS TÉCNICAS", new_x="LMARGIN", new_y="NEXT")
+
+    pdf.set_font("Helvetica", "", 11)
+    comp = dados["competencias"]
+
+    pdf.multi_cell(0, 6, f"Front-end: {', '.join(comp['front_end'])}")
+    pdf.multi_cell(0, 6, f"Dados & Back-end: {', '.join(comp['dados_back_end'])}")
+    pdf.multi_cell(0, 6, f"IA Aplicada: {', '.join(comp['ia_aplicada'])}")
+    pdf.multi_cell(0, 6, f"Ferramentas: {', '.join(comp['ferramentas'])}")
+    pdf.ln(3)
+
+    # FORMAÇÃO
+    pdf.set_font("Helvetica", "B", 14)
+    pdf.cell(0, 10, "FORMAÇÃO", new_x="LMARGIN", new_y="NEXT")
+
+    pdf.set_font("Helvetica", "", 11)
+    for form in dados["formacao"]:
+        pdf.multi_cell(0, 6, f"{form['curso']} — {form['instituicao']} ({form['periodo']})")
+    pdf.ln(3)
+
+    # CERTIFICADOS
+    pdf.set_font("Helvetica", "B", 14)
+    pdf.cell(0, 10, "CERTIFICADOS & FORMAÇÃO COMPLEMENTAR", new_x="LMARGIN", new_y="NEXT")
+
+    pdf.set_font("Helvetica", "", 11)
+    for cert in dados["certificados"]:
+        pdf.multi_cell(0, 6, f"{cert['nome']} — {cert['link']}", link=cert["link"])
+
+    pdf.output("curriculo.pdf")
+
+# Carregar JSON
+with open("dados_curriculo.json", "r", encoding="utf-8") as f:
+    info = json.load(f)
+
+gerar_pdf(info)
