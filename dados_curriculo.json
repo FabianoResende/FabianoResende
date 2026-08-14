@@ -1,26 +1,26 @@
 {
   "nome": "Fabiano Faria de Resende",
-  "cargo": "Estagiário de Engenharia Frontend com IA",
-  "objetivo": "Atuar como Desenvolvedor Frontend com Inteligência Artificial aplicada, contribuindo em projetos que integrem JavaScript, TypeScript, React/Next.js, APIs e modelos de IA, com foco em qualidade de código, experiência do usuário e automação de processos.",
+  "cargo": "Estagiário de Engenharia Front-end com IA",
+  "objetivo": "Atuar como Desenvolvedor Front-end com Inteligência Artificial aplicada, contribuindo em projetos que integrem JavaScript, TypeScript, React/Next.js, APIs e modelos de IA, com foco em qualidade de código, experiência do usuário e automação de processos.",
   "contato": {
     "email": "fabianofariaderesende@gmail.com",
     "cidade": "São Gonçalo, RJ, Brasil",
     "linkedin": "https://www.linkedin.com/in/fabianofr",
     "github": "https://github.com/FabianoResende",
-    "site": "https://fabianoresende.github.io/landingpagehtmlcssjs/"
+    "site": "https://fabianoresende.github.io/landing-page-html-css-js/"
   },
-  "sobre": "Sou estudante de Sistemas de Informação em transição para a área de Tecnologia, com foco em Desenvolvimento Frontend e Inteligência Artificial Aplicada. Fui selecionado para a turma de estágio de julho de 2026 da FlyRank, na trilha de Engenharia Frontend com IA, onde desenvolvo projetos reais que integram JavaScript, APIs e modelos de IA. Trago mais de uma década de experiência administrativa e operacional, com forte disciplina, responsabilidade e pensamento analítico. Atualmente pratico HTML, CSS, JavaScript, Python, SQL, Git/GitHub, automação com IA e integração de APIs.",
+  "sobre": "Sou estudante de Sistemas de Informação em transição para a área de Tecnologia, com foco em Desenvolvimento Front-end e Inteligência Artificial Aplicada. Fui selecionado para a turma de estágio de julho de 2026 da FlyRank, na trilha de Engenharia Front-end com IA, onde desenvolvo projetos reais que integram JavaScript, APIs e modelos de IA. Trago mais de uma década de experiência administrativa e operacional, com forte disciplina, responsabilidade e pensamento analítico. Atualmente pratico HTML, CSS, JavaScript, Python, SQL, Git/GitHub, automação com IA e integração de APIs.",
   "experiencia": [
     {
       "empresa": "FlyRank AI",
-      "cargo": "Estagiário de Engenharia Frontend com IA",
-      "periodo": "Jul 2026  Atual  Remoto  São Gonçalo, RJ",
-      "resumo": "Trilha de Engenharia Frontend com IA voltada a projetos práticos que integram tecnologias web, APIs e ferramentas de IA.\n Capstone FE04: Plataforma de Suporte Técnico com IA (Next.js, TypeScript, Claude Code).\n FL04 Study Notes Pipeline: NotebookLM  Claude (3h economizadas por ciclo).\n Chatbot Frontend com IA: HTML, CSS, JavaScript  API de IA.\n Gerenciador de Senhas: Python  SQLite (CRUD  criptografia).\n Landing Page Responsiva: HTML, CSS, JavaScript."
+      "cargo": "Estagiário de Engenharia Front-end com IA",
+      "periodo": "Jul 2026 - Atual | Remoto | São Gonçalo, RJ",
+      "resumo": "Trilha de Engenharia Front-end com IA voltada a projetos práticos que integram tecnologias web, APIs e ferramentas de IA.\n- Capstone FE-04: Plataforma de Suporte Técnico com IA (Next.js, TypeScript, Claude Code).\n- FL-04 Study Notes Pipeline: NotebookLM + Claude (3h economizadas por ciclo).\n- Chatbot Front-end com IA: HTML, CSS, JavaScript + API de IA.\n- Gerenciador de Senhas: Python + SQLite (CRUD + criptografia).\n- Landing Page Responsiva: HTML, CSS, JavaScript."
     },
     {
       "empresa": "Indigo Estacionamento",
       "cargo": "Assistente Administrativo Financeiro",
-      "periodo": "Nov 2016 Nov 2019  Niterói, RJ",
+      "periodo": "Nov 2016 - Nov 2019 | Niterói, RJ",
       "resumo": "Atuei em rotinas operacionais, administrativas e financeiras, incluindo monitoramento diário dos sistemas WA e WPS, suporte técnico nível 1 aos terminais PERTO TPC 4110, manuseio de numerário, faturamento diário, relatórios em planilhas, rotinas de tesouraria, conciliação de pagamentos, organização de documentos e análise de ocorrências operacionais. Desenvolvi habilidades técnicas iniciais em suporte a sistemas, análise de dados operacionais e resolução de problemas."
     }
   ],
@@ -34,7 +34,7 @@
     {
       "instituicao": "Universidade Estácio",
       "curso": "Bacharelado em Sistemas de Informação",
-      "periodo": "2024Atual"
+      "periodo": "2024 - Atual"
     }
   ],
   "certificados": [
