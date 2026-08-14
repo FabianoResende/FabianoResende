@@ -41,19 +41,19 @@ class PDF(FPDF):
 
         self.cell(
             0, 6,
-            f"Portfólio: {dados['contato']['portfolio']}",
+            f"Portfólio: {dados['contato']['site']}",
             new_x="LMARGIN", new_y="NEXT",
             align="C",
-            link=dados["contato"]["portfolio"]
+            link=dados["contato"]["site"]
         )
 
         self.set_text_color(0, 0, 0)
 
-        # Cargo
+        # Cargo + foco
         self.set_font("Helvetica", "B", 11)
         self.cell(
             0, 6,
-            dados["cargo"],
+            f"{dados['cargo']} | {dados['foco']}",
             new_x="LMARGIN", new_y="NEXT",
             align="C"
         )
@@ -90,7 +90,7 @@ def gerar_pdf(dados):
     # PERFIL
     pdf.secao_titulo("PERFIL")
     pdf.set_font("Helvetica", "", 11)
-    pdf.multi_cell(0, 6, dados["perfil"])
+    pdf.multi_cell(0, 6, dados["sobre"])
     pdf.ln(4)
 
     # EXPERIÊNCIA
@@ -105,41 +105,41 @@ def gerar_pdf(dados):
         pdf.set_font("Helvetica", "I", 10)
         pdf.cell(
             0, 6,
-            f"{exp['periodo']} | {exp['local']}",
+            exp["periodo"],
             new_x="LMARGIN", new_y="NEXT"
         )
         pdf.set_font("Helvetica", "", 10)
-
-        if "atividades" in exp:
-            for item in exp["atividades"]:
-                pdf.multi_cell(0, 5, f"• {item}")
-        else:
-            pdf.multi_cell(0, 5, exp["resumo"])
-
+        pdf.multi_cell(0, 5, exp["resumo"])
         pdf.ln(3)
 
     # COMPETÊNCIAS TÉCNICAS
     pdf.secao_titulo("COMPETÊNCIAS TÉCNICAS")
     pdf.set_font("Helvetica", "", 11)
-    comp = dados["competencias"]
-    pdf.multi_cell(0, 6, f"Front-end: {', '.join(comp['front_end'])}")
-    pdf.multi_cell(0, 6, f"Dados & Back-end: {', '.join(comp['dados_back_end'])}")
-    pdf.multi_cell(0, 6, f"IA Aplicada: {', '.join(comp['ia_aplicada'])}")
-    pdf.multi_cell(0, 6, f"Ferramentas & Controle de Versão: {', '.join(comp['ferramentas'])}")
+    pdf.multi_cell(
+        0, 6,
+        "Linguagens: " + ", ".join(dados["competencias"]["linguagens"])
+    )
+    pdf.multi_cell(
+        0, 6,
+        "Ferramentas: " + ", ".join(dados["competencias"]["ferramentas"])
+    )
     pdf.ln(4)
 
     # FORMAÇÃO
     pdf.secao_titulo("FORMAÇÃO")
     pdf.set_font("Helvetica", "", 11)
-    for form in dados["formacao"]:
-        pdf.multi_cell(0, 6, f"{form['curso']} — {form['instituicao']} ({form['periodo']})")
+    for ed in dados["educacao"]:
+        pdf.multi_cell(
+            0, 6,
+            f"{ed['curso']} — {ed['instituicao']} ({ed['periodo']})"
+        )
     pdf.ln(3)
 
     # CERTIFICAÇÕES & FORMAÇÃO COMPLEMENTAR
     pdf.secao_titulo("CERTIFICAÇÕES & FORMAÇÃO COMPLEMENTAR")
-    pdf.set_font("Helvetica", "", 11)
     for cert in dados["certificados"]:
-        pdf.write(6, cert["nome"] + " ")
+        pdf.set_font("Helvetica", "", 11)
+        pdf.write(6, f"{cert['nome']} — {cert['instituicao']} ")
         pdf.set_text_color(0, 0, 255)
         pdf.set_font("Helvetica", "U", 11)
         pdf.write(6, "[Acesse a pasta aqui]", cert["link"])
