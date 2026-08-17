@@ -8,31 +8,38 @@ def carregar_dados():
 class PDF(FPDF):
     def header_curriculo(self, dados):
         self.set_font("Helvetica", "B", 18)
-        self.cell(0, 10, dados["nome"], new_x="LMARGIN", new_y="NEXT", align="C")
+        self.cell(0, 10, dados["nome"], align="C")
+        self.ln(8)
 
         self.set_font("Helvetica", "", 10)
         self.set_text_color(0, 0, 255)
 
-        self.cell(0, 6, f"E-mail: {dados['contato']['email']}", new_x="LMARGIN", new_y="NEXT", align="C", link=f"mailto:{dados['contato']['email']}")
-        self.cell(0, 6, f"LinkedIn: {dados['contato']['linkedin']}", new_x="LMARGIN", new_y="NEXT", align="C", link=dados["contato"]["linkedin"])
-        self.cell(0, 6, f"GitHub: {dados['contato']['github']}", new_x="LMARGIN", new_y="NEXT", align="C", link=dados["contato"]["github"])
-        self.cell(0, 6, f"Portfolio: {dados['contato']['site']}", new_x="LMARGIN", new_y="NEXT", align="C", link=dados["contato"]["site"])
+        self.cell(0, 6, f"E-mail: {dados['contato']['email']}", align="C", link=f"mailto:{dados['contato']['email']}")
+        self.ln(6)
+
+        self.cell(0, 6, f"LinkedIn: {dados['contato']['linkedin']}", align="C", link=dados["contato"]["linkedin"])
+        self.ln(6)
+
+        self.cell(0, 6, f"GitHub: {dados['contato']['github']}", align="C", link=dados["contato"]["github"])
+        self.ln(6)
+
+        self.cell(0, 6, f"Portfolio: {dados['contato']['site']}", align="C", link=dados["contato"]["site"])
+        self.ln(8)
 
         self.set_text_color(0, 0, 0)
-
         self.set_font("Helvetica", "B", 11)
-        self.cell(0, 6, dados["cargo"], new_x="LMARGIN", new_y="NEXT", align="C")
+        self.cell(0, 6, dados["cargo"], align="C")
+        self.ln(6)
 
         self.set_font("Helvetica", "", 10)
-        self.cell(0, 6, dados["contato"]["cidade"], new_x="LMARGIN", new_y="NEXT", align="C")
-
-        self.ln(5)
+        self.cell(0, 6, dados["contato"]["cidade"], align="C")
+        self.ln(10)
 
     def secao_titulo(self, texto):
         self.set_font("Helvetica", "B", 12)
         self.set_fill_color(230, 230, 230)
-        self.cell(0, 8, f"  {texto}", new_x="LMARGIN", new_y="NEXT", fill=True)
-        self.ln(2)
+        self.cell(0, 8, f"  {texto}", fill=True)
+        self.ln(4)
 
 def gerar_pdf(dados):
     pdf = PDF()
@@ -58,21 +65,27 @@ def gerar_pdf(dados):
     pdf.secao_titulo("COMPETENCIAS TECNICAS")
     comp = dados["competencias"]
 
-    pdf.multi_cell(0, 6, "Front-end: " + ", ".join(comp["linguagens"]))
+    pdf.multi_cell(0, 6, "Front-end:")
+    for item in comp["linguagens"]:
+        pdf.multi_cell(0, 6, "- " + item)
 
-    # QUEBRA MANUAL PARA EVITAR ERRO
+    pdf.ln(2)
     pdf.multi_cell(0, 6, "IA Aplicada:")
     for item in comp["ia_aplicada"]:
         pdf.multi_cell(0, 6, "- " + item)
 
-    pdf.multi_cell(0, 6, "Ferramentas: " + ", ".join(comp["ferramentas"]))
+    pdf.ln(2)
+    pdf.multi_cell(0, 6, "Ferramentas:")
+    for item in comp["ferramentas"]:
+        pdf.multi_cell(0, 6, "- " + item)
+
     pdf.ln(4)
 
     pdf.secao_titulo("PROJETOS E PORTFOLIO")
     for exp in dados["experiencia"]:
         if exp["empresa"] == "FlyRank AI":
             pdf.set_font("Helvetica", "B", 11)
-            pdf.cell(0, 6, "FlyRank AI - Projetos Praticos", new_x="LMARGIN", new_y="NEXT")
+            pdf.multi_cell(0, 6, "FlyRank AI - Projetos Praticos")
             pdf.set_font("Helvetica", "", 10)
             pdf.multi_cell(0, 5, exp["resumo"])
             pdf.ln(3)
@@ -81,9 +94,9 @@ def gerar_pdf(dados):
     for exp in dados["experiencia"]:
         if exp["empresa"] != "FlyRank AI":
             pdf.set_font("Helvetica", "B", 11)
-            pdf.cell(0, 6, f"{exp['cargo']} - {exp['empresa']}", new_x="LMARGIN", new_y="NEXT")
+            pdf.multi_cell(0, 6, f"{exp['cargo']} - {exp['empresa']}")
             pdf.set_font("Helvetica", "I", 10)
-            pdf.cell(0, 6, exp["periodo"], new_x="LMARGIN", new_y="NEXT")
+            pdf.multi_cell(0, 6, exp["periodo"])
             pdf.set_font("Helvetica", "", 10)
             pdf.multi_cell(0, 5, exp["resumo"])
             pdf.ln(3)
@@ -101,4 +114,4 @@ def gerar_pdf(dados):
     pdf.output("curriculo_fabiano.pdf")
 
 if __name__ == "__main__":
-    gerar_pdf(carregar_dados()) 
+    gerar_pdf(carregar_dados())
