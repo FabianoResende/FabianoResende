@@ -1,5 +1,6 @@
 import json
 from fpdf import FPDF
+import sys
 
 def carregar_dados():
     with open("dados_curriculo.json", "r", encoding="utf-8") as f:
@@ -39,15 +40,29 @@ class PDF(FPDF):
         self.cell(0, 8, f"  {texto}", fill=True)
         self.ln(4)
 
-def escrever_lista_curta(pdf, items, usable_width, line_height=6):
+def escrever_lista_segura(pdf, items, usable_width, line_height=6):
     """
     Escreve cada item em sua propria linha usando largura segura.
-    Evita que o FPDF tente renderizar uma palavra muito longa sem espaco.
+    Usa try/except para capturar e logar itens problemáticos sem quebrar o job.
     """
     for item in items:
-        # prefixo curto e seguro
         texto = "- " + item
-        pdf.multi_cell(usable_width, line_height, texto)
+        try:
+            pdf.multi_cell(usable_width, line_height, texto)
+        except Exception as e:
+            # Log minimal para diagnostico e continuar
+            sys.stderr.write(f"[WARN] falha ao escrever item: {texto[:120]}... erro: {e}\n")
+            # fallback: dividir o item em pedaços por espaco e escrever em partes
+            partes = texto.split(" ")
+            buffer = ""
+            for p in partes:
+                if len(buffer + " " + p) > 200:
+                    pdf.multi_cell(usable_width, line_height, buffer)
+                    buffer = p
+                else:
+                    buffer = (buffer + " " + p).strip()
+            if buffer:
+                pdf.multi_cell(usable_width, line_height, buffer)
 
 def gerar_pdf(dados):
     pdf = PDF()
@@ -82,7 +97,6 @@ def gerar_pdf(dados):
     pdf.secao_titulo("COMPETENCIAS TECNICAS")
     comp = dados.get("competencias", {})
 
-    # Linguagens / Front-end
     linguagens = comp.get("linguagens", [])
     if linguagens:
         pdf.set_font("Helvetica", "B", 11)
@@ -92,17 +106,15 @@ def gerar_pdf(dados):
         pdf.multi_cell(usable_width, line_height, ", ".join(linguagens))
         pdf.ln(2)
 
-    # IA Aplicada - itens em linhas curtas
     ia_items = comp.get("ia_aplicada", [])
     if ia_items:
         pdf.set_font("Helvetica", "B", 11)
         pdf.cell(0, line_height, "IA Aplicada:")
         pdf.ln(6)
         pdf.set_font("Helvetica", "", 10)
-        escrever_lista_curta(pdf, ia_items, usable_width, line_height)
+        escrever_lista_segura(pdf, ia_items, usable_width, line_height)
         pdf.ln(2)
 
-    # Ferramentas
     ferramentas = comp.get("ferramentas", [])
     if ferramentas:
         pdf.set_font("Helvetica", "B", 11)
@@ -112,7 +124,7 @@ def gerar_pdf(dados):
         pdf.multi_cell(usable_width, line_height, ", ".join(ferramentas))
         pdf.ln(4)
 
-    # PROJETOS E PORTFOLIO (prioriza FlyRank)
+    # PROJETOS E PORTFOLIO
     pdf.secao_titulo("PROJETOS E PORTFOLIO")
     for exp in dados.get("experiencia", []):
         if exp.get("empresa") == "FlyRank AI":
@@ -122,7 +134,7 @@ def gerar_pdf(dados):
             pdf.multi_cell(usable_width, 5, exp.get("resumo", ""))
             pdf.ln(3)
 
-    # EXPERIENCIA PROFISSIONAL (outras)
+    # EXPERIENCIA PROFISSIONAL
     pdf.secao_titulo("EXPERIENCIA PROFISSIONAL")
     for exp in dados.get("experiencia", []):
         if exp.get("empresa") != "FlyRank AI":
@@ -134,7 +146,7 @@ def gerar_pdf(dados):
             pdf.multi_cell(usable_width, 5, exp.get("resumo", ""))
             pdf.ln(3)
 
-    # CERTIFICADOS E CURSOS (links clicaveis)
+    # CERTIFICADOS E CURSOS
     pdf.secao_titulo("CERTIFICADOS E CURSOS")
     for cert in dados.get("certificados", []):
         pdf.set_font("Helvetica", "", 11)
@@ -145,7 +157,6 @@ def gerar_pdf(dados):
         pdf.set_text_color(0, 0, 0)
         pdf.ln(8)
 
-    # Salva arquivo
     pdf.output("curriculo_fabiano.pdf")
 
 if __name__ == "__main__":
