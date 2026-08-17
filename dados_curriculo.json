@@ -15,7 +15,7 @@
     {
       "instituicao": "Universidade Estacio",
       "curso": "Bacharelado em Sistemas de Informacao",
-      "periodo": "Ago 2024 - Cursando"
+      "periodo": "Ago/2024 - Cursando"
     }
   ],
   "competencias": {
@@ -28,13 +28,13 @@
     {
       "empresa": "FlyRank AI",
       "cargo": "Estagiario de Engenharia Front-end com IA",
-      "periodo": "Jul 2026 - Atual | Remoto",
+      "periodo": "Jul/2026 - Atual | Remoto",
       "resumo": "Desenvolvimento de projetos reais integrando tecnologias web, APIs e ferramentas de IA durante trilha pratica de formacao. Capstone FE-04: Plataforma de Suporte Tecnico com IA (Next.js, TypeScript e Claude Code). FL-04 Study Notes Pipeline: NotebookLM + Claude, com cerca de 3 horas economizadas por ciclo em 5 execucoes reais. Chatbot Front-end com IA: HTML, CSS e JavaScript com integracao de API de IA. Gerenciador de Senhas: Python + SQLite com operacoes CRUD e armazenamento criptografado. Landing Page Responsiva: HTML, CSS e JavaScript."
     },
     {
       "empresa": "Indigo Estacionamento",
       "cargo": "Assistente Administrativo Financeiro",
-      "periodo": "Nov 2016 - Nov 2019 | Niteroi, RJ",
+      "periodo": "Nov/2016 - Nov/2019 | Niteroi, RJ",
       "resumo": "Monitoramento diario dos sistemas WA e WPS e suporte tecnico de nivel 1 aos terminais PERTO TPC 4110. Execucao de rotinas de tesouraria, faturamento diario, pagamentos e manuseio de numerario. Elaboracao de relatorios em planilhas e organizacao de documentos administrativos. Analise de ocorrencias operacionais e resolucao de problemas do dia a dia. Consolidei nessa experiencia habilidades iniciais em suporte a sistemas e analise de dados operacionais."
     }
   ],
