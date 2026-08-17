@@ -101,4 +101,4 @@ def gerar_pdf(dados):
     pdf.output("curriculo_fabiano.pdf")
 
 if __name__ == "__main__":
-    gerar_pdf(carregar_dados())
+    gerar_pdf(carregar_dados()) 
