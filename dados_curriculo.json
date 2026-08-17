@@ -15,11 +15,12 @@
     {
       "instituicao": "Universidade Estacio",
       "curso": "Bacharelado em Sistemas de Informacao",
-      "periodo": "Ago 2024 - Atual"
+      "periodo": "Ago 2024 - Cursando"
     }
   ],
   "competencias": {
-    "linguagens": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Python", "SQL", "SQLite", "Node.js"],
+    "linguagens": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
+    "dados_back_end": ["Python", "SQL", "SQLite", "Node.js"],
     "ia_aplicada": ["Engenharia de Prompt", "Integracao de APIs de IA", "Claude Code", "NotebookLM", "Agentes de IA", "MCP"],
     "ferramentas": ["Git", "GitHub", "GitHub Actions"]
   },
@@ -28,7 +29,7 @@
       "empresa": "FlyRank AI",
       "cargo": "Estagiario de Engenharia Front-end com IA",
       "periodo": "Jul 2026 - Atual | Remoto",
-      "resumo": "Desenvolvimento de projetos reais integrando tecnologias web, APIs e ferramentas de IA durante trilha pratica de formacao. Capstone FE-04: Plataforma de Suporte Tecnico com IA usando Next.js e TypeScript. FL-04 Study Notes Pipeline: NotebookLM + Claude, com cerca de 3 horas economizadas por ciclo em 5 execucoes reais. Chatbot Front-end com IA: HTML, CSS e JavaScript com integracao de API de IA. Gerenciador de Senhas: Python + SQLite com operacoes CRUD e armazenamento criptografado. Landing Page Responsiva: HTML, CSS e JavaScript."
+      "resumo": "Desenvolvimento de projetos reais integrando tecnologias web, APIs e ferramentas de IA durante trilha pratica de formacao. Capstone FE-04: Plataforma de Suporte Tecnico com IA (Next.js, TypeScript e Claude Code). FL-04 Study Notes Pipeline: NotebookLM + Claude, com cerca de 3 horas economizadas por ciclo em 5 execucoes reais. Chatbot Front-end com IA: HTML, CSS e JavaScript com integracao de API de IA. Gerenciador de Senhas: Python + SQLite com operacoes CRUD e armazenamento criptografado. Landing Page Responsiva: HTML, CSS e JavaScript."
     },
     {
       "empresa": "Indigo Estacionamento",
