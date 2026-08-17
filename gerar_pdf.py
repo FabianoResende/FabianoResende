@@ -57,8 +57,14 @@ def gerar_pdf(dados):
 
     pdf.secao_titulo("COMPETENCIAS TECNICAS")
     comp = dados["competencias"]
+
     pdf.multi_cell(0, 6, "Front-end: " + ", ".join(comp["linguagens"]))
-    pdf.multi_cell(0, 6, "IA Aplicada: " + ", ".join(comp["ia_aplicada"]))
+
+    # QUEBRA MANUAL PARA EVITAR ERRO
+    pdf.multi_cell(0, 6, "IA Aplicada:")
+    for item in comp["ia_aplicada"]:
+        pdf.multi_cell(0, 6, "- " + item)
+
     pdf.multi_cell(0, 6, "Ferramentas: " + ", ".join(comp["ferramentas"]))
     pdf.ln(4)
 
