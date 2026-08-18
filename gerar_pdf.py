@@ -80,8 +80,10 @@ def escrever_lista_segura(pdf, items, usable_width, line_height=6):
 
 def gerar_pdf(dados):
     pdf = PDF()
-    pdf.set_auto_page_break(auto=True, margin=15)
-    pdf.add_page()
+pdf.registrar_fonte_unicode()   # <-- garante que add_font() foi executado antes de qualquer set_font()
+pdf.set_auto_page_break(auto=True, margin=15)
+pdf.add_page()
+
 
     usable_width = pdf.w - 2 * pdf.l_margin
     line_height = 6
