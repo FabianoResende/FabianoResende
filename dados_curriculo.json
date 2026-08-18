@@ -14,11 +14,12 @@
     {
       "curso": "Bacharelado em Sistemas de Informação",
       "instituicao": "Universidade Estácio",
-      "periodo": "Ago/2024 - Cursando"
+      "periodo": "Ago/2024 - Cursando | Previsão de formatura: Dez/2028"
     }
   ],
   "competencias": {
     "linguagens": ["HTML", "CSS", "Javascript", "TypeScript", "React", "Next.js"],
+    "dados_back_end": ["Python", "SQL", "SQLite", "Node.js"],
     "ia_aplicada": ["Engenharia de Prompt", "Integração de APIs de IA", "Claude Code", "NotebookLM", "Agentes de IA", "MCP"],
     "ferramentas": ["Git", "GitHub", "GitHub Actions"]
   },
