@@ -1,5 +1,1 @@
-fpdf2>=2.5.0
-Pillow
-fonttools
-
-
+fpdf2>=2.8,<3
