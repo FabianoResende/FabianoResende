@@ -3,3 +3,10 @@ error.log
 gerar_pdf.py.bak
 __pycache__/
 *.pyc
+.venv/
+error.log
+gerar_pdf.py.bak
+__pycache__/
+*.pyc
+curriculo_fabiano.pdf
+
