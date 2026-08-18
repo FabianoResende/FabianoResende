@@ -1,195 +1,944 @@
 # -*- coding: utf-8 -*-
+
 import json
-import os
-import sys
+from pathlib import Path
+
 from fpdf import FPDF
 
-FONT_FILENAME = "DejaVuSans.ttf"  # coloque este arquivo na raiz do repo
+
+BASE_DIR = Path(__file__).resolve().parent
+
+DADOS_FILE = BASE_DIR / "dados_curriculo.json"
+PDF_FILE = BASE_DIR / "curriculo_fabiano.pdf"
+FONT_FILE = BASE_DIR / "DejaVuSans.ttf"
+
+
+class CurriculoPDF(FPDF):
+    """PDF profissional do currículo."""
+
+    def __init__(self):
+        super().__init__(
+            orientation="P",
+            unit="mm",
+            format="A4"
+        )
+
+        self.set_auto_page_break(
+            auto=True,
+            margin=15
+        )
+
+        self.set_margins(
+            left=15,
+            top=15,
+            right=15
+        )
+
+        self.registrar_fonte()
+
+    def registrar_fonte(self):
+        """Registra a fonte Unicode DejaVu Sans."""
+
+        if not FONT_FILE.exists():
+            raise FileNotFoundError(
+                f"Fonte não encontrada: {FONT_FILE}"
+            )
+
+        # O repositório contém a versão regular.
+        # Registramos o mesmo TTF para permitir estilos
+        # usados pelo documento sem depender das fontes
+        # adicionais no repositório.
+        self.add_font(
+            "DejaVu",
+            "",
+            str(FONT_FILE)
+        )
+
+        self.add_font(
+            "DejaVu",
+            "B",
+            str(FONT_FILE)
+        )
+
+        self.add_font(
+            "DejaVu",
+            "I",
+            str(FONT_FILE)
+        )
+
+        self.add_font(
+            "DejaVu",
+            "BI",
+            str(FONT_FILE)
+        )
+
+        self.default_font = "DejaVu"
+
+    def footer(self):
+        """Rodapé com número da página."""
+
+        self.set_y(-10)
+
+        self.set_font(
+            self.default_font,
+            "",
+            8
+        )
+
+        self.set_text_color(
+            110,
+            110,
+            110
+        )
+
+        self.cell(
+            0,
+            5,
+            f"Fabiano Faria de Resende | Página {self.page_no()}",
+            align="C"
+        )
+
+        self.set_text_color(
+            0,
+            0,
+            0
+        )
+
+    def titulo_secao(
+        self,
+        texto,
+        link=None
+    ):
+        """Cria título de seção."""
+
+        largura = self.w - self.l_margin - self.r_margin
+
+        self.set_fill_color(
+            238,
+            240,
+            243
+        )
+
+        self.set_text_color(
+            30,
+            30,
+            30
+        )
+
+        self.set_font(
+            self.default_font,
+            "B",
+            11
+        )
+
+        self.cell(
+            largura,
+            8,
+            f"  {texto}",
+            fill=True,
+            link=link
+        )
+
+        self.ln(5)
+
+    def texto(
+        self,
+        texto,
+        tamanho=10,
+        altura=5,
+        estilo=""
+    ):
+        """Escreve texto com quebra automática."""
+
+        if not texto:
+            return
+
+        self.set_font(
+            self.default_font,
+            estilo,
+            tamanho
+        )
+
+        self.set_text_color(
+            0,
+            0,
+            0
+        )
+
+        self.multi_cell(
+            0,
+            altura,
+            str(texto)
+        )
+
+    def link_inline(
+        self,
+        texto,
+        link
+    ):
+        """Escreve um link clicável."""
+
+        if not texto or not link:
+            return
+
+        self.set_text_color(
+            0,
+            82,
+            155
+        )
+
+        self.set_font(
+            self.default_font,
+            "",
+            9
+        )
+
+        self.write(
+            5,
+            texto,
+            link
+        )
+
+        self.set_text_color(
+            0,
+            0,
+            0
+        )
+
 
 def carregar_dados():
-    with open("dados_curriculo.json", "r", encoding="utf-8") as f:
-        return json.load(f)
+    """Carrega dados do currículo."""
 
-class PDF(FPDF):
-    def registrar_fonte_unicode(self):
-        if os.path.isfile(FONT_FILENAME):
-            try:
-                # registra variantes usando o mesmo arquivo TTF (sem parâmetro 'uni')
-                self.add_font("DejaVu", "", FONT_FILENAME)
-                self.add_font("DejaVu", "B", FONT_FILENAME)
-                self.add_font("DejaVu", "I", FONT_FILENAME)
-                self.add_font("DejaVu", "BI", FONT_FILENAME)
-                self.default_font = "DejaVu"
-                return
-            except Exception as e:
-                sys.stderr.write(f"[WARN] Falha ao registrar fonte Unicode: {e}\n")
-        sys.stderr.write("[WARN] Fonte Unicode não encontrada. Usando Helvetica.\n")
-        self.default_font = "Helvetica"
+    if not DADOS_FILE.exists():
+        raise FileNotFoundError(
+            f"Arquivo não encontrado: {DADOS_FILE}"
+        )
 
-    def secao_titulo(self, texto, usable_width):
-        self.set_font(self.default_font, "B", 12)
-        self.set_fill_color(230, 230, 230)
-        self.cell(usable_width, 8, f"  {texto}", fill=True)
-        self.ln(6)
+    with DADOS_FILE.open(
+        "r",
+        encoding="utf-8"
+    ) as arquivo:
+        dados = json.load(arquivo)
 
-    def header_curriculo(self, dados, usable_width):
-        self.registrar_fonte_unicode()
-        self.set_font(self.default_font, "B", 18)
-        self.cell(0, 10, dados.get("nome", ""), align="C")
-        self.ln(8)
+    if not isinstance(dados, dict):
+        raise ValueError(
+            "dados_curriculo.json deve conter um objeto JSON."
+        )
 
-        self.set_font(self.default_font, "", 10)
-        self.set_text_color(0, 0, 255)
-        self.cell(0, 6, f"E-mail: {dados['contato'].get('email','')}", align="C", link=f"mailto:{dados['contato'].get('email','')}")
-        self.ln(6)
-        self.cell(0, 6, f"LinkedIn: {dados['contato'].get('linkedin','')}", align="C", link=dados["contato"].get("linkedin",""))
-        self.ln(6)
-        self.cell(0, 6, f"GitHub: {dados['contato'].get('github','')}", align="C", link=dados["contato"].get("github",""))
-        self.ln(6)
-        self.cell(0, 6, f"Portfolio: {dados['contato'].get('site','')}", align="C", link=dados["contato"].get("site",""))
-        self.ln(8)
+    return dados
 
-        self.set_text_color(0, 0, 0)
-        self.set_font(self.default_font, "B", 11)
-        self.cell(0, 6, dados.get("cargo", ""), align="C")
-        self.ln(6)
-        self.set_font(self.default_font, "", 10)
-        self.cell(0, 6, dados["contato"].get("cidade", ""), align="C")
-        self.ln(10)
 
-def escrever_lista_segura(pdf, items, usable_width, line_height=6):
-    for item in items:
-        texto = "- " + item
-        pdf.set_x(pdf.l_margin)
-        pdf.multi_cell(usable_width, line_height, texto)
+def adicionar_cabecalho(pdf, dados):
+    """Adiciona cabeçalho profissional."""
 
-def gerar_pdf(dados):
-    pdf = PDF()
-    pdf.registrar_fonte_unicode()
-    pdf.set_auto_page_break(auto=True, margin=15)
-    pdf.add_page()
+    nome = dados.get(
+        "nome",
+        "Nome"
+    )
 
-    usable_width = pdf.w - 2 * pdf.l_margin
-    line_height = 6
+    cargo = dados.get(
+        "cargo",
+        ""
+    )
 
-    # Cabeçalho
-    pdf.header_curriculo(dados, usable_width)
+    contato = dados.get(
+        "contato",
+        {}
+    )
 
-    # OBJETIVO
-    pdf.secao_titulo("OBJETIVO", usable_width)
-    pdf.set_font(pdf.default_font, "", 11)
-    pdf.multi_cell(usable_width, line_height, dados.get("objetivo", ""))
-    pdf.ln(4)
+    email = contato.get(
+        "email",
+        ""
+    )
 
-    # PERFIL
-    pdf.secao_titulo("PERFIL", usable_width)
-    pdf.multi_cell(usable_width, line_height, dados.get("sobre", ""))
-    pdf.ln(4)
+    linkedin = contato.get(
+        "linkedin",
+        ""
+    )
 
-    # FORMAÇÃO ACADÊMICA
-    pdf.secao_titulo("FORMAÇÃO ACADÊMICA", usable_width)
-    for form in dados.get("educacao", []):
-        linha = f"{form.get('curso','')} - {form.get('instituicao','')} ({form.get('periodo','')})"
-        pdf.set_x(pdf.l_margin)
-        pdf.multi_cell(usable_width, line_height, linha)
-    pdf.ln(4)
+    github = contato.get(
+        "github",
+        ""
+    )
 
-    # COMPETÊNCIAS TÉCNICAS
-    pdf.secao_titulo("COMPETÊNCIAS TÉCNICAS", usable_width)
-    comp = dados.get("competencias", {})
-    linguagens = comp.get("linguagens", [])
-    if linguagens:
-        pdf.set_font(pdf.default_font, "B", 11)
-        pdf.cell(0, line_height, "Front-end: ")
+    site = contato.get(
+        "site",
+        ""
+    )
+
+    cidade = contato.get(
+        "cidade",
+        ""
+    )
+
+    # Nome
+    pdf.set_font(
+        pdf.default_font,
+        "B",
+        20
+    )
+
+    pdf.set_text_color(
+        25,
+        25,
+        25
+    )
+
+    pdf.cell(
+        0,
+        10,
+        nome,
+        align="C"
+    )
+
+    pdf.ln(8)
+
+    # Cargo
+    if cargo:
+        pdf.set_font(
+            pdf.default_font,
+            "",
+            11
+        )
+
+        pdf.set_text_color(
+            70,
+            70,
+            70
+        )
+
+        pdf.cell(
+            0,
+            6,
+            cargo,
+            align="C"
+        )
+
+        pdf.ln(7)
+
+    # Links
+    links = []
+
+    if email:
+        links.append(
+            ("E-mail", f"mailto:{email}")
+        )
+
+    if linkedin:
+        links.append(
+            ("LinkedIn", linkedin)
+        )
+
+    if github:
+        links.append(
+            ("GitHub", github)
+        )
+
+    if site:
+        links.append(
+            ("Portfólio", site)
+        )
+
+    if links:
+        pdf.set_font(
+            pdf.default_font,
+            "",
+            9
+        )
+
+        pdf.set_text_color(
+            0,
+            82,
+            155
+        )
+
+        largura = pdf.w - pdf.l_margin - pdf.r_margin
+
+        texto_links = "  |  ".join(
+            item[0]
+            for item in links
+        )
+
+        pdf.cell(
+            largura,
+            5,
+            texto_links,
+            align="C"
+        )
+
+        # Criamos os links individualmente
+        # sobre os textos correspondentes.
+        x_inicio = pdf.l_margin
+
+        largura_total = pdf.get_string_width(
+            texto_links
+        )
+
+        x_inicio = (
+            pdf.w - largura_total
+        ) / 2
+
+        x_atual = x_inicio
+
+        for index, (texto, url) in enumerate(links):
+
+            largura_texto = pdf.get_string_width(
+                texto
+            )
+
+            pdf.link(
+                x_atual,
+                pdf.get_y(),
+                largura_texto,
+                5,
+                url
+            )
+
+            x_atual += largura_texto
+
+            if index < len(links) - 1:
+                separador = "  |  "
+
+                x_atual += pdf.get_string_width(
+                    separador
+                )
+
+        pdf.set_text_color(
+            0,
+            0,
+            0
+        )
+
         pdf.ln(6)
-        pdf.set_font(pdf.default_font, "", 10)
-        pdf.set_x(pdf.l_margin)
-        pdf.multi_cell(usable_width, line_height, ", ".join(linguagens))
+
+    # Cidade
+    if cidade:
+        pdf.set_font(
+            pdf.default_font,
+            "",
+            9
+        )
+
+        pdf.set_text_color(
+            90,
+            90,
+            90
+        )
+
+        pdf.cell(
+            0,
+            5,
+            cidade,
+            align="C"
+        )
+
+        pdf.set_text_color(
+            0,
+            0,
+            0
+        )
+
+        pdf.ln(8)
+
+
+def adicionar_experiencia(
+    pdf,
+    experiencia
+):
+    """Adiciona experiência profissional."""
+
+    for item in experiencia:
+
+        empresa = item.get(
+            "empresa",
+            ""
+        )
+
+        cargo = item.get(
+            "cargo",
+            ""
+        )
+
+        periodo = item.get(
+            "periodo",
+            ""
+        )
+
+        resumo = item.get(
+            "resumo",
+            ""
+        )
+
+        if empresa:
+            pdf.set_font(
+                pdf.default_font,
+                "B",
+                11
+            )
+
+            pdf.multi_cell(
+                0,
+                5,
+                empresa
+            )
+
+        if cargo:
+            pdf.set_font(
+                pdf.default_font,
+                "B",
+                10
+            )
+
+            pdf.multi_cell(
+                0,
+                5,
+                cargo
+            )
+
+        if periodo:
+            pdf.set_font(
+                pdf.default_font,
+                "I",
+                9
+            )
+
+            pdf.set_text_color(
+                90,
+                90,
+                90
+            )
+
+            pdf.multi_cell(
+                0,
+                5,
+                periodo
+            )
+
+            pdf.set_text_color(
+                0,
+                0,
+                0
+            )
+
+        if resumo:
+            pdf.set_font(
+                pdf.default_font,
+                "",
+                9
+            )
+
+            pdf.multi_cell(
+                0,
+                4.8,
+                resumo
+            )
+
         pdf.ln(2)
 
-    ia_items = comp.get("ia_aplicada", [])
-    if ia_items:
-        pdf.set_font(pdf.default_font, "B", 11)
-        pdf.cell(0, line_height, "IA Aplicada:")
-        pdf.ln(6)
-        pdf.set_font(pdf.default_font, "", 10)
-        escrever_lista_segura(pdf, ia_items, usable_width, line_height)
+
+def adicionar_formacao(
+    pdf,
+    educacao
+):
+    """Adiciona formação acadêmica."""
+
+    for item in educacao:
+
+        curso = item.get(
+            "curso",
+            ""
+        )
+
+        instituicao = item.get(
+            "instituicao",
+            ""
+        )
+
+        periodo = item.get(
+            "periodo",
+            ""
+        )
+
+        if curso:
+            pdf.set_font(
+                pdf.default_font,
+                "B",
+                10
+            )
+
+            pdf.multi_cell(
+                0,
+                5,
+                curso
+            )
+
+        if instituicao:
+            pdf.set_font(
+                pdf.default_font,
+                "",
+                9
+            )
+
+            pdf.multi_cell(
+                0,
+                5,
+                instituicao
+            )
+
+        if periodo:
+            pdf.set_font(
+                pdf.default_font,
+                "I",
+                9
+            )
+
+            pdf.set_text_color(
+                90,
+                90,
+                90
+            )
+
+            pdf.multi_cell(
+                0,
+                5,
+                periodo
+            )
+
+            pdf.set_text_color(
+                0,
+                0,
+                0
+            )
+
         pdf.ln(2)
 
-    ferramentas = comp.get("ferramentas", [])
-    if ferramentas:
-        pdf.set_font(pdf.default_font, "B", 11)
-        pdf.cell(0, line_height, "Ferramentas:")
-        pdf.ln(6)
-        pdf.set_font(pdf.default_font, "", 10)
-        pdf.set_x(pdf.l_margin)
-        pdf.multi_cell(usable_width, line_height, ", ".join(ferramentas))
-        pdf.ln(4)
 
-    # PROJETOS E PORTFÓLIO
-    pdf.secao_titulo("PROJETOS PRÁTICOS E PORTFÓLIO", usable_width)
-    for exp in dados.get("experiencia", []):
-        if exp.get("empresa") == "FlyRank AI":
-            pdf.set_font(pdf.default_font, "B", 11)
-            pdf.set_x(pdf.l_margin)
-            pdf.multi_cell(usable_width, line_height, "Programa Prático de Engenharia Front-end com IA | FlyRank AI")
-            pdf.set_font(pdf.default_font, "", 10)
-            pdf.set_x(pdf.l_margin)
-            pdf.multi_cell(usable_width, 5, exp.get("resumo", ""))
-            pdf.ln(3)
+def adicionar_competencias(
+    pdf,
+    competencias
+):
+    """Adiciona competências técnicas."""
 
-    # EXPERIÊNCIA PROFISSIONAL
-    pdf.secao_titulo("EXPERIÊNCIA PROFISSIONAL", usable_width)
-    for exp in dados.get("experiencia", []):
-        if exp.get("empresa") != "FlyRank AI":
-            pdf.set_font(pdf.default_font, "B", 11)
-            pdf.set_x(pdf.l_margin)
-            pdf.multi_cell(usable_width, line_height, f"{exp.get('cargo','')} - {exp.get('empresa','')}")
-            pdf.set_font(pdf.default_font, "I", 10)
-            pdf.set_x(pdf.l_margin)
-            pdf.multi_cell(usable_width, line_height, exp.get("periodo", ""))
-            pdf.set_font(pdf.default_font, "", 10)
-            pdf.set_x(pdf.l_margin)
-            pdf.multi_cell(usable_width, 5, exp.get("resumo", ""))
-            pdf.ln(3)
+    grupos = [
+        (
+            "Front-end",
+            competencias.get(
+                "front_end",
+                []
+            )
+        ),
+        (
+            "Back-end e Dados",
+            competencias.get(
+                "back_end_dados",
+                []
+            )
+        ),
+        (
+            "IA Aplicada",
+            competencias.get(
+                "ia_aplicada",
+                []
+            )
+        ),
+        (
+            "Ferramentas",
+            competencias.get(
+                "ferramentas",
+                []
+            )
+        )
+    ]
 
-    # CERTIFICADOS E CURSOS (título clicável)
-    DRIVE_LINK = "https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM?usp=drive_link"
-    pdf.set_fill_color(230, 230, 230)
-    pdf.set_font(pdf.default_font, "B", 12)
-    pdf.cell(usable_width, 8, "  CERTIFICADOS E CURSOS", fill=True)
-    pdf.ln(6)
+    for titulo, itens in grupos:
 
-    # overlay do link sobre o título
-    x_title = pdf.l_margin + 2
-    y_title = pdf.get_y() - 12
-    pdf.set_xy(x_title, y_title)
-    pdf.set_text_color(0, 0, 255)
-    pdf.set_font(pdf.default_font, "U", 12)
-    pdf.write(8, "CERTIFICADOS E CURSOS", DRIVE_LINK)
-    pdf.set_text_color(0, 0, 0)
-    pdf.ln(6)
+        if not itens:
+            continue
 
-    # lista de certificados (apenas texto, sem links por item)
-    certs = dados.get("certificados", [])
-    pdf.set_font(pdf.default_font, "", 11)
-    pdf.set_x(pdf.l_margin)
-    for cert in certs:
-        nome = cert.get("nome", "").strip()
-        inst = cert.get("instituicao", "").strip()
-        ano = cert.get("ano", "").strip()
+        pdf.set_font(
+            pdf.default_font,
+            "B",
+            9.5
+        )
+
+        pdf.cell(
+            42,
+            5,
+            f"{titulo}:"
+        )
+
+        pdf.set_font(
+            pdf.default_font,
+            "",
+            9.5
+        )
+
+        pdf.multi_cell(
+            0,
+            5,
+            ", ".join(
+                str(item)
+                for item in itens
+            )
+        )
+
+        pdf.ln(1)
+
+
+def adicionar_certificados(
+    pdf,
+    dados
+):
+    """Adiciona certificados e link do Google Drive."""
+
+    certificados = dados.get(
+        "certificados",
+        []
+    )
+
+    contato = dados.get(
+        "contato",
+        {}
+    )
+
+    drive_link = contato.get(
+        "certificados",
+        ""
+    )
+
+    if drive_link:
+        pdf.set_font(
+            pdf.default_font,
+            "",
+            9
+        )
+
+        pdf.set_text_color(
+            0,
+            82,
+            155
+        )
+
+        pdf.cell(
+            0,
+            5,
+            "Acessar certificados e cursos no Google Drive",
+            link=drive_link
+        )
+
+        pdf.set_text_color(
+            0,
+            0,
+            0
+        )
+
+        pdf.ln(7)
+
+    for certificado in certificados:
+
+        nome = certificado.get(
+            "nome",
+            ""
+        ).strip()
+
+        instituicao = certificado.get(
+            "instituicao",
+            ""
+        ).strip()
+
+        ano = certificado.get(
+            "ano",
+            ""
+        ).strip()
+
         if not nome:
             continue
-        linha = f"● {nome}"
-        if inst:
-            linha += f", {inst}"
+
+        texto = nome
+
+        if instituicao:
+            texto += f" — {instituicao}"
+
         if ano:
-            linha += f" ({ano})"
-        pdf.multi_cell(usable_width, 6, linha)
-    pdf.ln(6)
+            texto += f" ({ano})"
 
-    pdf.output("curriculo_fabiano.pdf")
+        pdf.set_font(
+            pdf.default_font,
+            "",
+            9.5
+        )
 
-if __name__ == "__main__":
+        pdf.multi_cell(
+            0,
+            5,
+            f"• {texto}"
+        )
+
+        pdf.ln(1)
+
+
+def gerar_pdf(dados):
+    """Gera o currículo em PDF."""
+
+    pdf = CurriculoPDF()
+
+    pdf.add_page()
+
+    adicionar_cabecalho(
+        pdf,
+        dados
+    )
+
+    # ---------------------------------------------------------
+    # OBJETIVO
+    # ---------------------------------------------------------
+
+    objetivo = dados.get(
+        "objetivo",
+        ""
+    )
+
+    if objetivo:
+        pdf.titulo_secao(
+            "OBJETIVO"
+        )
+
+        pdf.texto(
+            objetivo,
+            tamanho=9.5,
+            altura=5
+        )
+
+        pdf.ln(3)
+
+    # ---------------------------------------------------------
+    # PERFIL
+    # ---------------------------------------------------------
+
+    sobre = dados.get(
+        "sobre",
+        ""
+    )
+
+    if sobre:
+        pdf.titulo_secao(
+            "PERFIL PROFISSIONAL"
+        )
+
+        pdf.texto(
+            sobre,
+            tamanho=9.5,
+            altura=5
+        )
+
+        pdf.ln(3)
+
+    # ---------------------------------------------------------
+    # EXPERIÊNCIA
+    # ---------------------------------------------------------
+
+    experiencia = dados.get(
+        "experiencia",
+        []
+    )
+
+    if experiencia:
+        pdf.titulo_secao(
+            "EXPERIÊNCIA PROFISSIONAL"
+        )
+
+        adicionar_experiencia(
+            pdf,
+            experiencia
+        )
+
+    # ---------------------------------------------------------
+    # FORMAÇÃO
+    # ---------------------------------------------------------
+
+    educacao = dados.get(
+        "educacao",
+        []
+    )
+
+    if educacao:
+        pdf.titulo_secao(
+            "FORMAÇÃO ACADÊMICA"
+        )
+
+        adicionar_formacao(
+            pdf,
+            educacao
+        )
+
+    # ---------------------------------------------------------
+    # COMPETÊNCIAS
+    # ---------------------------------------------------------
+
+    competencias = dados.get(
+        "competencias",
+        {}
+    )
+
+    if competencias:
+        pdf.titulo_secao(
+            "COMPETÊNCIAS TÉCNICAS"
+        )
+
+        adicionar_competencias(
+            pdf,
+            competencias
+        )
+
+        pdf.ln(3)
+
+    # ---------------------------------------------------------
+    # CERTIFICADOS
+    # ---------------------------------------------------------
+
+    certificados = dados.get(
+        "certificados",
+        []
+    )
+
+    contato = dados.get(
+        "contato",
+        {}
+    )
+
+    drive_link = contato.get(
+        "certificados",
+        ""
+    )
+
+    if certificados or drive_link:
+        pdf.titulo_secao(
+            "CERTIFICADOS E CURSOS",
+            link=drive_link if drive_link else None
+        )
+
+        adicionar_certificados(
+            pdf,
+            dados
+        )
+
+    # ---------------------------------------------------------
+    # SAÍDA
+    # ---------------------------------------------------------
+
+    pdf.output(
+        str(PDF_FILE)
+    )
+
+    print(
+        f"PDF gerado com sucesso: {PDF_FILE}"
+    )
+
+
+def main():
     dados = carregar_dados()
     gerar_pdf(dados)
+
+
+if __name__ == "__main__":
+    main()
