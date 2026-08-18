@@ -1,83 +1,290 @@
+# -*- coding: utf-8 -*-
+
 import json
+from pathlib import Path
 
-def gerar_readme():
-    with open('dados_curriculo.json', 'r', encoding='utf-8') as f:
-        dados = json.load(f)
 
-    nome = dados.get('nome', 'Nome')
-    cargo = dados.get('cargo', '')
-    foco = dados.get('foco', '')
-    sobre = dados.get('sobre', '')
-    contato = dados.get('contato', {})
-    competencias = dados.get('competencias', {})
-    projetos = dados.get('projetos', [])
-    experiencia = dados.get('experiencia', [])
+BASE_DIR = Path(__file__).resolve().parent
+DADOS_FILE = BASE_DIR / "dados_curriculo.json"
+README_FILE = BASE_DIR / "README.md"
 
-    linguagens = competencias.get('linguagens', [])
-    banco_de_dados = competencias.get('banco_de_dados', [])
-    ferramentas = competencias.get('ferramentas', [])
-    sistemas = competencias.get('sistemas', [])
 
-    conteudo = ""
-    conteudo += f"# {nome}\n\n"
+def carregar_dados():
+    """Carrega e valida os dados do currículo."""
+    if not DADOS_FILE.exists():
+        raise FileNotFoundError(
+            f"Arquivo não encontrado: {DADOS_FILE}"
+        )
+
+    with DADOS_FILE.open("r", encoding="utf-8") as arquivo:
+        dados = json.load(arquivo)
+
+    if not isinstance(dados, dict):
+        raise ValueError(
+            "dados_curriculo.json deve conter um objeto JSON."
+        )
+
+    return dados
+
+
+def lista_texto(itens):
+    """Transforma uma lista em texto separado por vírgulas."""
+    if not itens:
+        return "—"
+
+    return ", ".join(str(item).strip() for item in itens if str(item).strip())
+
+
+def gerar_readme(dados):
+    """Gera o conteúdo completo do README.md."""
+
+    nome = dados.get("nome", "Nome")
+    cargo = dados.get("cargo", "")
+    objetivo = dados.get("objetivo", "")
+    sobre = dados.get("sobre", "")
+
+    contato = dados.get("contato", {})
+    competencias = dados.get("competencias", {})
+    educacao = dados.get("educacao", [])
+    experiencia = dados.get("experiencia", [])
+    certificados = dados.get("certificados", [])
+
+    email = contato.get("email", "")
+    cidade = contato.get("cidade", "")
+    linkedin = contato.get("linkedin", "")
+    github = contato.get("github", "")
+    site = contato.get("site", "")
+    certificados_link = contato.get("certificados", "")
+
+    front_end = competencias.get("front_end", [])
+    back_end_dados = competencias.get("back_end_dados", [])
+    ia_aplicada = competencias.get("ia_aplicada", [])
+    ferramentas = competencias.get("ferramentas", [])
+
+    linhas = []
+
+    # ---------------------------------------------------------
+    # CABEÇALHO
+    # ---------------------------------------------------------
+
+    linhas.append(f"# {nome}")
+    linhas.append("")
+
     if cargo:
-        conteudo += f"**{cargo}**  \n"
-    if foco:
-        conteudo += f"{foco}\n\n"
+        linhas.append(f"**{cargo}**")
+        linhas.append("")
 
-    conteudo += "[![Baixar PDF](https://img.shields.io/badge/Download-Curr%C3%ADculo_PDF-red?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white)](./curriculo_fabiano.pdf)\n\n"
+    links = []
 
-    conteudo += "## Sobre\n"
-    conteudo += f"{sobre}\n\n"
+    if linkedin:
+        links.append(f"[LinkedIn]({linkedin})")
 
-    conteudo += "## Competências Técnicas\n\n"
-    conteudo += f"- **Linguagens:** {', '.join(linguagens) if linguagens else '—'}\n"
-    conteudo += f"- **Banco de Dados:** {', '.join(banco_de_dados) if banco_de_dados else '—'}\n"
-    conteudo += f"- **Ferramentas:** {', '.join(ferramentas) if ferramentas else '—'}\n"
-    conteudo += f"- **Sistemas:** {', '.join(sistemas) if sistemas else '—'}\n\n"
+    if github:
+        links.append(f"[GitHub]({github})")
 
-    conteudo += "## Projetos\n\n"
-    if projetos:
-        for proj in projetos:
-            nome_proj = proj.get('nome', 'Projeto')
-            descricao = proj.get('descricao', '')
-            conteudo += f"### {nome_proj}\n"
-            conteudo += f"{descricao}\n\n"
-    else:
-        conteudo += "Projetos listados no repositório GitHub.\n\n"
+    if site:
+        links.append(f"[Portfólio]({site})")
 
-    conteudo += "## Experiência Profissional\n\n"
+    if email:
+        links.append(f"[E-mail](mailto:{email})")
+
+    if links:
+        linhas.append(" · ".join(links))
+        linhas.append("")
+
+    linhas.append(
+        "[![Currículo PDF](https://img.shields.io/badge/Curr%C3%ADculo-PDF-red?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white)](./curriculo_fabiano.pdf)"
+    )
+    linhas.append("")
+
+    # ---------------------------------------------------------
+    # SOBRE
+    # ---------------------------------------------------------
+
+    linhas.append("## Sobre")
+    linhas.append("")
+
+    if sobre:
+        linhas.append(sobre)
+        linhas.append("")
+
+    # ---------------------------------------------------------
+    # OBJETIVO
+    # ---------------------------------------------------------
+
+    if objetivo:
+        linhas.append("## Objetivo")
+        linhas.append("")
+        linhas.append(objetivo)
+        linhas.append("")
+
+    # ---------------------------------------------------------
+    # COMPETÊNCIAS
+    # ---------------------------------------------------------
+
+    linhas.append("## Competências Técnicas")
+    linhas.append("")
+
+    linhas.append(
+        f"- **Front-end:** {lista_texto(front_end)}"
+    )
+
+    linhas.append(
+        f"- **Back-end e Dados:** {lista_texto(back_end_dados)}"
+    )
+
+    linhas.append(
+        f"- **IA Aplicada:** {lista_texto(ia_aplicada)}"
+    )
+
+    linhas.append(
+        f"- **Ferramentas:** {lista_texto(ferramentas)}"
+    )
+
+    linhas.append("")
+
+    # ---------------------------------------------------------
+    # EXPERIÊNCIA
+    # ---------------------------------------------------------
+
+    linhas.append("## Experiência Profissional")
+    linhas.append("")
+
     if experiencia:
-        for exp in experiencia:
-            empresa = exp.get('empresa', '')
-            cargo_exp = exp.get('cargo', '')
-            periodo = exp.get('periodo', '')
-            resumo = exp.get('resumo', '')
-            conteudo += f"### {empresa}\n"
-            conteudo += f"**{cargo_exp}**  \n"
-            conteudo += f"{periodo}  \n"
-            conteudo += f"{resumo}\n\n"
-    else:
-        conteudo += "Experiência profissional detalhada no PDF.\n\n"
+        for item in experiencia:
+            empresa = item.get("empresa", "")
+            cargo_exp = item.get("cargo", "")
+            periodo = item.get("periodo", "")
+            resumo = item.get("resumo", "")
 
-    conteudo += "## Contato\n\n"
-    cidade = contato.get('cidade', '')
-    email = contato.get('email', '')
-    linkedin = contato.get('linkedin', '')
-    github = contato.get('github', '')
+            if empresa:
+                linhas.append(f"### {empresa}")
+                linhas.append("")
+
+            if cargo_exp:
+                linhas.append(f"**{cargo_exp}**")
+
+            if periodo:
+                linhas.append(f"*{periodo}*")
+
+            linhas.append("")
+
+            if resumo:
+                linhas.append(resumo)
+                linhas.append("")
+    else:
+        linhas.append("Experiência profissional detalhada no currículo PDF.")
+        linhas.append("")
+
+    # ---------------------------------------------------------
+    # FORMAÇÃO
+    # ---------------------------------------------------------
+
+    linhas.append("## Formação Acadêmica")
+    linhas.append("")
+
+    if educacao:
+        for item in educacao:
+            curso = item.get("curso", "")
+            instituicao = item.get("instituicao", "")
+            periodo = item.get("periodo", "")
+
+            if curso:
+                linhas.append(f"### {curso}")
+
+            if instituicao:
+                linhas.append(f"**{instituicao}**")
+
+            if periodo:
+                linhas.append(f"*{periodo}*")
+
+            linhas.append("")
+    else:
+        linhas.append("Informações acadêmicas disponíveis no currículo PDF.")
+        linhas.append("")
+
+    # ---------------------------------------------------------
+    # CERTIFICADOS
+    # ---------------------------------------------------------
+
+    linhas.append("## Certificados e Cursos")
+    linhas.append("")
+
+    if certificados_link:
+        linhas.append(
+            f"[📁 Acessar certificados e cursos no Google Drive]({certificados_link})"
+        )
+        linhas.append("")
+
+    if certificados:
+        for cert in certificados:
+            nome_cert = cert.get("nome", "")
+            instituicao = cert.get("instituicao", "")
+            ano = cert.get("ano", "")
+
+            partes = []
+
+            if nome_cert:
+                partes.append(f"**{nome_cert}**")
+
+            if instituicao:
+                partes.append(instituicao)
+
+            if ano:
+                partes.append(ano)
+
+            if partes:
+                linhas.append("- " + " — ".join(partes))
+
+        linhas.append("")
+
+    # ---------------------------------------------------------
+    # CONTATO
+    # ---------------------------------------------------------
+
+    linhas.append("## Contato")
+    linhas.append("")
 
     if cidade:
-        conteudo += f"- 📍 {cidade}\n"
-    if email:
-        conteudo += f"- ✉️ {email}\n"
-    if linkedin:
-        conteudo += f"- 🔗 [LinkedIn]({linkedin})\n"
-    if github:
-        conteudo += f"- 💻 [GitHub]({github})\n"
+        linhas.append(f"- 📍 {cidade}")
 
-    with open('README.md', 'w', encoding='utf-8') as f:
-        f.write(conteudo)
+    if email:
+        linhas.append(f"- ✉️ [E-mail](mailto:{email})")
+
+    if linkedin:
+        linhas.append(f"- 🔗 [LinkedIn]({linkedin})")
+
+    if github:
+        linhas.append(f"- 💻 [GitHub]({github})")
+
+    if site:
+        linhas.append(f"- 🌐 [Portfólio]({site})")
+
+    linhas.append("")
+
+    linhas.append("---")
+    linhas.append("")
+    linhas.append(
+        "*README gerado automaticamente a partir de `dados_curriculo.json`.*"
+    )
+    linhas.append("")
+
+    return "\n".join(linhas)
+
+
+def salvar_readme(conteudo):
+    """Salva o README.md."""
+    with README_FILE.open("w", encoding="utf-8", newline="\n") as arquivo:
+        arquivo.write(conteudo)
+
+
+def main():
+    dados = carregar_dados()
+    conteudo = gerar_readme(dados)
+    salvar_readme(conteudo)
+
     print("README.md atualizado com sucesso.")
 
+
 if __name__ == "__main__":
-    gerar_readme()
+    main()
