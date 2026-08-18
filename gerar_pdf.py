@@ -13,6 +13,7 @@ class PDF(FPDF):
     def registrar_fonte_unicode(self):
         if os.path.isfile(FONT_FILENAME):
             try:
+                # registra variantes usando o mesmo arquivo TTF
                 self.add_font("DejaVu", "", FONT_FILENAME, uni=True)
                 self.add_font("DejaVu", "B", FONT_FILENAME, uni=True)
                 self.add_font("DejaVu", "I", FONT_FILENAME, uni=True)
@@ -25,6 +26,7 @@ class PDF(FPDF):
         self.default_font = "Helvetica"
 
     def header_curriculo(self, dados, usable_width):
+        # garante que a fonte esteja registrada antes de usar set_font
         self.registrar_fonte_unicode()
         self.set_font(self.default_font, "B", 18)
         self.cell(0, 10, dados["nome"], align="C")
@@ -43,10 +45,10 @@ class PDF(FPDF):
 
         self.set_text_color(0, 0, 0)
         self.set_font(self.default_font, "B", 11)
-        self.cell(0, 6, dados["cargo"], align="C")
+        self.cell(0, 6, dados.get("cargo", ""), align="C")
         self.ln(6)
         self.set_font(self.default_font, "", 10)
-        self.cell(0, 6, dados["contato"]["cidade"], align="C")
+        self.cell(0, 6, dados["contato"].get("cidade", ""), align="C")
         self.ln(10)
 
     def secao_titulo(self, texto, usable_width):
@@ -58,13 +60,11 @@ class PDF(FPDF):
 def escrever_lista_segura(pdf, items, usable_width, line_height=6):
     for item in items:
         texto = "- " + item
-        # garantir cursor no inicio da margem antes de multi_cell
         pdf.set_x(pdf.l_margin)
         try:
             pdf.multi_cell(usable_width, line_height, texto)
         except Exception as e:
             sys.stderr.write(f"[WARN] falha ao escrever item: {texto[:120]}... erro: {e}\n")
-            # fallback: dividir por espacos em blocos menores
             partes = texto.split(" ")
             buffer = ""
             for p in partes:
@@ -80,10 +80,21 @@ def escrever_lista_segura(pdf, items, usable_width, line_height=6):
 
 def gerar_pdf(dados):
     pdf = PDF()
-pdf.registrar_fonte_unicode()   # <-- garante que add_font() foi executado antes de qualquer set_font()
-pdf.set_auto_page_break(auto=True, margin=15)
-pdf.add_page()
+    # Garantir registro da família DejaVu antes de qualquer set_font
+    try:
+        if hasattr(pdf, "registrar_fonte_unicode"):
+            pdf.registrar_fonte_unicode()
+        else:
+            pdf.add_font("DejaVu", "", FONT_FILENAME, uni=True)
+            pdf.add_font("DejaVu", "B", FONT_FILENAME, uni=True)
+            pdf.add_font("DejaVu", "I", FONT_FILENAME, uni=True)
+            pdf.add_font("DejaVu", "BI", FONT_FILENAME, uni=True)
+            pdf.default_font = "DejaVu"
+    except Exception as _e:
+        sys.stderr.write(f"[WARN] falha ao registrar fonte DejaVu: {_e}\n")
 
+    pdf.set_auto_page_break(auto=True, margin=15)
+    pdf.add_page()
 
     usable_width = pdf.w - 2 * pdf.l_margin
     line_height = 6
