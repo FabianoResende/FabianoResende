@@ -14,7 +14,7 @@ class PDF(FPDF):
     def registrar_fonte_unicode(self):
         if os.path.isfile(FONT_FILENAME):
             try:
-                # registra variantes usando o mesmo arquivo TTF
+                # registra variantes usando o mesmo arquivo TTF (sem parâmetro 'uni')
                 self.add_font("DejaVu", "", FONT_FILENAME)
                 self.add_font("DejaVu", "B", FONT_FILENAME)
                 self.add_font("DejaVu", "I", FONT_FILENAME)
@@ -165,4 +165,31 @@ def gerar_pdf(dados):
     y_title = pdf.get_y() - 12
     pdf.set_xy(x_title, y_title)
     pdf.set_text_color(0, 0, 255)
-    pdf.set_font(pdf.default
+    pdf.set_font(pdf.default_font, "U", 12)
+    pdf.write(8, "CERTIFICADOS E CURSOS", DRIVE_LINK)
+    pdf.set_text_color(0, 0, 0)
+    pdf.ln(6)
+
+    # lista de certificados (apenas texto, sem links por item)
+    certs = dados.get("certificados", [])
+    pdf.set_font(pdf.default_font, "", 11)
+    pdf.set_x(pdf.l_margin)
+    for cert in certs:
+        nome = cert.get("nome", "").strip()
+        inst = cert.get("instituicao", "").strip()
+        ano = cert.get("ano", "").strip()
+        if not nome:
+            continue
+        linha = f"● {nome}"
+        if inst:
+            linha += f", {inst}"
+        if ano:
+            linha += f" ({ano})"
+        pdf.multi_cell(usable_width, 6, linha)
+    pdf.ln(6)
+
+    pdf.output("curriculo_fabiano.pdf")
+
+if __name__ == "__main__":
+    dados = carregar_dados()
+    gerar_pdf(dados)
