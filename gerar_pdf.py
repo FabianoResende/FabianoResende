@@ -177,22 +177,15 @@ def gerar_pdf(dados):
             pdf.multi_cell(usable_width, 5, exp.get("resumo", ""))
             pdf.ln(3)
 
-        pdf.secao_titulo("CERTIFICADOS E CURSOS", usable_width)
+            pdf.secao_titulo("CERTIFICADOS E CURSOS", usable_width)
 
-    # lista de certificados (apenas texto)
+    # lista de certificados (apenas texto, sem links por item)
     certs = dados.get("certificados", [])
     pdf.set_font(pdf.default_font, "", 11)
     pdf.set_x(pdf.l_margin)
     for cert in certs:
-        # bullet + nome do curso e instituição
         linha = f"● {cert.get('nome','')} - {cert.get('instituicao','')} ({cert.get('ano','')})"
-        try:
-            pdf.multi_cell(usable_width, 6, linha)
-        except Exception:
-            # fallback simples
-            pdf.set_x(pdf.l_margin)
-            pdf.multi_cell(usable_width, 6, linha)
-
+        pdf.multi_cell(usable_width, 6, linha)
     pdf.ln(2)
 
     # Link único para a pasta com todos os certificados (clicável)
@@ -200,7 +193,6 @@ def gerar_pdf(dados):
     pdf.set_x(pdf.l_margin)
     pdf.set_text_color(0, 0, 255)
     pdf.set_font(pdf.default_font, "U", 11)
-    # o terceiro argumento de write é o link clicável
     pdf.write(6, "Acesse todos os certificados", DRIVE_LINK)
     pdf.set_text_color(0, 0, 0)
     pdf.ln(10)
