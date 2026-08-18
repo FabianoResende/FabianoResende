@@ -14,6 +14,7 @@ class PDF(FPDF):
     def registrar_fonte_unicode(self):
         if os.path.isfile(FONT_FILENAME):
             try:
+                # registra variantes usando o mesmo arquivo TTF
                 self.add_font("DejaVu", "", FONT_FILENAME)
                 self.add_font("DejaVu", "B", FONT_FILENAME)
                 self.add_font("DejaVu", "I", FONT_FILENAME)
@@ -89,40 +90,51 @@ def gerar_pdf(dados):
     pdf.secao_titulo("FORMAÇÃO ACADÊMICA", usable_width)
     for form in dados.get("educacao", []):
         linha = f"{form.get('curso','')} - {form.get('instituicao','')} ({form.get('periodo','')})"
+        pdf.set_x(pdf.l_margin)
         pdf.multi_cell(usable_width, line_height, linha)
     pdf.ln(4)
 
     # COMPETÊNCIAS TÉCNICAS
     pdf.secao_titulo("COMPETÊNCIAS TÉCNICAS", usable_width)
     comp = dados.get("competencias", {})
-    pdf.set_font(pdf.default_font, "B", 11)
-    pdf.cell(0, line_height, "Front-end / Linguagens:")
-    pdf.ln(6)
-    pdf.set_font(pdf.default_font, "", 10)
-    pdf.multi_cell(usable_width, line_height, ", ".join(comp.get("linguagens", [])))
-    pdf.ln(2)
+    linguagens = comp.get("linguagens", [])
+    if linguagens:
+        pdf.set_font(pdf.default_font, "B", 11)
+        pdf.cell(0, line_height, "Front-end: ")
+        pdf.ln(6)
+        pdf.set_font(pdf.default_font, "", 10)
+        pdf.set_x(pdf.l_margin)
+        pdf.multi_cell(usable_width, line_height, ", ".join(linguagens))
+        pdf.ln(2)
 
-    pdf.set_font(pdf.default_font, "B", 11)
-    pdf.cell(0, line_height, "IA Aplicada:")
-    pdf.ln(6)
-    pdf.set_font(pdf.default_font, "", 10)
-    escrever_lista_segura(pdf, comp.get("ia_aplicada", []), usable_width, line_height)
-    pdf.ln(2)
+    ia_items = comp.get("ia_aplicada", [])
+    if ia_items:
+        pdf.set_font(pdf.default_font, "B", 11)
+        pdf.cell(0, line_height, "IA Aplicada:")
+        pdf.ln(6)
+        pdf.set_font(pdf.default_font, "", 10)
+        escrever_lista_segura(pdf, ia_items, usable_width, line_height)
+        pdf.ln(2)
 
-    pdf.set_font(pdf.default_font, "B", 11)
-    pdf.cell(0, line_height, "Ferramentas:")
-    pdf.ln(6)
-    pdf.set_font(pdf.default_font, "", 10)
-    pdf.multi_cell(usable_width, line_height, ", ".join(comp.get("ferramentas", [])))
-    pdf.ln(4)
+    ferramentas = comp.get("ferramentas", [])
+    if ferramentas:
+        pdf.set_font(pdf.default_font, "B", 11)
+        pdf.cell(0, line_height, "Ferramentas:")
+        pdf.ln(6)
+        pdf.set_font(pdf.default_font, "", 10)
+        pdf.set_x(pdf.l_margin)
+        pdf.multi_cell(usable_width, line_height, ", ".join(ferramentas))
+        pdf.ln(4)
 
     # PROJETOS E PORTFÓLIO
-    pdf.secao_titulo("PROJETOS E PORTFÓLIO", usable_width)
+    pdf.secao_titulo("PROJETOS PRÁTICOS E PORTFÓLIO", usable_width)
     for exp in dados.get("experiencia", []):
         if exp.get("empresa") == "FlyRank AI":
             pdf.set_font(pdf.default_font, "B", 11)
+            pdf.set_x(pdf.l_margin)
             pdf.multi_cell(usable_width, line_height, "Programa Prático de Engenharia Front-end com IA | FlyRank AI")
             pdf.set_font(pdf.default_font, "", 10)
+            pdf.set_x(pdf.l_margin)
             pdf.multi_cell(usable_width, 5, exp.get("resumo", ""))
             pdf.ln(3)
 
@@ -131,10 +143,13 @@ def gerar_pdf(dados):
     for exp in dados.get("experiencia", []):
         if exp.get("empresa") != "FlyRank AI":
             pdf.set_font(pdf.default_font, "B", 11)
-            pdf.multi_cell(usable_width, line_height, f"{exp.get('cargo','')} | {exp.get('empresa','')}")
+            pdf.set_x(pdf.l_margin)
+            pdf.multi_cell(usable_width, line_height, f"{exp.get('cargo','')} - {exp.get('empresa','')}")
             pdf.set_font(pdf.default_font, "I", 10)
+            pdf.set_x(pdf.l_margin)
             pdf.multi_cell(usable_width, line_height, exp.get("periodo", ""))
             pdf.set_font(pdf.default_font, "", 10)
+            pdf.set_x(pdf.l_margin)
             pdf.multi_cell(usable_width, 5, exp.get("resumo", ""))
             pdf.ln(3)
 
@@ -145,16 +160,9 @@ def gerar_pdf(dados):
     pdf.cell(usable_width, 8, "  CERTIFICADOS E CURSOS", fill=True)
     pdf.ln(6)
 
-    # link sobre o título
+    # overlay do link sobre o título
     x_title = pdf.l_margin + 2
     y_title = pdf.get_y() - 12
     pdf.set_xy(x_title, y_title)
     pdf.set_text_color(0, 0, 255)
-    pdf.set_font(pdf.default_font, "U", 12)
-    pdf.write(8, "CERTIFICADOS E CURSOS", DRIVE_LINK)
-    pdf.set_text_color(0, 0, 0)
-    pdf.ln(6)
-
-    # lista de certificados
-    pdf.set_font(pdf.default_font, "", 11)
-    for cert in dados.get("
+    pdf.set_font(pdf.default
