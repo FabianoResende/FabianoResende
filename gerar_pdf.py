@@ -102,17 +102,20 @@ def gerar_pdf(dados):
 
     pdf.header_curriculo(dados, usable_width)
 
+    # OBJETIVO
     pdf.secao_titulo("OBJETIVO", usable_width)
     pdf.set_font(pdf.default_font, "", 11)
     pdf.set_x(pdf.l_margin)
     pdf.multi_cell(usable_width, line_height, dados.get("objetivo", ""))
     pdf.ln(4)
 
+    # PERFIL
     pdf.secao_titulo("PERFIL", usable_width)
     pdf.set_x(pdf.l_margin)
     pdf.multi_cell(usable_width, line_height, dados.get("sobre", ""))
     pdf.ln(4)
 
+    # FORMAÇÃO ACADÊMICA
     pdf.secao_titulo("FORMAÇÃO ACADÊMICA", usable_width)
     for form in dados.get("educacao", []):
         linha = f"{form.get('curso','')} - {form.get('instituicao','')} ({form.get('periodo','')})"
@@ -120,6 +123,7 @@ def gerar_pdf(dados):
         pdf.multi_cell(usable_width, line_height, linha)
     pdf.ln(4)
 
+    # COMPETÊNCIAS TÉCNICAS
     pdf.secao_titulo("COMPETÊNCIAS TÉCNICAS", usable_width)
     comp = dados.get("competencias", {})
 
@@ -152,6 +156,7 @@ def gerar_pdf(dados):
         pdf.multi_cell(usable_width, line_height, ", ".join(ferramentas))
         pdf.ln(4)
 
+    # PROJETOS E PORTFÓLIO
     pdf.secao_titulo("PROJETOS E PORTFÓLIO", usable_width)
     for exp in dados.get("experiencia", []):
         if exp.get("empresa") == "FlyRank AI":
@@ -163,6 +168,7 @@ def gerar_pdf(dados):
             pdf.multi_cell(usable_width, 5, exp.get("resumo", ""))
             pdf.ln(3)
 
+    # EXPERIÊNCIA PROFISSIONAL
     pdf.secao_titulo("EXPERIÊNCIA PROFISSIONAL", usable_width)
     for exp in dados.get("experiencia", []):
         if exp.get("empresa") != "FlyRank AI":
@@ -177,7 +183,7 @@ def gerar_pdf(dados):
             pdf.multi_cell(usable_width, 5, exp.get("resumo", ""))
             pdf.ln(3)
 
-                        # --- CERTIFICADOS E CURSOS (título clicável) ---
+    # --- CERTIFICADOS E CURSOS (título clicável) ---
     DRIVE_LINK = "https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM?usp=drive_link"
 
     # desenha o título com fundo (mesma aparência de secao_titulo)
@@ -187,7 +193,6 @@ def gerar_pdf(dados):
     pdf.ln(6)
 
     # escreve o mesmo texto como link sobre o título (posicionamento ajustado)
-    # calcula posição do título: volta uma linha e ajusta Y para cobrir a célula do título
     x_title = pdf.l_margin + 2
     y_title = pdf.get_y() - 12
     pdf.set_xy(x_title, y_title)
@@ -205,7 +210,6 @@ def gerar_pdf(dados):
         nome = cert.get("nome", "").strip()
         inst = cert.get("instituicao", "").strip()
         ano = cert.get("ano", "").strip()
-        # pular entradas vazias ou claramente inválidas
         if not nome:
             continue
         linha = f"● {nome}"
@@ -216,10 +220,7 @@ def gerar_pdf(dados):
         pdf.multi_cell(usable_width, 6, linha)
     pdf.ln(6)
 
-
-
     pdf.output("curriculo_fabiano.pdf")
 
 if __name__ == "__main__":
     gerar_pdf(carregar_dados())
-
