@@ -19,59 +19,23 @@
     }
   ],
   "competencias": {
-    "linguagens": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "TypeScript",
-      "React",
-      "Next.js"
-    ],
-    "dados_back_end": [
-      "Python",
-      "SQL",
-      "SQLite",
-      "Node.js"
-    ],
-    "ia_aplicada": [
-      "Engenharia de Prompt",
-      "Integração de APIs de IA",
-      "Claude Code",
-      "NotebookLM",
-      "Agentes de IA",
-      "MCP"
-    ],
-    "ferramentas": [
-      "Git",
-      "GitHub",
-      "GitHub Actions"
-    ]
+    "linguagens": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
+    "dados_back_end": ["Python", "SQL", "SQLite", "Node.js"],
+    "ia_aplicada": ["Engenharia de Prompt", "Integração de APIs de IA", "Claude Code", "NotebookLM", "Agentes de IA", "MCP"],
+    "ferramentas": ["Git", "GitHub", "GitHub Actions"]
   },
   "experiencia": [
     {
       "empresa": "FlyRank AI",
       "cargo": "Estagiário de Engenharia Front-end com IA",
       "periodo": "Jul/2026 - Atual | Remoto",
-      "projetos": [
-        "Capstone FE-04: Plataforma de Suporte Técnico com IA (Next.js, TypeScript e Claude Code).",
-        "FL-04 Study Notes Pipeline: NotebookLM + Claude, com cerca de 3 horas economizadas por ciclo em 5 execuções reais.",
-        "Chatbot Front-end com IA: HTML, CSS e JavaScript com integração de API de IA.",
-        "Gerenciador de Senhas: Python + SQLite com operações CRUD e armazenamento criptografado.",
-        "Landing Page Responsiva: HTML, CSS e JavaScript."
-      ],
-      "resumo": "Desenvolvimento de projetos reais integrando tecnologias web, APIs e ferramentas de IA durante trilha prática de formação."
+      "resumo": "Desenvolvimento de projetos reais integrando tecnologias web, APIs e ferramentas de IA durante trilha prática de formação. Capstone FE-04: Plataforma de Suporte Técnico com IA (Next.js, TypeScript e Claude Code). FL-04 Study Notes Pipeline: NotebookLM + Claude, com cerca de 3 horas economizadas por ciclo em 5 execuções reais. Chatbot Front-end com IA: HTML, CSS e JavaScript com integração de API de IA. Gerenciador de Senhas: Python + SQLite com operações CRUD e armazenamento criptografado. Landing Page Responsiva: HTML, CSS e JavaScript."
     },
     {
       "empresa": "Indigo Estacionamento",
       "cargo": "Assistente Administrativo Financeiro",
       "periodo": "Nov/2016 - Nov/2019 | Niterói, RJ",
-      "projetos": [
-        "Monitoramento diário dos sistemas WA e WPS e suporte técnico de nível 1 aos terminais PERTO TPC 4110.",
-        "Execução de rotinas de tesouraria, faturamento diário, pagamentos e manuseio de numerário.",
-        "Elaboração de relatórios em planilhas e organização de documentos administrativos.",
-        "Análise de ocorrências operacionais e resolução de problemas do dia a dia."
-      ],
-      "resumo": "Consolidei nessa experiência habilidades iniciais em suporte a sistemas e análise de dados operacionais."
+      "resumo": "Monitoramento diário dos sistemas WA e WPS e suporte técnico de nível 1 aos terminais PERTO TPC 4110. Execução de rotinas de tesouraria, faturamento diário, pagamentos e manuseio de numerário. Elaboração de relatórios em planilhas e organização de documentos administrativos. Análise de ocorrências operacionais e resolução de problemas do dia a dia. Consolidei nessa experiência habilidades iniciais em suporte a sistemas e análise de dados operacionais."
     }
   ],
   "certificados": [
@@ -86,7 +50,7 @@
       "link": "https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM?usp=drive_link"
     },
     {
-      "nome": "AI Fluency Framework and Foundations",
+      "nome": "AI Fluency: Framework and Foundations",
       "instituicao": "Anthropic",
       "link": "https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM?usp=drive_link"
     }
