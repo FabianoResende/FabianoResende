@@ -177,35 +177,45 @@ def gerar_pdf(dados):
             pdf.multi_cell(usable_width, 5, exp.get("resumo", ""))
             pdf.ln(3)
 
-                    # --- CERTIFICADOS E CURSOS (título clicável) ---
+                        # --- CERTIFICADOS E CURSOS (título clicável) ---
     DRIVE_LINK = "https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM?usp=drive_link"
 
-    # desenha o título como célula preenchida (mesma aparência de secao_titulo)
+    # desenha o título com fundo (mesma aparência de secao_titulo)
     pdf.set_fill_color(230, 230, 230)
     pdf.set_font(pdf.default_font, "B", 12)
-    # escreve o título normalmente (preenchido)
-    pdf.cell(usable_width, 8, f"  CERTIFICADOS E CURSOS", fill=True)
+    pdf.cell(usable_width, 8, "  CERTIFICADOS E CURSOS", fill=True)
     pdf.ln(6)
 
-    # sobrepõe o link clicável exatamente sobre o texto do título
-    # posiciona o cursor no início do título (mesma X da margem) e escreve o texto com link
-    x_title = pdf.l_margin + 2  # pequeno deslocamento para alinhar com o espaço inicial "  "
-    y_title = pdf.get_y() - 14   # volta para a linha do título (ajuste se necessário)
+    # escreve o mesmo texto como link sobre o título (posicionamento ajustado)
+    # calcula posição do título: volta uma linha e ajusta Y para cobrir a célula do título
+    x_title = pdf.l_margin + 2
+    y_title = pdf.get_y() - 12
     pdf.set_xy(x_title, y_title)
     pdf.set_text_color(0, 0, 255)
     pdf.set_font(pdf.default_font, "U", 12)
     pdf.write(8, "CERTIFICADOS E CURSOS", DRIVE_LINK)
     pdf.set_text_color(0, 0, 0)
-    pdf.ln(10)
+    pdf.ln(6)
 
     # lista de certificados (apenas texto, sem links por item)
     certs = dados.get("certificados", [])
     pdf.set_font(pdf.default_font, "", 11)
     pdf.set_x(pdf.l_margin)
     for cert in certs:
-        linha = f"● {cert.get('nome','')} - {cert.get('instituicao','')} ({cert.get('ano','')})"
+        nome = cert.get("nome", "").strip()
+        inst = cert.get("instituicao", "").strip()
+        ano = cert.get("ano", "").strip()
+        # pular entradas vazias ou claramente inválidas
+        if not nome:
+            continue
+        linha = f"● {nome}"
+        if inst:
+            linha += f", {inst}"
+        if ano:
+            linha += f" ({ano})"
         pdf.multi_cell(usable_width, 6, linha)
     pdf.ln(6)
+
 
 
     pdf.output("curriculo_fabiano.pdf")
