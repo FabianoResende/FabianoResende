@@ -1,8 +1,8 @@
 {
   "nome": "Fabiano Faria de Resende",
-  "titulo": "Estagiário de Engenharia de IA Front-end",
-  "cargo": "Estudante de Sistemas de Informação (4º período)",
-  "foco": "Desenvolvimento Front-end | IA Aplicada | Automação | Análise de Dados",
+  "cargo": "Desenvolvedor Front-end com IA Aplicada e Automação",
+  "objetivo": "Atuar como Desenvolvedor Front-end com Inteligência Artificial aplicada, contribuindo em projetos que integrem JavaScript, TypeScript, React, Next.js, APIs e modelos de IA, com foco em qualidade de código, experiência do usuário e automação de processos.",
+  "foco": "Desenvolvimento Front-end | IA Aplicada | Automação",
   "contato": {
     "email": "fabianofariaderesende@gmail.com",
     "cidade": "São Gonçalo - RJ",
@@ -10,77 +10,49 @@
     "github": "https://github.com/FabianoResende",
     "site": "https://fabianoresende.github.io/landing-page-html-css-js/"
   },
-  "objetivo": "Oportunidade de estágio em desenvolvimento ou engenharia de IA, aplicando minha experiência profissional, disciplina e evolução técnica em projetos reais.",
-  "sobre": "Sou estudante de Sistemas de Informação e estou em transição de carreira para Tecnologia, com foco em Desenvolvimento Front-end e Inteligência Artificial aplicada. Aos 50 anos, trago responsabilidade, disciplina e visão analítica desenvolvidas ao longo de mais de uma década em funções administrativas e operacionais — competências que hoje aplico nos meus estudos e projetos em TI. Atualmente desenvolvo projetos com HTML, CSS, JavaScript, Python, SQL, Git/GitHub, automação com IA e integração de APIs. Atuo como Estagiário de Engenharia de IA Front-end na FlyRank, onde construo soluções reais integrando modelos generativos, Next.js, TypeScript e boas práticas de engenharia. Busco oportunidades para aplicar meus conhecimentos, evoluir tecnicamente e contribuir com equipes de tecnologia.",
-  "competencias": {
-    "linguagens": ["HTML", "CSS", "JavaScript", "Python", "Java", "SQL"],
-    "ferramentas": ["Git & GitHub", "VS Code", "IntelliJ", "Astah UML", "IA Generativa", "GitHub Actions"],
-    "sistemas": ["Windows", "Linux"],
-    "banco_de_dados": ["SQLite"],
-    "conceitos": ["CRUD", "JDBC", "DAO", "UML", "APIs", "Responsividade", "Versionamento", "Boas práticas de engenharia"]
-  },
-  "experiencia": [
-    {
-      "empresa": "FlyRank AI",
-      "cargo": "Estagiário de Engenharia de IA Front-end",
-      "periodo": "jul de 2026 - o momento",
-      "resumo": "Desenvolvimento de projetos reais integrando JavaScript, Next.js, TypeScript, APIs e modelos de IA. Construção do capstone FE-04, incluindo rotas estruturadas, endpoint /health e deploy no Vercel. Implementação de automações com modelos generativos, integração de APIs e boas práticas de engenharia. Projetos desenvolvidos: Capstone FE-04, Pipeline FL-04, Chatbot IA Frontend, Password Manager Python + SQL, Landing Page HTML/CSS/JS."
-    },
-    {
-      "empresa": "Indigo Estacionamento (Niterói/RJ)",
-      "cargo": "Assistente Administrativo Financeiro",
-      "periodo": "nov de 2016 - nov de 2019",
-      "resumo": "Atuação nas áreas operacional, administrativa e financeira, suporte técnico e controle de sistemas. Responsável pelo acompanhamento diário dos sistemas WA e WPS, suporte técnico nível 1 em terminais PERTO TPC 4110, abastecimento e recolhimento de numerário, faturamento diário e prestação de contas via planilhas e e-mail. Desenvolvimento de habilidades de atendimento, organização, análise de dados operacionais e resolução de problemas — base importante para minha transição para Tecnologia."
-    }
-  ],
-  "projetos": [
-    {
-      "nome": "Capstone FE-04 — Plataforma de Suporte Técnico com IA",
-      "descricao": "Next.js, TypeScript, Claude Code, Vercel. Rotas estruturadas, endpoint /health, integração de IA e deploy funcional."
-    },
-    {
-      "nome": "Pipeline FL-04 — Notas de Estudo Baseadas em Fontes",
-      "descricao": "NotebookLM + Claude. Redução de ~3h por ciclo, 5 execuções reais."
-    },
-    {
-      "nome": "Chatbot IA Frontend",
-      "descricao": "HTML, CSS, JS. Integração com API de IA."
-    },
-    {
-      "nome": "Password Manager Python + SQL",
-      "descricao": "Python + SQLite. CRUD seguro e armazenamento criptografado."
-    },
-    {
-      "nome": "Landing Page HTML/CSS/JS",
-      "descricao": "Página moderna, responsiva e publicada no GitHub Pages."
-    },
-    {
-      "nome": "Java CRUD — JDBC + SQLite",
-      "descricao": "Aplicação Java com arquitetura DAO e operações completas de CRUD."
-    },
-    {
-      "nome": "Diagramas UML — Astah",
-      "descricao": "Modelagem profissional com diagramas de classes, casos de uso, sequência e atividades."
-    }
-  ],
+  "sobre": "Estudante de Sistemas de Informação em transição de carreira para Tecnologia, participando do programa prático de Engenharia Front-end com IA da FlyRank AI desde julho de 2026. Trago mais de uma década de experiência administrativa e operacional, com disciplina, responsabilidade e pensamento analítico, base sólida para essa nova etapa profissional.",
   "educacao": [
     {
       "instituicao": "Universidade Estácio",
       "curso": "Bacharelado em Sistemas de Informação",
-      "periodo": "2024 - Cursando"
+      "periodo": "Ago/2024 - Cursando"
+    }
+  ],
+  "competencias": {
+    "linguagens": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
+    "dados_back_end": ["Python", "SQL", "SQLite", "Node.js"],
+    "ia_aplicada": ["Engenharia de Prompt", "Integração de APIs de IA", "Claude Code", "NotebookLM", "Agentes de IA", "MCP"],
+    "ferramentas": ["Git", "GitHub", "GitHub Actions"]
+  },
+  "experiencia": [
+    {
+      "empresa": "FlyRank AI",
+      "cargo": "Estagiário de Engenharia Front-end com IA",
+      "periodo": "Jul/2026 - Atual | Remoto",
+      "resumo": "Desenvolvimento de projetos reais integrando tecnologias web, APIs e ferramentas de IA durante trilha prática de formação. Capstone FE-04: Plataforma de Suporte Técnico com IA (Next.js, TypeScript e Claude Code). FL-04 Study Notes Pipeline: NotebookLM + Claude, com cerca de 3 horas economizadas por ciclo em 5 execuções reais. Chatbot Front-end com IA: HTML, CSS e JavaScript com integração de API de IA. Gerenciador de Senhas: Python + SQLite com operações CRUD e armazenamento criptografado. Landing Page Responsiva: HTML, CSS e JavaScript."
+    },
+    {
+      "empresa": "Indigo Estacionamento",
+      "cargo": "Assistente Administrativo Financeiro",
+      "periodo": "Nov/2016 - Nov/2019 | Niterói, RJ",
+      "resumo": "Monitoramento diário dos sistemas WA e WPS e suporte técnico de nível 1 aos terminais PERTO TPC 4110. Execução de rotinas de tesouraria, faturamento diário, pagamentos e manuseio de numerário. Elaboração de relatórios em planilhas e organização de documentos administrativos. Análise de ocorrências operacionais e resolução de problemas do dia a dia. Consolidei nessa experiência habilidades iniciais em suporte a sistemas e análise de dados operacionais."
     }
   ],
   "certificados": [
     {
-      "nome": "Certificados de Cursos (Pasta Completa)",
-      "instituicao": "Diversas Instituições",
-      "link": "https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM?usp=sharing"
+      "nome": "Imersão Agentes IA",
+      "instituicao": "Hashtag Treinamentos",
+      "link": "https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM?usp=drive_link"
+    },
+    {
+      "nome": "Claude 101",
+      "instituicao": "Anthropic",
+      "link": "https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM?usp=drive_link"
+    },
+    {
+      "nome": "AI Fluency: Framework and Foundations",
+      "instituicao": "Anthropic",
+      "link": "https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM?usp=drive_link"
     }
-  ],
-  "links": {
-    "github": "https://github.com/FabianoResende",
-    "linkedin": "https://www.linkedin.com/in/fabianofr",
-    "portfolio": "https://fabianoresende.github.io/landing-page-html-css-js/",
-    "pdf": "./curriculo_fabiano.pdf"
-  }
+  ]
 }
