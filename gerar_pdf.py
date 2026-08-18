@@ -177,7 +177,7 @@ def gerar_pdf(dados):
             pdf.multi_cell(usable_width, 5, exp.get("resumo", ""))
             pdf.ln(3)
 
-            pdf.secao_titulo("CERTIFICADOS E CURSOS", usable_width)
+                pdf.secao_titulo("CERTIFICADOS E CURSOS", usable_width)
 
     # lista de certificados (apenas texto, sem links por item)
     certs = dados.get("certificados", [])
@@ -196,6 +196,7 @@ def gerar_pdf(dados):
     pdf.write(6, "Acesse todos os certificados", DRIVE_LINK)
     pdf.set_text_color(0, 0, 0)
     pdf.ln(10)
+
 
 
     pdf.output("curriculo_fabiano.pdf")
