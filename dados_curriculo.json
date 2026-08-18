@@ -9,17 +9,16 @@
     "github": "https://github.com/FabianoResende",
     "site": "https://fabianoresende.github.io/landing-page-html-css-js/"
   },
-  "sobre": "Estudante de Sistemas de Informação em transição de carreira para Tecnologia, participando do programa prático de Engenharia Front-end com IA da FlyRank AI desde julho de 2026. Trago mais de uma década de experiência administrativa e operacional, com disciplina, responsabilidade e pensamento analítico, base sólida para essa nova etapa profissional.",
+  "sobre": "Estudante de Sistemas de Informação em transição de carreira para Tecnologia, participando do programa prático de Engenharia Front-end com IA da FlyRank AI (desde julho de 2026). Trago mais de uma década de experiência administrativa e operacional, com disciplina, responsabilidade e pensamento analítico, base sólida para essa nova etapa profissional.",
   "educacao": [
     {
-      "instituicao": "Universidade Estácio",
       "curso": "Bacharelado em Sistemas de Informação",
+      "instituicao": "Universidade Estácio",
       "periodo": "Ago/2024 - Cursando"
     }
   ],
   "competencias": {
-    "linguagens": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
-    "dados_back_end": ["Python", "SQL", "SQLite", "Node.js"],
+    "linguagens": ["HTML", "CSS", "Javascript", "TypeScript", "React", "Next.js"],
     "ia_aplicada": ["Engenharia de Prompt", "Integração de APIs de IA", "Claude Code", "NotebookLM", "Agentes de IA", "MCP"],
     "ferramentas": ["Git", "GitHub", "GitHub Actions"]
   },
