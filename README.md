@@ -8,7 +8,7 @@
 
 ## Sobre
 
-Estudante de Sistemas de Informação em transição de carreira para Tecnologia, participando do programa prático de Engenharia Front-end com IA da FlyRank AI desde julho de 2026. Trago mais de uma década de experiência administrativa e operacional, com disciplina, responsabilidade e pensamento analítico, base sólida para esta nova etapa profissional.
+Estudante de Sistemas de Informação em transição de carreira para Tecnologia, participando do programa prático de Engenharia Front-end com IA da FlyRank AI (desde julho de 2026). Trago mais de uma década de experiência administrativa e operacional, com disciplina, responsabilidade e pensamento analítico, base sólida para essa nova etapa profissional.
 
 ## Objetivo
 
@@ -16,10 +16,10 @@ Atuar como Desenvolvedor Front-end com Inteligência Artificial aplicada, contri
 
 ## Competências Técnicas
 
-- **Front-end:** HTML, CSS, JavaScript, TypeScript, React, Next.js
-- **Back-end e Dados:** Python, SQL, SQLite, Node.js
+- **Front-end:** —
+- **Back-end e Dados:** —
 - **IA Aplicada:** Engenharia de Prompt, Integração de APIs de IA, Claude Code, NotebookLM, Agentes de IA, MCP
-- **Ferramentas:** Git, GitHub, GitHub Actions
+- **Ferramentas:** Git, GitHub
 
 ## Experiência Profissional
 
@@ -28,7 +28,7 @@ Atuar como Desenvolvedor Front-end com Inteligência Artificial aplicada, contri
 **Estagiário de Engenharia Front-end com IA**
 *Jul/2026 - Atual | Remoto*
 
-Desenvolvimento de projetos reais integrando tecnologias web, APIs e ferramentas de IA durante trilha prática de formação. Capstone FE-04: Plataforma de Suporte Técnico com IA utilizando Next.js, TypeScript e Claude Code. FL-04 Study Notes Pipeline com NotebookLM e Claude, gerando cerca de 3 horas de economia por ciclo em 5 execuções reais. Desenvolvimento de chatbot front-end com HTML, CSS e JavaScript integrado a API de IA. Desenvolvimento de gerenciador de senhas em Python e SQLite com operações CRUD e armazenamento criptografado. Desenvolvimento de landing page responsiva com HTML, CSS e JavaScript.
+Desenvolvimento de projetos reais integrando tecnologias web, APIs e ferramentas de IA durante trilha prática de formação. Capstone FE-04: Plataforma de Suporte Técnico com IA (Next.js, TypeScript e Claude Code). FL-04 Study Notes Pipeline: NotebookLM + Claude, com cerca de 3 horas economizadas por ciclo em 5 execuções reais. Chatbot Front-end com IA: HTML, CSS e JavaScript com integração de API de IA. Gerenciador de Senhas: Python + SQLite com operações CRUD e armazenamento criptografado. Landing Page Responsiva: HTML, CSS e JavaScript.
 
 ### Indigo Estacionamento
 
@@ -44,8 +44,6 @@ Monitoramento diário dos sistemas WA e WPS e suporte técnico de nível 1 aos t
 *Ago/2024 - Cursando | Previsão de formatura: Dez/2028*
 
 ## Certificados e Cursos
-
-[📁 Acessar certificados e cursos no Google Drive](https://drive.google.com/drive/folders/1qsDa6bGyc49aoh98x7J0JtX6ToiAs6WM?usp=drive_link)
 
 - **Imersão Agentes IA** — Hashtag Treinamentos — 2026
 - **Claude 101** — Anthropic — 2026
