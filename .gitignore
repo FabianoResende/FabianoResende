@@ -10,3 +10,10 @@ __pycache__/
 *.pyc
 curriculo_fabiano.pdf
 
+.venv/
+error.log
+gerar_pdf.py.bak
+__pycache__/
+*.pyc
+curriculo_fabiano.pdf
+
